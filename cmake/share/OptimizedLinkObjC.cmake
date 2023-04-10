@@ -40,6 +40,9 @@ if( NOT __OPTIMIZED_LINK_OBJC_CMAKE__)
       if( NOT OPTIMIZE_DIR)
         set( OPTIMIZE_DIR "${PROJECT_BINARY_DIR}/mulle-objc-optimize/optimize.d")
       endif()
+      if( NOT OPTIMIZE_INFO_DIR)
+        set( OPTIMIZE_INFO_DIR "${PROJECT_SOURCE_DIR}/optimize")
+      endif()
       if( NOT UNARCHIVE_DIR)
          set( UNARCHIVE_DIR "${PROJECT_BINARY_DIR}/mulle-objc-optimize/unarchive.d")
       endif()
@@ -59,7 +62,9 @@ if( NOT __OPTIMIZED_LINK_OBJC_CMAKE__)
       message( STATUS "ALL_LOAD_NAME is ${ALL_LOAD_NAME}")
       message( STATUS "COVERAGE_DIR is ${COVERAGE_DIR}")
       message( STATUS "OPTIMIZE_DIR is ${OPTIMIZE_DIR}")
+      message( STATUS "OPTIMIZE_INFO_DIR is ${OPTIMIZE_INFO_DIR}")
       message( STATUS "UNARCHIVE_DIR is ${UNARCHIVE_DIR}")
+      message( STATUS "DEPENDENCY_DIR is ${MULLE_SDK_DEPENDENCY_DIR}")
       message( STATUS "PROJECT_BINARY_DIR is ${PROJECT_BINARY_DIR}")
 
       set( CUSTOM_OUTPUT
@@ -82,13 +87,16 @@ if( NOT __OPTIMIZED_LINK_OBJC_CMAKE__)
 
       add_custom_command( OUTPUT ${CUSTOM_OUTPUT}
        COMMAND ${UNARCHIVE} ${MULLE_TECHNICAL_FLAGS}
-                           --unarchive-dir "${UNARCHIVE_DIR}"
+                            --unarchive-dir "${UNARCHIVE_DIR}"
+                            --unarchive-info-dir "${OPTIMIZE_INFO_DIR}"
+                            --just-unpack
                             ${ALL_LOAD_DEPENDENCY_LIBRARIES}
-       COMMAND ${OPTIMIZE} ${MULLE_TECHNICAL_FLAGS} 
+       COMMAND ${OPTIMIZE} ${MULLE_TECHNICAL_FLAGS}
                            --c-name "${OPTIMIZABLE_LOAD_NAME}"
                            --objc-name "${ALL_LOAD_NAME}"
                            --coverage-dir "${COVERAGE_DIR}"
                            --dependency-dir "${MULLE_SDK_DEPENDENCY_DIR}"
+                           --optimize-info-dir "${OPTIMIZE_INFO_DIR}"
                            --optimize-dir "${OPTIMIZE_DIR}"
                            --prefix "${PROJECT_BINARY_DIR}"
                            --unarchive-dir "${UNARCHIVE_DIR}"
@@ -114,6 +122,7 @@ if( NOT __OPTIMIZED_LINK_OBJC_CMAKE__)
       set( DEPENDENCY_LIBRARIES
          "${PROJECT_BINARY_DIR}/${OPTIMIZABLE_LOAD_NAME}"
          ${DEPENDENCY_LIBRARIES}
+         "${PROJECT_BINARY_DIR}/${OPTIMIZABLE_LOAD_NAME}"
       )
 
       add_dependencies( ${LIBRARY_NAME} "_${LIBRARY_NAME}_optimized_libraries")

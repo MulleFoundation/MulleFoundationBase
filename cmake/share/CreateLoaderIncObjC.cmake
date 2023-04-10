@@ -26,11 +26,11 @@ endif()
 #
 # tricky: this file can only be installed during link phase.
 #         Used by optimization. For musl and cosmopolitan where we don't do
-#         shared libraries, we can not produce this, but we can copy an 
+#         shared libraries, we can not produce this, but we can copy an
 #         existing file.
 if( LINK_PHASE)
-   install( FILES "${OBJC_LOADER_INC}" 
-            DESTINATION "include/${LIBRARY_NAME}/private" 
+   install( FILES "${OBJC_LOADER_INC}"
+            DESTINATION "include/${LIBRARY_NAME}"
             OPTIONAL)
 endif()
 

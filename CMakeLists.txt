@@ -12,6 +12,7 @@ project( MulleFoundationBase C)
 
 
 set( MULLE_PROJECT_TYPE "Library")
+set( PROJECT_VERSION  0.22.0)
 
 ### mulle-sde environment
 
@@ -112,7 +113,7 @@ elseif( "${MULLE_PROJECT_TYPE}" STREQUAL "Library")
 
       install( FILES ${REMAINING_PUBLIC_HEADERS}  DESTINATION "include/${PROJECT_NAME}")
       install( FILES ${REMAINING_PRIVATE_HEADERS} DESTINATION "include/${PROJECT_NAME}")
-      install( FILES ${CMAKE_INCLUDES}          DESTINATION "include/${PROJECT_NAME}/cmake")
+      install( FILES ${INSTALL_CMAKE_INCLUDES}          DESTINATION "include/${PROJECT_NAME}/cmake")
 
       # short cut out
       if( NOT COMPILE_PHASE AND NOT LINK_PHASE)
