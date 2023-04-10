@@ -1,0 +1,1 @@
+../../../MulleObjCStandardFoundation/src/mulle-foundation-startup-private.inc

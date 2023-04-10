@@ -1,0 +1,14 @@
+MulleObjC;${MULLE_OBJC_NODETYPE:-tar};no-singlephase;BCC7C22B-9D18-4423-AA8B-67BF9802C953;${MULLE_OBJC_URL:-https://github.com/mulle-objc/MulleObjC/archive/${MULLE_TAG}.tar.gz};${MULLE_OBJC_BRANCH};${MULLE_OBJC_TAG:-latest};;
+src/MulleObjCArchiverFoundation;clib;no-build,no-header,no-link,no-readwrite,no-share,no-singlephase;338E3FC2-6323-4CBC-BC9A-21539459A4B4;clib:MulleFoundation/MulleObjCArchiverFoundation;;;;
+src/MulleObjCContainerFoundation;clib;no-build,no-header,no-link,no-readwrite,no-share,no-singlephase;518979BA-5865-465E-80E2-75ED844354C0;clib:MulleFoundation/MulleObjCContainerFoundation;;;;
+src/MulleObjCKVCFoundation;clib;no-build,no-header,no-link,no-readwrite,no-share,no-singlephase;A67355F7-7153-45D9-B98D-2A529F4B4F2E;clib:MulleFoundation/MulleObjCKVCFoundation;;;;
+src/MulleObjCLockFoundation;clib;no-build,no-header,no-link,no-readwrite,no-share,no-singlephase;7C4647D1-8ED4-4F81-BA56-75FF71EE6950;clib:MulleFoundation/MulleObjCLockFoundation;;;;
+src/MulleObjCMathFoundation;clib;no-build,no-header,no-link,no-readwrite,no-share,no-singlephase;5A5C7C64-983C-4105-A5F6-805E2F40ADB1;clib:MulleFoundation/MulleObjCMathFoundation;;;;
+src/MulleObjCPlistFoundation;clib;no-build,no-header,no-link,no-readwrite,no-share,no-singlephase;5E0B6785-6A74-46DF-B976-7E81AD053574;clib:MulleFoundation/MulleObjCPlistFoundation;;;;
+src/MulleObjCStandardFoundation;clib;no-build,no-header,no-link,no-readwrite,no-share,no-singlephase;93C997E9-E03F-453B-AEEE-C9F7B6614A5C;clib:MulleFoundation/MulleObjCStandardFoundation;;;;
+src/MulleObjCTimeFoundation;clib;no-build,no-header,no-link,no-readwrite,no-share,no-singlephase;DD83B3EE-85A9-4146-9C2A-21506C23767D;clib:MulleFoundation/MulleObjCTimeFoundation;;;;
+src/MulleObjCUnicodeFoundation;clib;no-build,no-header,no-link,no-readwrite,no-share,no-singlephase;6D16A724-3088-4238-9C79-928ECD6061C0;clib:MulleFoundation/MulleObjCUnicodeFoundation;;;;
+src/MulleObjCUUIDFoundation;clib;no-build,no-header,no-link,no-readwrite,no-share,no-singlephase;97315A3E-A95E-447D-B287-944C683DF5A9;clib:MulleFoundation/MulleObjCUUIDFoundation;;;;
+src/MulleObjCValueFoundation;clib;no-build,no-header,no-link,no-readwrite,no-share,no-singlephase;8B8D44AD-1F1F-48FF-A899-71B33683598D;clib:MulleFoundation/MulleObjCValueFoundation;;;;
+mulle-objc-list;${MULLE_OBJC_LIST_NODETYPE:-tar};no-all-load,no-bequeath,no-cmake-inherit,no-header,no-link;40331F16-8C6F-4081-8AEB-AAB4B8FC6687;${MULLE_OBJC_LIST_URL:-https://github.com/mulle-objc/mulle-objc-list/archive/${MULLE_TAG}.tar.gz};${MULLE_OBJC_LIST_BRANCH};${MULLE_OBJC_LIST_TAG:-latest};;
+math;none;no-all-load,no-build,no-cmake-inherit,no-delete,no-dependency,no-fs,no-import,no-platform-windows,no-update;6DBDF29B-2C7A-4DBA-A20D-694887076058;;;;;aliases=m

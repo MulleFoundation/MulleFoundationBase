@@ -1,0 +1,1 @@
+../../../MulleObjCValueFoundation/src/String/NSConstantString.m

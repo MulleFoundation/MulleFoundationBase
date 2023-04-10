@@ -1,0 +1,1 @@
+../../../MulleObjCPlistFoundation/src/Stream/_MulleObjCBufferedOutputStream+InlineAccessors.h

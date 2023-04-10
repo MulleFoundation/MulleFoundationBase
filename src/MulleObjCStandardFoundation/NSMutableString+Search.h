@@ -1,0 +1,1 @@
+../../../MulleObjCStandardFoundation/src/Value/NSMutableString+Search.h
