@@ -1,1 +1,5 @@
-../../../MulleObjCKVCFoundation/src/MulleObjCLoader+MulleObjCKVCFoundation.h
+#import "import.h"
+
+
+@interface MulleObjCLoader( MulleObjCKVCFoundation)
+@end

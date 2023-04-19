@@ -1,1 +1,78 @@
-../../../MulleObjCContainerFoundation/src/NSSet/_MulleObjCSet-Private.h
+//
+//  _MulleObjCConcreteSet-Private.h
+//  MulleObjCContainerFoundation
+//
+//  Created by Nat! on 28.03.17.
+//  Copyright © 2017 Mulle kybernetiK. All rights reserved.
+//
+
+static inline _MulleObjCSetIvars  *_MulleObjCSetGetIvars( id self)
+{
+   return( (_MulleObjCSetIvars *) self);
+}
+
+
+__attribute__((ns_returns_retained))
+static inline _MulleObjCSet  *_MulleObjCSetNewWithCapacity( Class cls, NSUInteger count)
+{
+   _MulleObjCSet            *set;
+   _MulleObjCSetIvars       *ivars;
+   struct mulle_allocator   *allocator;
+
+   set       = NSAllocateObject( cls, 0, NULL);
+   ivars     = _MulleObjCSetGetIvars( set);
+   allocator = MulleObjCInstanceGetAllocator( set);
+   _mulle__set_init( &ivars->_table,
+                    (unsigned int)( count),
+                    NSSetCallback,
+                    allocator);
+
+   return( set);
+}
+
+
+
+static inline void   _MulleObjCSetFree( id self)
+{
+   _MulleObjCSetIvars       *ivars;
+   struct mulle_allocator   *allocator;
+
+   allocator = MulleObjCInstanceGetAllocator( self);
+   ivars     = _MulleObjCSetGetIvars( self);
+   _mulle__set_done( &ivars->_table,
+                    NSSetCallback,
+                    allocator);
+   NSDeallocateObject( self);
+}
+
+
+static inline id
+   _MulleObjCSetInitWithRetainedObjects( id <_MulleObjCSet> self,
+                                         id *objects,
+                                         NSUInteger count)
+{
+   _MulleObjCSetIvars          *ivars;
+   struct mulle_allocator      *allocator;
+   id                          *sentinel;
+
+   allocator = MulleObjCInstanceGetAllocator( self);
+   ivars     = _MulleObjCSetGetIvars( self);
+   sentinel  = &objects[ count];
+   while( objects < sentinel)
+      _mulle__set_set( &ivars->_table, *objects++, NSSetAssignCallback, allocator);
+
+   return( self);
+}
+
+
+static inline id
+   _MulleObjCSetInitWithRetainedObjectStorage( id <_MulleObjCSet> self,
+                                               id *objects,
+                                               NSUInteger count)
+{
+   _MulleObjCSetInitWithRetainedObjects( self, objects, count);
+   MulleObjCInstanceDeallocateMemory( self, objects);
+
+   return( self);
+}
+
