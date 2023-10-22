@@ -9,7 +9,14 @@
  *
  *      mulle-sde environment set MULLE_MATCH_TO_C_RUN DISABLE
  */
+#ifndef mulle_objc_unicode_foundation_export_h__
+#define mulle_objc_unicode_foundation_export_h__
+
+
 #import "MulleObjCLoader+MulleObjCUnicodeFoundation.h"
 #import "NSCharacterSet+MulleObjCUnicode.h"
 #import "NSMutableCharacterSet+MulleObjCUnicode.h"
 #import "NSString+MulleObjCUnicode.h"
+
+
+#endif

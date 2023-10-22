@@ -9,4 +9,11 @@
  *
  *      mulle-sde environment set MULLE_MATCH_TO_C_RUN DISABLE
  */
+#ifndef mulle_objc_math_foundation_export_h__
+#define mulle_objc_math_foundation_export_h__
+
+
 #import "MulleObjCLoader+MulleObjCMathFoundation.h"
+
+
+#endif

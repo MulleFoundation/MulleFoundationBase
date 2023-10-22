@@ -64,15 +64,15 @@
 //
 - (void) mullePrintJSON:(struct MulleObjCPrintPlistContext *) ctxt
 {
-   mulle_utf8_t             *s, *start;
-   mulle_utf8_t             *q, *sentinel;
+   char                     *s, *start;
+   char                     *q, *sentinel;
    size_t                   len;
    size_t                   size;
    struct mulle_utf8data    data;
-   mulle_utf8_t             tmp1[ 32];
-   mulle_utf8_t             tmp2[ 64];
+   char                     tmp1[ 32];
+   char                     tmp2[ 64];
 
-   data = MulleStringGetUTF8Data( self, mulle_utf8data_make( tmp1,
+   data = MulleStringUTF8Data( self, mulle_utf8data_make( tmp1,
                                                              sizeof( tmp1)));
 
    // do proper quoting and escaping
@@ -102,7 +102,7 @@
       case 0    : *s++ = '\\'; *s++ = '0'; break;
 #endif
       default   :
-                  if( *q < 0x20)
+                  if( (unsigned char) *q < 0x20)
                   {
                      *s++ = '\\';
                      *s++ = 'x';

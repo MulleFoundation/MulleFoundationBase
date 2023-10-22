@@ -82,7 +82,7 @@ NSString  *NSInvalidArchiveOperationException = @"NSInvalidArchiveOperationExcep
                                                              mulle_container_valuecallback_copied_cstring,
                                                              16,
                                                              &_allocator);
-   _objectSubstitutions    = _NSCreateMapTableWithAllocator( _MulleObjCContainerKeyRetainPointerCompareCallback,
+   _objectSubstitutions    = _NSCreateMapTableWithAllocator( _MulleObjCContainerRetainPointerCompareKeyCallback,
                                                              NSObjectMapValueCallBacks,
                                                              16,
                                                              &_allocator);

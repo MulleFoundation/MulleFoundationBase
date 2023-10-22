@@ -144,12 +144,12 @@ PROTOCOLCLASS_END();
 void   MulleStringWriteToStreamUsingUTF8Encoding( NSString *self,
                                                   id <MulleObjCOutputStream> handle)
 {
-   mulle_utf8_t            tmp[ 128];
+   char                    tmp[ 128];
    struct mulle_utf8data   utf8data;
 
-   utf8data = MulleStringGetUTF8Data( self,
+   utf8data = MulleStringUTF8Data( self,
                                       mulle_utf8data_make( tmp,
-                                                            sizeof( tmp)));
+                                                           sizeof( tmp)));
    [handle mulleWriteBytes:utf8data.characters
                     length:utf8data.length];
 }

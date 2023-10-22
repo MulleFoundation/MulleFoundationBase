@@ -9,6 +9,10 @@
  *
  *      mulle-sde environment set MULLE_MATCH_TO_C_RUN DISABLE
  */
+#ifndef mulle_objc_lock_foundation_export_h__
+#define mulle_objc_lock_foundation_export_h__
+
+
 #import "MulleObjCLoader+MulleObjCLockFoundation.h"
 #import "NSConditionLock+NSDate.h"
 #import "NSConditionLock.h"
@@ -18,3 +22,6 @@
 #import "NSLock.h"
 #import "NSLocking.h"
 #import "NSRecursiveLock.h"
+
+
+#endif

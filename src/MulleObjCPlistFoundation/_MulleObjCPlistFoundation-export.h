@@ -9,6 +9,10 @@
  *
  *      mulle-sde environment set MULLE_MATCH_TO_C_RUN DISABLE
  */
+#ifndef mulle_objc_plist_foundation_export_h__
+#define mulle_objc_plist_foundation_export_h__
+
+
 #import "MulleObjCLoader+MulleObjCPlistFoundation.h"
 #import "NSDictionary+PropertyList.h"
 #import "NSPropertyListSerialization.h"
@@ -29,3 +33,6 @@
 #import "MulleObjCBufferedOutputStream.h"
 #import "MulleObjCStream.h"
 #import "MulleObjCUTF8StreamReader.h"
+
+
+#endif

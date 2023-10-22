@@ -42,7 +42,7 @@
 // std-c and dependencies
 #import "import-private.h"
 
-#if MULLE_UNICODE_VERSION < ((0 << 20) | (0 << 8) | 0)
+#if MULLE__UNICODE_VERSION < ((0 << 20) | (0 << 8) | 0)
 # error "mulle_unicode is too old"
 #endif
 

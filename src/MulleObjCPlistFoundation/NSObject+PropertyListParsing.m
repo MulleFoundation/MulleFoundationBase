@@ -73,14 +73,14 @@ id   _MulleObjCNewObjectParsedUnquotedFromPropertyListWithReader( _MulleObjCProp
 
    if( [reader decodesNumber])
    {
-      nr = MulleNewNumberWithUTF8Data( mulle_utf8data_make( region.bytes, region.length));
+      nr = MulleNewNumberWithUTF8Data( mulle_utf8data_make( (char *) region.bytes, region.length));
       if( nr)
          return( nr);
    }
 
    if( [reader decodesBool])
    {
-      nr = MulleNewBoolWithUTF8Data( mulle_utf8data_make( region.bytes, region.length));
+      nr = MulleNewBoolWithUTF8Data( mulle_utf8data_make( (char *) region.bytes, region.length));
       if( nr)
          return( nr);
    }

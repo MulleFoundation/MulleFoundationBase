@@ -9,6 +9,10 @@
  *
  *      mulle-sde environment set MULLE_MATCH_TO_C_RUN DISABLE
  */
+#ifndef mulle_objc_archiver_foundation_export_h__
+#define mulle_objc_archiver_foundation_export_h__
+
+
 #import "MulleObjCArchiver.h"
 #import "MulleObjCLoader+MulleObjCArchiverFoundation.h"
 #import "MulleObjCUnarchiver.h"
@@ -19,3 +23,6 @@
 #import "NSKeyedUnarchiver.h"
 #import "NSObject+NSCoder.h"
 #import "NSUnarchiver.h"
+
+
+#endif

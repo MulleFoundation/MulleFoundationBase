@@ -9,6 +9,10 @@
  *
  *      mulle-sde environment set MULLE_MATCH_TO_C_RUN DISABLE
  */
+#ifndef mulle_objc_time_foundation_export_h__
+#define mulle_objc_time_foundation_export_h__
+
+
 #import "MulleObjCLoader+MulleObjCTimeFoundation.h"
 #import "NSDateFactory.h"
 #import "NSDate+NSCoder.h"
@@ -17,3 +21,6 @@
 #import "NSTimeInterval.h"
 #import "NSTimer+NSDate.h"
 #import "NSTimer.h"
+
+
+#endif

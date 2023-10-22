@@ -89,13 +89,13 @@ void   MulleGenerateUUIDBytes( unsigned char bytes[ 16])
 }
 
 
-//                                                       1 1 1 1 1 1
-//                               0 1 2 3  4 5  6 7  8 9  0 1 2 3 4 5
-static const char template[] = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
+//                                                         1 1 1 1 1 1
+//                                 0 1 2 3  4 5  6 7  8 9  0 1 2 3 4 5
+static const char   template[] = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
 
 void   MulleUUIDBytesToUTF8String( unsigned char bytes[ 16], char output[ 37])
 {
-   static const char chars[] = "0123456789abcdef";
+   static const char   chars[] = "0123456789abcdef";
    char  *p;
    char  *dst;
    int   i, n;
@@ -139,9 +139,7 @@ int   MulleUTF8StringToUUIDBytes( char input[ 37], unsigned char bytes[ 16])
    static const char template[] = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
    char              *p;
    char              *src;
-   unsigned char     *dst;
-   int               i, n;
-   unsigned char     value;
+   int               i;
    char              nybbles[ 32];
 
    src = input;
