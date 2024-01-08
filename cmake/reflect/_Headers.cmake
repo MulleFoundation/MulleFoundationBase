@@ -202,6 +202,7 @@ src/MulleObjCContainerFoundation/_MulleObjCConcreteMutableDictionary.h
 src/MulleObjCContainerFoundation/_MulleObjCConcreteMutableSet.h
 src/MulleObjCContainerFoundation/_MulleObjCConcreteSet.h
 src/MulleObjCContainerFoundation/MulleObjCContainerFoundation.h
+src/MulleObjCContainerFoundation/_MulleObjCContainerFoundation-versioncheck.h
 src/MulleObjCContainerFoundation/_MulleObjCDictionary.h
 src/MulleObjCContainerFoundation/_MulleObjCEmptyArray.h
 src/MulleObjCContainerFoundation/_MulleObjCEmptyDictionary.h
@@ -237,6 +238,7 @@ src/MulleObjCContainerFoundation/ns-map-table.h
 src/MulleObjCKVCFoundation/MulleObjCContainerKeyValueCoding.h
 src/MulleObjCKVCFoundation/_MulleObjCInstanceVariableAccess.h
 src/MulleObjCKVCFoundation/MulleObjCKVCFoundation.h
+src/MulleObjCKVCFoundation/_MulleObjCKVCFoundation-versioncheck.h
 src/MulleObjCKVCFoundation/_MulleObjCKVCInformation.h
 src/MulleObjCKVCFoundation/MulleObjCLoader+MulleObjCKVCFoundation.h
 src/MulleObjCKVCFoundation/NSNumber+MulleObjCKVCArithmetic.h
@@ -245,6 +247,7 @@ src/MulleObjCKVCFoundation/NSObject+KeyValueCoding.h
 src/MulleObjCKVCFoundation/NSObject+_MulleObjCKVCInformation.h
 src/MulleObjCLockFoundation/MulleObjCLoader+MulleObjCLockFoundation.h
 src/MulleObjCLockFoundation/MulleObjCLockFoundation.h
+src/MulleObjCLockFoundation/_MulleObjCLockFoundation-versioncheck.h
 src/MulleObjCLockFoundation/NSConditionLock+NSDate.h
 src/MulleObjCLockFoundation/NSConditionLock.h
 src/MulleObjCLockFoundation/NSCondition+NSDate.h
@@ -255,12 +258,14 @@ src/MulleObjCLockFoundation/NSLocking.h
 src/MulleObjCLockFoundation/NSRecursiveLock.h
 src/MulleObjCMathFoundation/MulleObjCLoader+MulleObjCMathFoundation.h
 src/MulleObjCMathFoundation/MulleObjCMathFoundation.h
+src/MulleObjCMathFoundation/_MulleObjCMathFoundation-versioncheck.h
 src/MulleObjCPlistFoundation/_MulleObjCBufferedInputStream+InlineAccessors.h
 src/MulleObjCPlistFoundation/MulleObjCBufferedInputStream.h
 src/MulleObjCPlistFoundation/_MulleObjCBufferedOutputStream+InlineAccessors.h
 src/MulleObjCPlistFoundation/MulleObjCBufferedOutputStream.h
 src/MulleObjCPlistFoundation/MulleObjCLoader+MulleObjCPlistFoundation.h
 src/MulleObjCPlistFoundation/MulleObjCPlistFoundation.h
+src/MulleObjCPlistFoundation/_MulleObjCPlistFoundation-versioncheck.h
 src/MulleObjCPlistFoundation/MulleObjCPropertyListPrinting.h
 src/MulleObjCPlistFoundation/_MulleObjCPropertyListReader+InlineAccessors.h
 src/MulleObjCPlistFoundation/_MulleObjCPropertyListReader.h
@@ -297,6 +302,7 @@ src/MulleObjCStandardFoundation/MulleObjCLoader+MulleObjCStandardFoundation.h
 src/MulleObjCStandardFoundation/MulleObjCStandardContainerFoundation.h
 src/MulleObjCStandardFoundation/MulleObjCStandardExceptionFoundation.h
 src/MulleObjCStandardFoundation/MulleObjCStandardFoundation.h
+src/MulleObjCStandardFoundation/_MulleObjCStandardFoundation-versioncheck.h
 src/MulleObjCStandardFoundation/MulleObjCStandardLocaleFoundation.h
 src/MulleObjCStandardFoundation/MulleObjCStandardNotificationFoundation.h
 src/MulleObjCStandardFoundation/MulleObjCStandardUndoFoundation.h
@@ -346,6 +352,7 @@ src/MulleObjCTimeFoundation/_MulleObjCDateSubclasses.h
 src/MulleObjCTimeFoundation/MulleObjCLoader+MulleObjCTimeFoundation.h
 src/MulleObjCTimeFoundation/MulleObjCTimeFoundation.h
 src/MulleObjCTimeFoundation/_MulleObjCTimeFoundation-include-public.h
+src/MulleObjCTimeFoundation/_MulleObjCTimeFoundation-versioncheck.h
 src/MulleObjCTimeFoundation/NSDateFactory.h
 src/MulleObjCTimeFoundation/NSDate+NSCoder.h
 src/MulleObjCTimeFoundation/NSDate.h
@@ -355,10 +362,12 @@ src/MulleObjCTimeFoundation/NSTimer+NSDate.h
 src/MulleObjCTimeFoundation/NSTimer.h
 src/MulleObjCUUIDFoundation/MulleObjCLoader+MulleObjCUUIDFoundation.h
 src/MulleObjCUUIDFoundation/MulleObjCUUIDFoundation.h
+src/MulleObjCUUIDFoundation/_MulleObjCUUIDFoundation-versioncheck.h
 src/MulleObjCUUIDFoundation/NSUUID.h
 src/MulleObjCUUIDFoundation/uuid4.h
 src/MulleObjCUnicodeFoundation/MulleObjCLoader+MulleObjCUnicodeFoundation.h
 src/MulleObjCUnicodeFoundation/MulleObjCUnicodeFoundation.h
+src/MulleObjCUnicodeFoundation/_MulleObjCUnicodeFoundation-versioncheck.h
 src/MulleObjCUnicodeFoundation/NSCharacterSet+MulleObjCUnicode.h
 src/MulleObjCUnicodeFoundation/NSMutableCharacterSet+MulleObjCUnicode.h
 src/MulleObjCUnicodeFoundation/NSString+MulleObjCUnicode.h
@@ -384,12 +393,13 @@ src/MulleObjCValueFoundation/NSMutableData+NSString.h
 src/MulleObjCValueFoundation/NSMutableData+Unicode.h
 src/MulleObjCValueFoundation/NSMutableData.h
 src/MulleObjCValueFoundation/NSMutableString.h
-src/MulleObjCValueFoundation/NSNull.h
 src/MulleObjCValueFoundation/NSNumber+NSCoder.h
 src/MulleObjCValueFoundation/NSNumber+NSString.h
 src/MulleObjCValueFoundation/NSNumber.h
 src/MulleObjCValueFoundation/NSObject+NSString.h
 src/MulleObjCValueFoundation/NSString+ClassCluster.h
+src/MulleObjCValueFoundation/NSString+Enumerator.h
+src/MulleObjCValueFoundation/NSString+Hash.h
 src/MulleObjCValueFoundation/NSString+NSCoder.h
 src/MulleObjCValueFoundation/NSString+NSData.h
 src/MulleObjCValueFoundation/NSStringObjCFunctions.h

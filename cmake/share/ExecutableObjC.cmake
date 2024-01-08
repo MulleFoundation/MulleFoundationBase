@@ -49,19 +49,17 @@ if( APPLE AND MULLE_OBJC)
          )
       endif()
 
-      if( MULLE_TEST)
-         if( MULLE_ATINIT_LIBRARY)
-            target_link_options( "${EXECUTABLE_LINK_TARGET}"
-               PUBLIC
-                  "SHELL:LINKER:-exported_symbol,__mulle_atinit"
-            )
-         endif()
-         if( MULLE_ATEXIT_LIBRARY)
-            target_link_options( "${EXECUTABLE_LINK_TARGET}"
-               PUBLIC
-                  "SHELL:LINKER:-exported_symbol,_mulle_atexit"
-            )
-         endif()
+      if( MULLE_ATINIT_LIBRARY)
+         target_link_options( "${EXECUTABLE_LINK_TARGET}"
+            PUBLIC
+               "SHELL:LINKER:-exported_symbol,__mulle_atinit"
+         )
+      endif()
+      if( MULLE_ATEXIT_LIBRARY)
+         target_link_options( "${EXECUTABLE_LINK_TARGET}"
+            PUBLIC
+               "SHELL:LINKER:-exported_symbol,_mulle_atexit"
+         )
       endif()
    endif()
 endif()

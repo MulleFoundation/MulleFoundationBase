@@ -36,6 +36,7 @@
 #include "import.h"
 
 #import "NSString.h"
+#import "NSString+Hash.h"
 #import "NSString+ClassCluster.h"
 
 #import "_MulleObjCASCIIString.h"
@@ -74,7 +75,6 @@ static inline char  *MulleObjCSmallStringAddress( _MulleObjCASCIIString *self)
 
 
 static void   grab_utf32( id self,
-                          SEL sel,
                           struct mulle_asciidata src,
                           mulle_utf32_t *dst,
                           NSRange range)
@@ -103,7 +103,31 @@ static void   grab_utf32( id self,
    assert( flag);
    MULLE_C_UNUSED( flag);
 
-   grab_utf32( self, _cmd, data, buf, range);
+   grab_utf32( self, data, buf, range);
+}
+
+
+- (NSUInteger) mulleGetCharacters:(unichar *) buf
+                        fromIndex:(NSUInteger) index
+                        maxLength:(NSUInteger) maxLength
+{
+   struct mulle_asciidata   data;
+   BOOL                     flag;
+   NSUInteger               length;
+
+   flag = [self mulleFastGetASCIIData:&data];
+   assert( flag);
+   MULLE_C_UNUSED( flag);
+
+   if( index >= data.length)
+      return( 0);
+
+   length = data.length - index;
+   if( length > maxLength)
+      length = maxLength;
+
+   grab_utf32( self, data, buf, NSMakeRange( index, length));
+   return( length);
 }
 
 
@@ -170,6 +194,21 @@ static NSUInteger   grab_ascii_range( id self,
    return( grab_ascii_range( self, [self length], (char *) buf, range));
 }
 
+
+- (NSUInteger) _mulleFastGetData:(struct mulle_data *) data
+{
+   BOOL                     flag;
+   struct mulle_asciidata   asciidata;
+
+   flag = [self mulleFastGetASCIIData:&asciidata];
+   assert( flag);
+   MULLE_C_UNUSED( flag);
+
+   data->bytes  = asciidata.characters;
+   data->length = asciidata.length * sizeof( char);
+
+   return( sizeof( char));
+}
 
 
 #pragma mark - hash and equality

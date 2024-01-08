@@ -98,7 +98,6 @@
       { @selector( NSNotification), MULLE_OBJC_NO_CATEGORYID },      // 4cf6fadb;NSNotification;;
       { @selector( NSNotificationCenter), MULLE_OBJC_NO_CATEGORYID },      // 1c4865c0;NSNotificationCenter;;
       { @selector( NSNull), @selector( PropertyListPrinting) },      // f0c42d79;NSNull;91aeee11;PropertyListPrinting
-      { @selector( NSNull), MULLE_OBJC_NO_CATEGORYID },      // f0c42d79;NSNull;;
       { @selector( NSNumber), @selector( Math) },      // 8ba34f39;NSNumber;569c3af5;Math
       { @selector( NSNumber), @selector( MulleObjCKVCArithmetic) },      // 8ba34f39;NSNumber;51efafe9;MulleObjCKVCArithmetic
       { @selector( NSNumber), @selector( NSCoder) },      // 8ba34f39;NSNumber;100c54ba;NSCoder
@@ -125,7 +124,6 @@
       { @selector( NSObject), @selector( _NSMutableData) },      // b3a66256;NSObject;1a3fbdd6;_NSMutableData
       { @selector( NSObject), @selector( _NSMutableDictionary) },      // b3a66256;NSObject;1f96dfdd;_NSMutableDictionary
       { @selector( NSObject), @selector( _NSMutableString) },      // b3a66256;NSObject;7bd64f0d;_NSMutableString
-      { @selector( NSObject), @selector( _NSNull) },      // b3a66256;NSObject;90d3fc87;_NSNull
       { @selector( NSObject), @selector( _NSNumber) },      // b3a66256;NSObject;9343014d;_NSNumber
       { @selector( NSObject), @selector( _NSSet) },      // b3a66256;NSObject;2f766bf1;_NSSet
       { @selector( NSObject), @selector( _NSString) },      // b3a66256;NSObject;37e49041;_NSString
@@ -148,6 +146,7 @@
       { @selector( NSString), @selector( ClassCluster) },      // 1994a171;NSString;d38b16ff;ClassCluster
       { @selector( NSString), @selector( Components) },      // 1994a171;NSString;c6c03895;Components
       { @selector( NSString), @selector( DoubleQuotedString) },      // 1994a171;NSString;4cfd171d;DoubleQuotedString
+      { @selector( NSString), @selector( Enumerator) },      // 1994a171;NSString;bd761fff;Enumerator
       { @selector( NSString), @selector( Escaping) },      // 1994a171;NSString;742c5512;Escaping
       { @selector( NSString), @selector( Locale) },      // 1994a171;NSString;d6e5bb7d;Locale
       { @selector( NSString), @selector( MulleObjCOutputStream) },      // 1994a171;NSString;94c18dd3;MulleObjCOutputStream

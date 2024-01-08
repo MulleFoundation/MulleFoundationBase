@@ -11,15 +11,18 @@
  *
  */
 
-// You can tweak the following #import with these commands.
-// (Use BE32B923-DD68-4DF6-97E5-902E3C7B3BF9 instead of MulleObjCStandardFoundation if there are duplicate entries)
-//    remove #import: : `mulle-sde dependency mark MulleObjCStandardFoundation no-header`
-//    rename:              `mulle-sde dependency|library set MulleObjCStandardFoundation include whatever.h`
-//    reorder:             `mulle-sde dependency move MulleObjCStandardFoundation <up|down>`
-//    toggle #import:     `mulle-sde dependency mark MulleObjCStandardFoundation [no-]import`
-//    toggle public:       `mulle-sde dependency mark MulleObjCStandardFoundation [no-]public`
-//    toggle optional:     `mulle-sde dependency mark MulleObjCStandardFoundation [no-]require`
-//    remove for platform: `mulle-sde dependency mark MulleObjCStandardFoundation no-platform-<uname>`
+// To remove the following dependency (headers and library) completely:
+//   `mulle-sde dependency remove MulleObjCStandardFoundation`
+// (Use BE32B923-DD68-4DF6-97E5-902E3C7B3BF9 instead of MulleObjCStandardFoundation, if there are duplicate entries)
+//
+// You can tweak the following #import with these commands:
+//    remove #import      : `mulle-sde dependency mark MulleObjCStandardFoundation no-header`
+//    rename              : `mulle-sde dependency|library set MulleObjCStandardFoundation include whatever.h`
+//    reorder             : `mulle-sde dependency move MulleObjCStandardFoundation <up|down>`
+//    toggle #import      : `mulle-sde dependency mark MulleObjCStandardFoundation [no-]import`
+//    toggle public       : `mulle-sde dependency mark MulleObjCStandardFoundation [no-]public`
+//    toggle optional     : `mulle-sde dependency mark MulleObjCStandardFoundation [no-]require`
+//    remove for platform : `mulle-sde dependency mark MulleObjCStandardFoundation no-platform-<uname>`
 //        (use `mulle-sourcetree-to-c --unames` to list known values)
 #import <MulleObjCStandardFoundation/MulleObjCStandardFoundation.h>   // MulleObjCStandardFoundation
 

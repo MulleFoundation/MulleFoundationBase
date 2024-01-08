@@ -14,15 +14,18 @@
 #ifndef _mulle_objc_math_foundation_include_h__
 #define _mulle_objc_math_foundation_include_h__
 
-// You can tweak the following #include with these commands.
-// (Use D8EEFBC1-C5F7-434D-881E-F5D620BC0B21 instead of math if there are duplicate entries)
-//    remove #include:: `mulle-sde dependency mark math no-header`
-//    rename:              `mulle-sde dependency|library set math include whatever.h`
-//    reorder:             `mulle-sde dependency move math <up|down>`
-//    toggle #include:    `mulle-sde dependency mark math [no-]import`
-//    toggle public:       `mulle-sde dependency mark math [no-]public`
-//    toggle optional:     `mulle-sde dependency mark math [no-]require`
-//    remove for platform: `mulle-sde dependency mark math no-platform-<uname>`
+// To remove the following dependency (headers and library) completely:
+//   `mulle-sde dependency remove math`
+// (Use D8EEFBC1-C5F7-434D-881E-F5D620BC0B21 instead of math, if there are duplicate entries)
+//
+// You can tweak the following #include with these commands:
+//    remove #include: `mulle-sde dependency mark math no-header`
+//    rename              : `mulle-sde dependency|library set math include whatever.h`
+//    reorder             : `mulle-sde dependency move math <up|down>`
+//    toggle #include: `mulle-sde dependency mark math [no-]import`
+//    toggle public       : `mulle-sde dependency mark math [no-]public`
+//    toggle optional     : `mulle-sde dependency mark math [no-]require`
+//    remove for platform : `mulle-sde dependency mark math no-platform-<uname>`
 //        (use `mulle-sourcetree-to-c --unames` to list known values)
 # if ! defined( _WIN32)
 # include <math.h>   // math

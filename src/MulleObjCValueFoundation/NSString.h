@@ -35,13 +35,14 @@
 //
 #import "import.h"
 
+// MEMO: if you go above 0xFFF you are intruding into MulleObjCPatternOptions
 enum
 {
-   NSCaseInsensitiveSearch         = 0x001,
-   NSLiteralSearch                 = 0x002,
-   NSBackwardsSearch               = 0x004,
-   NSAnchoredSearch                = 0x008,
-   NSNumericSearch                 = 0x040,
+   NSCaseInsensitiveSearch = 0x001,
+   NSLiteralSearch         = 0x002,
+   NSBackwardsSearch       = 0x004,
+   NSAnchoredSearch        = 0x008,
+   NSNumericSearch         = 0x040,
 };
 typedef NSUInteger   NSStringCompareOptions;
 
@@ -49,7 +50,6 @@ typedef NSUInteger   NSStringCompareOptions;
 typedef mulle_utf32_t  unichar;
 
 #include "mulle-chardata.h"
-
 
 //
 // NSString is outside of NSObject, the most fundamental class
@@ -235,148 +235,6 @@ typedef mulle_utf32_t  unichar;
 @end
 
 
-static inline NSRange   MulleObjCGetHashStringRange( NSUInteger length)
-{
-   NSUInteger   offset;
-
-   offset = 0;
-   if( length > 32)
-   {
-      offset = length - 32;
-      length = 32;
-   }
-   return( NSMakeRange( offset, length));
-}
-
-
-//
-// If these are defined elsewhere you can change the hash used for strings
-// globally.
-// TODO: move into own file
-
-#ifndef mulle_hash_init32_nsstring
-# define mulle_hash_init32_nsstring   0x811c9dc5 // 0x811c9dc5
-#endif
-
-#ifndef mulle_hash_init64_nsstring
-# define mulle_hash_init64_nsstring   0xcbf29ce484222325ULL // NV1A_64_INIT
-#endif
-
-
-static inline uintptr_t   mulle_hash_init_nsstring( void)
-{
-   if( sizeof( uintptr_t) == sizeof( uint32_t))
-      return( (uintptr_t) mulle_hash_init32_nsstring);
-   return( (uintptr_t) mulle_hash_init64_nsstring);
-}
-
-
-#ifndef _mulle_ascii_hash_nsstring
-# define _mulle_ascii_hash_nsstring           _mulle_fnv1a
-#endif
-#ifndef _mulle_ascii_hash_chained_nsstring
-# define _mulle_ascii_hash_chained_nsstring   _mulle_fnv1a_chained
-#endif
-
-#ifndef _mulle_utf16_15bit_hash_nsstring
-# define _mulle_utf16_15bit_hash_nsstring     _mulle_utf16_15bit_fnv1a
-#endif
-#ifndef _mulle_utf16_15bit_hash_chained_nsstring
-# define _mulle_utf16_15bit_hash_chained_nsstring   _mulle_utf16_15bit_fnv1a_chained
-#endif
-
-#ifndef _mulle_utf32_hash_nsstring
-# define _mulle_utf32_hash_nsstring           _mulle_utf32_fnv1a
-#endif
-#ifndef _mulle_utf32_hash_chained_nsstring
-# define _mulle_utf32_hash_chained_nsstring   _mulle_utf32_fnv1a_chained
-#endif
-
-#ifndef _mulle_char5_hash_nsstring
-# define _mulle_char5_hash_nsstring           _mulle_char5_fnv1a
-#endif
-
-#ifndef _mulle_char7_hash_nsstring
-# define _mulle_char7_hash_nsstring           _mulle_char7_fnv1a
-#endif
-
-
-// mulle_utf16_t characters must be 15 bit and no surrogates
-MULLE_OBJC_VALUE_FOUNDATION_GLOBAL
-uintptr_t   _mulle_utf16_15bit_fnv1a( mulle_utf16_t *buf, size_t len);
-
-MULLE_OBJC_VALUE_FOUNDATION_GLOBAL
-uintptr_t   _mulle_utf16_15bit_fnv1a_chained( mulle_utf16_t *buf, size_t len, uintptr_t hash);
-
-MULLE_OBJC_VALUE_FOUNDATION_GLOBAL
-uintptr_t   _mulle_utf32_fnv1a( mulle_utf32_t *buf, size_t len);
-
-MULLE_OBJC_VALUE_FOUNDATION_GLOBAL
-uintptr_t   _mulle_utf32_fnv1a_chained( mulle_utf32_t *buf, size_t len, uintptr_t hash);
-
-
-static inline NSUInteger   MulleObjCStringHashRangeASCII( char *buf, NSRange range)
-{
-   uintptr_t   hash;
-
-   if( ! buf)
-      return( -1);
-   hash  = _mulle_ascii_hash_nsstring( &buf[ range.location], range.length);
-   return( (NSUInteger) hash);
-}
-
-
-static inline NSUInteger   MulleObjCStringHashRangeUTF16Bit15( mulle_utf16_t *buf, NSRange range)
-{
-   uintptr_t   hash;
-
-   if( ! buf)
-      return( -1);
-   hash = _mulle_utf16_15bit_hash_nsstring( &buf[ range.location], range.length);
-   // hash = (hash << 4) | (hash >> (sizeof( uintptr_t) * 8 - 4));
-   return( (NSUInteger) hash);
-}
-
-
-static inline NSUInteger   MulleObjCStringHashRangeUTF32( mulle_utf32_t *buf, NSRange range)
-{
-   uintptr_t   hash;
-
-   if( ! buf)
-      return( -1);
-   hash = _mulle_utf32_hash_nsstring( &buf[ range.location], range.length);
-   // hash = (hash << 4) | (hash >> (sizeof( uintptr_t) * 8 - 4));
-   return( (NSUInteger) hash);
-}
-
-
-static inline NSUInteger   MulleObjCStringHashASCII( char *buf, NSUInteger length)
-{
-   NSRange   range;
-
-   range = MulleObjCGetHashStringRange( length);
-   return( MulleObjCStringHashRangeASCII( buf, range));
-}
-
-
-static inline NSUInteger   MulleObjCStringHashUTF16Bit15( mulle_utf16_t *buf, NSUInteger length)
-{
-   NSRange   range;
-
-   range = MulleObjCGetHashStringRange( length);
-   return( MulleObjCStringHashRangeUTF16Bit15( buf, range));
-}
-
-
-static inline NSUInteger   MulleObjCStringHashUTF32( mulle_utf32_t *buf, NSUInteger length)
-{
-   NSRange   range;
-
-   range = MulleObjCGetHashStringRange( length);
-   return( MulleObjCStringHashRangeUTF32( buf, range));
-}
-
-
 //
 // A safe version to get converted or raw UTF8 characters from a string.
 // The returned data always represents the whole string, space may be used
@@ -385,5 +243,4 @@ static inline NSUInteger   MulleObjCStringHashUTF32( mulle_utf32_t *buf, NSUInte
 //
 MULLE_OBJC_VALUE_FOUNDATION_GLOBAL
 struct mulle_utf8data   MulleStringUTF8Data( NSString *self,
-                                                struct mulle_utf8data space);
-
+                                             struct mulle_utf8data space);
