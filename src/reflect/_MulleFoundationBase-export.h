@@ -9,8 +9,8 @@
  *
  *      mulle-sde environment set MULLE_MATCH_TO_C_RUN DISABLE
  */
-#ifndef mulle_foundation_base_export_h__
-#define mulle_foundation_base_export_h__
+#ifndef _mulle_foundation_base__export_h__
+#define _mulle_foundation_base__export_h__
 
 
 #import "MulleObjCArchiverFoundation.h"
@@ -83,6 +83,9 @@
 #import "NSString+PropertyListParsing.h"
 #import "NSString+PropertyListPrinting.h"
 #import "NSString+PropertyList.h"
+#import "MulleObjCLoader+MulleObjCRegexFoundation.h"
+#import "MulleObjCRegexFoundation.h"
+#import "NSString+Regex.h"
 #import "MulleObjCCharacterBitmap.h"
 #import "MulleObjCContainerDescription.h"
 #import "MulleObjCContainerIntegerCallback.h"

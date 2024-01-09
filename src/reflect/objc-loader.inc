@@ -159,6 +159,7 @@
       { @selector( NSString), @selector( NSPropertyListParsing) },      // 1994a171;NSString;060a8c9c;NSPropertyListParsing
       { @selector( NSString), @selector( PropertyList) },      // 1994a171;NSString;827edd0f;PropertyList
       { @selector( NSString), @selector( PropertyListPrinting) },      // 1994a171;NSString;91aeee11;PropertyListPrinting
+      { @selector( NSString), @selector( Regex) },      // 1994a171;NSString;0ba82189;Regex
       { @selector( NSString), @selector( Search) },      // 1994a171;NSString;646a2c9c;Search
       { @selector( NSString), @selector( Sprintf) },      // 1994a171;NSString;8d371e94;Sprintf
       { @selector( NSString), MULLE_OBJC_NO_CATEGORYID },      // 1994a171;NSString;;

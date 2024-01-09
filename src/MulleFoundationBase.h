@@ -13,6 +13,7 @@
 #import <MulleObjCLockFoundation/MulleObjCLockFoundation.h>
 #import <MulleObjCMathFoundation/MulleObjCMathFoundation.h>
 #import <MulleObjCPlistFoundation/MulleObjCPlistFoundation.h>
+#import <MulleObjCRegexFoundation/MulleObjCRegexFoundation.h>
 #import <MulleObjCStandardFoundation/MulleObjCStandardFoundation.h>
 #import <MulleObjCTimeFoundation/MulleObjCTimeFoundation.h>
 #import <MulleObjCUnicodeFoundation/MulleObjCUnicodeFoundation.h>

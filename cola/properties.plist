@@ -1,17 +1,18 @@
 {
    project =
    {
-      description="🛸 MulleFoundationBase does something";
+      description="🧱 MulleFoundationBase amalgamates Foundations projects";
       domain="github";
       name="MulleFoundationBase";
       user="MulleFoundation";
       repo="MulleFoundationBase";
       homepage="https://github.com/MulleFoundation/MulleFoundationBase";
-      license="UNLICENSED"
+      license="BSD-3-Clause"
    };
    dependencies =
    (
       {
+         description="💎 A collection of Objective-C root classes for mulle-objc";
          domain="github";
          name="MulleObjC";
          repo="MulleObjC";
@@ -19,11 +20,103 @@
          user="mulle-objc";
       },
       {
+         description="📒 Lists mulle-objc runtime information contained in executables.";
          domain="github";
          name="mulle-objc-list";
          repo="mulle-objc-list";
          url="https://github.com/mulle-objc/mulle-objc-list";
          user="mulle-objc";
       }
-   )
+   );
+   amalgamated =
+   (
+      {
+         description="🚪 NSCoding classes like NSArchiver/NSUnarchiver";
+         domain="clib";
+         name="src/MulleObjCArchiverFoundation";
+         repo="MulleObjCArchiverFoundation@*";
+         url="https://github.com/MulleFoundation/MulleObjCArchiverFoundation@*";
+         user="MulleFoundation";
+      },
+      {
+         description="🛍 Container classes like NSArray, NSSet, NSDictionary";
+         domain="clib";
+         name="src/MulleObjCContainerFoundation";
+         repo="MulleObjCContainerFoundation@*";
+         url="https://github.com/MulleFoundation/MulleObjCContainerFoundation@*";
+         user="MulleFoundation";
+      },
+      {
+         description="🔑 Key-Value-Coding based on MulleObjCStandardFoundation";
+         domain="clib";
+         name="src/MulleObjCKVCFoundation";
+         repo="MulleObjCKVCFoundation@*";
+         url="https://github.com/MulleFoundation/MulleObjCKVCFoundation@*";
+         user="MulleFoundation";
+      },
+      {
+         description="🔐 MulleObjCLockFoundation provides locking support";
+         domain="clib";
+         name="src/MulleObjCLockFoundation";
+         repo="MulleObjCLockFoundation@*";
+         url="https://github.com/MulleFoundation/MulleObjCLockFoundation@*";
+         user="MulleFoundation";
+      },
+      {
+         description="📈 NSNumber refines that use the math library";
+         domain="clib";
+         name="src/MulleObjCMathFoundation";
+         repo="MulleObjCMathFoundation@*";
+         url="https://github.com/MulleFoundation/MulleObjCMathFoundation@*";
+         user="MulleFoundation";
+      },
+      {
+         description="🏢 PropertyList parsing and printing";
+         domain="clib";
+         name="src/MulleObjCPlistFoundation";
+         repo="MulleObjCPlistFoundation@*";
+         url="https://github.com/MulleFoundation/MulleObjCPlistFoundation@*";
+         user="MulleFoundation";
+      },
+      {
+         description="🚤 Objective-C classes based on the C standard library";
+         domain="clib";
+         name="src/MulleObjCStandardFoundation";
+         repo="MulleObjCStandardFoundation@*";
+         url="https://github.com/MulleFoundation/MulleObjCStandardFoundation@*";
+         user="MulleFoundation";
+      },
+      {
+         description="💰 MulleObjCTimeFoundation provides time classes";
+         domain="clib";
+         name="src/MulleObjCTimeFoundation";
+         repo="MulleObjCTimeFoundation@*";
+         url="https://github.com/MulleFoundation/MulleObjCTimeFoundation@*";
+         user="MulleFoundation";
+      },
+      {
+         description="🤓 Unicode 3.x.x support for mulle-objc";
+         domain="clib";
+         name="src/MulleObjCUnicodeFoundation";
+         repo="MulleObjCUnicodeFoundation@*";
+         url="https://github.com/MulleFoundation/MulleObjCUnicodeFoundation@*";
+         user="MulleFoundation";
+      },
+      {
+         description="🛂 MulleObjCUUIDFoundation provides NSUUID";
+         domain="clib";
+         name="src/MulleObjCUUIDFoundation";
+         repo="MulleObjCUUIDFoundation@*";
+         url="https://github.com/MulleFoundation/MulleObjCUUIDFoundation@*";
+         user="MulleFoundation";
+      },
+      {
+         description="💶 Value classes NSNumber, NSString, NSDate, NSData";
+         domain="clib";
+         name="src/MulleObjCValueFoundation";
+         repo="MulleObjCValueFoundation@*";
+         url="https://github.com/MulleFoundation/MulleObjCValueFoundation@*";
+         user="MulleFoundation";
+      }
+   );
 }

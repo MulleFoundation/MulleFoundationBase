@@ -100,6 +100,7 @@ src/MulleObjCPlistFoundation/NSPropertyListSerialization.m
 src/MulleObjCPlistFoundation/NSString+PropertyListParsing.m
 src/MulleObjCPlistFoundation/NSString+PropertyListPrinting.m
 src/MulleObjCPlistFoundation/NSString+PropertyList.m
+src/MulleObjCRegexFoundation/NSString+Regex.m
 src/MulleObjCStandardFoundation/_MulleGMTTimeZone.m
 src/MulleObjCStandardFoundation/MulleObjCCharacterBitmap.m
 src/MulleObjCStandardFoundation/_MulleObjCCheatingASCIICharacterSet.m
@@ -220,6 +221,7 @@ src/MulleObjCKVCFoundation/MulleObjCLoader+MulleObjCKVCFoundation.m
 src/MulleObjCLockFoundation/MulleObjCLoader+MulleObjCLockFoundation.m
 src/MulleObjCMathFoundation/MulleObjCLoader+MulleObjCMathFoundation.m
 src/MulleObjCPlistFoundation/MulleObjCLoader+MulleObjCPlistFoundation.m
+src/MulleObjCRegexFoundation/MulleObjCLoader+MulleObjCRegexFoundation.m
 src/MulleObjCStandardFoundation/MulleObjCLoader+MulleObjCStandardFoundation.m
 src/MulleObjCTimeFoundation/MulleObjCLoader+MulleObjCTimeFoundation.m
 src/MulleObjCUUIDFoundation/MulleObjCLoader+MulleObjCUUIDFoundation.m

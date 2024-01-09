@@ -9,8 +9,8 @@
  *
  *      mulle-sde environment set MULLE_MATCH_TO_C_RUN DISABLE
  */
-#ifndef mulle_foundation_base_provide_h__
-#define mulle_foundation_base_provide_h__
+#ifndef _mulle_foundation_base__provide_h__
+#define _mulle_foundation_base__provide_h__
 
 
 #include "mulle-buffer-archiver.h"

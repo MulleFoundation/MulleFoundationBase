@@ -1,9 +1,8 @@
 //
-//  MulleObjCFoundation.h
-//  MulleObjCArchiverFoundation
+//  MulleObjCRegexFoundation.h
+//  MulleObjCRegexFoundation
 //
-//  Copyright (c) 2016 Nat! - Mulle kybernetiK.
-//  Copyright (c) 2016 Codeon GmbH.
+//  Copyright (c) 2024 Nat! - Mulle kybernetiK.
 //  All rights reserved.
 //
 //
@@ -33,20 +32,11 @@
 //  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 //  POSSIBILITY OF SUCH DAMAGE.
 //
-
 #import "import.h"
 
+#import "NSString+Regex.h"
+
+
 // keep this in sync with MULLE_OBJC_VERSION, else pain! (why ?)
-#define MULLE_OBJC_ARCHIVER_FOUNDATION_VERSION   ((0UL << 20) | (21 << 8) | 0)
+#define MULLE_OBJC_REGEX_FOUNDATION_VERSION   ((0UL << 20) | (20 << 8) | 4)
 
-// we do it manually...
-
-#import "_MulleObjCArchiverFoundation-export.h"
-//#import "_MulleObjCArchiverFoundation-provide.h"
-
-
-#ifdef __has_include
-# if __has_include( "_MulleObjCArchiverFoundation-versioncheck.h")
-#  include "_MulleObjCArchiverFoundation-versioncheck.h"
-# endif
-#endif

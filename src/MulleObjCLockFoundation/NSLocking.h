@@ -44,6 +44,18 @@
 @end
 
 
+//
+// Use:
+//
+// NSLock   *lock;
+//
+// lock = [NSLock object];
+// MulleObjCLockingDo( lock)
+// {
+//    // do stuff while locked
+// }
+// // lock is now unlocked
+//
 #define MulleObjCLockDo( name)                                         \
    for( int name ## __i = ([(name) lock], 0);                          \
         ! name ## __i;                                                 \

@@ -1,0 +1,36 @@
+## Constituents
+
+Add another constituent to the amalgamation with:
+
+``` bash
+mulle-sde dependency add --amalgamated \
+                         --fetchoptions "clibmode=copy" \
+                         --address src/MulleObjCWhateverFoundation \
+                         clib:MulleFoundation/MulleObjCWhateverFoundation
+```
+
+Then edit `MulleFoundationBase.h` and add the envelope header to the others.
+
+
+{%
+   file     = nil
+   taskInfo = [NSTask mulleStringSystemCallWithCommandString:"mulle-sde project-dir"]
+   if taskInfo[ "standardOutputString"]
+      directory = taskInfo[ "standardOutputString"]
+      file      = [directory stringByAppendingPathComponent:"overview.dot.svg"]
+   endif
+%}
+{% if not config.skipOverviewGraphic %}
+{%  if [exists file:file] %}
+![Overview](overview.dot.svg)
+{%  endif %}
+{% endif %}
+
+{% if [amalgamated count] %}
+| Constituent                                  | Description
+|----------------------------------------------|-----------------------
+{% for item in amalgamated %}
+| [{{ item.name}}]({{ item.url }})             | {{ item.description }}
+{% endfor %}
+{% endif %}
+

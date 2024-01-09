@@ -9,12 +9,12 @@
  *
  *      mulle-sde environment set MULLE_MATCH_TO_C_RUN DISABLE
  */
-#ifndef _mulle_objc_uuid_foundation__export_h__
-#define _mulle_objc_uuid_foundation__export_h__
+#ifndef _mulle_objc_regex_foundation__export_h__
+#define _mulle_objc_regex_foundation__export_h__
 
 
-#import "NSUUID.h"
-#import "MulleObjCLoader+MulleObjCUUIDFoundation.h"
+#import "NSString+Regex.h"
+#import "MulleObjCLoader+MulleObjCRegexFoundation.h"
 
 
 #endif

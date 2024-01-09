@@ -18,6 +18,7 @@ src/MulleObjCKVCFoundation
 src/MulleObjCLockFoundation
 src/MulleObjCMathFoundation
 src/MulleObjCPlistFoundation
+src/MulleObjCRegexFoundation
 src/MulleObjCStandardFoundation
 src/MulleObjCTimeFoundation
 src/MulleObjCUUIDFoundation
@@ -43,6 +44,8 @@ src/MulleObjCMathFoundation/_MulleObjCMathFoundation-import-private.h
 src/MulleObjCMathFoundation/_MulleObjCMathFoundation-include-private.h
 src/MulleObjCPlistFoundation/_MulleObjCPlistFoundation-import-private.h
 src/MulleObjCPlistFoundation/_MulleObjCPlistFoundation-include-private.h
+src/MulleObjCRegexFoundation/_MulleObjCRegexFoundation-import-private.h
+src/MulleObjCRegexFoundation/_MulleObjCRegexFoundation-include-private.h
 src/MulleObjCStandardFoundation/_MulleObjCStandardFoundation-import-private.h
 src/MulleObjCStandardFoundation/_MulleObjCStandardFoundation-include-private.h
 src/MulleObjCTimeFoundation/_MulleObjCTimeFoundation-import-private.h
@@ -69,6 +72,8 @@ src/MulleObjCLockFoundation/import-private.h
 src/MulleObjCMathFoundation/import-private.h
 src/MulleObjCPlistFoundation/import-private.h
 src/MulleObjCPlistFoundation/include-private.h
+src/MulleObjCRegexFoundation/import-private.h
+src/MulleObjCRegexFoundation/include-private.h
 src/MulleObjCStandardFoundation/import-private.h
 src/MulleObjCStandardFoundation/include-private.h
 src/MulleObjCTimeFoundation/import-private.h
@@ -127,6 +132,10 @@ src/MulleObjCMathFoundation/_MulleObjCMathFoundation-provide.h
 src/MulleObjCPlistFoundation/_MulleObjCPlistFoundation-export.h
 src/MulleObjCPlistFoundation/_MulleObjCPlistFoundation-import.h
 src/MulleObjCPlistFoundation/_MulleObjCPlistFoundation-include.h
+src/MulleObjCRegexFoundation/_MulleObjCRegexFoundation-export.h
+src/MulleObjCRegexFoundation/_MulleObjCRegexFoundation-import.h
+src/MulleObjCRegexFoundation/_MulleObjCRegexFoundation-include.h
+src/MulleObjCRegexFoundation/_MulleObjCRegexFoundation-provide.h
 src/MulleObjCStandardFoundation/_MulleObjCStandardFoundation-import.h
 src/MulleObjCStandardFoundation/_MulleObjCStandardFoundation-include.h
 src/MulleObjCTimeFoundation/_MulleObjCTimeFoundation-export.h
@@ -163,6 +172,8 @@ src/MulleObjCLockFoundation/import.h
 src/MulleObjCMathFoundation/import.h
 src/MulleObjCPlistFoundation/import.h
 src/MulleObjCPlistFoundation/include.h
+src/MulleObjCRegexFoundation/import.h
+src/MulleObjCRegexFoundation/include.h
 src/MulleObjCStandardFoundation/import.h
 src/MulleObjCStandardFoundation/include.h
 src/MulleObjCTimeFoundation/import.h
@@ -286,6 +297,9 @@ src/MulleObjCPlistFoundation/NSPropertyListSerialization.h
 src/MulleObjCPlistFoundation/NSString+PropertyListParsing.h
 src/MulleObjCPlistFoundation/NSString+PropertyListPrinting.h
 src/MulleObjCPlistFoundation/NSString+PropertyList.h
+src/MulleObjCRegexFoundation/MulleObjCLoader+MulleObjCRegexFoundation.h
+src/MulleObjCRegexFoundation/MulleObjCRegexFoundation.h
+src/MulleObjCRegexFoundation/NSString+Regex.h
 src/MulleObjCStandardFoundation/MulleObjCCharacterBitmap.h
 src/MulleObjCStandardFoundation/_MulleObjCCheatingASCIICharacterSet.h
 src/MulleObjCStandardFoundation/_MulleObjCConcreteBitmapCharacterSet.h
