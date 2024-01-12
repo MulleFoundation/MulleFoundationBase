@@ -1,6 +1,6 @@
 //
 //  MulleObjCRegexFoundation.h
-//  MulleObjCRegexFoundation
+//  MulleObjCRegexExpansion
 //
 //  Copyright (c) 2024 Nat! - Mulle kybernetiK.
 //  All rights reserved.
@@ -32,11 +32,21 @@
 //  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 //  POSSIBILITY OF SUCH DAMAGE.
 //
+
 #import "import.h"
 
 #import "NSString+Regex.h"
 
 
-// keep this in sync with MULLE_OBJC_VERSION, else pain! (why ?)
-#define MULLE_OBJC_REGEX_FOUNDATION_VERSION   ((0UL << 20) | (20 << 8) | 4)
+#define MULLE_OBJC_REGEX_FOUNDATION_VERSION   ((0UL << 20) | (20 << 8) | 5)
 
+#import "import.h"
+
+#import  "_MulleObjCRegexFoundation-export.h"
+#include "_MulleObjCRegexFoundation-provide.h"
+
+#ifdef __has_include
+# if __has_include( "_MulleObjCRegexFoundation-versioncheck.h")
+#  include "_MulleObjCRegexFoundation-versioncheck.h"
+# endif
+#endif
