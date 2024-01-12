@@ -12,7 +12,7 @@ project( MulleFoundationBase C)
 
 
 set( MULLE_PROJECT_TYPE "Library")
-set( PROJECT_VERSION  0.22.0)
+set( PROJECT_VERSION  0.23.0)
 
 ### mulle-sde environment
 
