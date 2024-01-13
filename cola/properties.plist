@@ -7,7 +7,7 @@
       user="MulleFoundation";
       repo="MulleFoundationBase";
       homepage="https://github.com/MulleFoundation/MulleFoundationBase";
-      license="BSD-3-Clause"
+      license="UNLICENSED";
    };
    dependencies =
    (
@@ -116,6 +116,14 @@
          name="src/MulleObjCValueFoundation";
          repo="MulleObjCValueFoundation@*";
          url="https://github.com/MulleFoundation/MulleObjCValueFoundation@*";
+         user="MulleFoundation";
+      },
+      {
+         description="🛸 MulleObjCRegexFoundation does something";
+         domain="clib";
+         name="src/MulleObjCRegexFoundation";
+         repo="MulleObjCRegexFoundation";
+         url="https://github.com/MulleFoundation/MulleObjCRegexFoundation";
          user="MulleFoundation";
       }
    );

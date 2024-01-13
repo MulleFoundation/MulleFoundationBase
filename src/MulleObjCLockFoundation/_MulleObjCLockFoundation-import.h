@@ -26,21 +26,6 @@
 //        (use `mulle-sourcetree-to-c --unames` to list known values)
 #import <MulleObjCTimeFoundation/MulleObjCTimeFoundation.h>   // MulleObjCTimeFoundation
 
-// To remove the following dependency (headers and library) completely:
-//   `mulle-sde dependency remove MulleObjC`
-// (Use 71BFAE94-4F9B-47EF-8B41-0AC012013386 instead of MulleObjC, if there are duplicate entries)
-//
-// You can tweak the following #import with these commands:
-//    remove #import      : `mulle-sde dependency mark MulleObjC no-header`
-//    rename              : `mulle-sde dependency|library set MulleObjC include whatever.h`
-//    reorder             : `mulle-sde dependency move MulleObjC <up|down>`
-//    toggle #import      : `mulle-sde dependency mark MulleObjC [no-]import`
-//    toggle public       : `mulle-sde dependency mark MulleObjC [no-]public`
-//    toggle optional     : `mulle-sde dependency mark MulleObjC [no-]require`
-//    remove for platform : `mulle-sde dependency mark MulleObjC no-platform-<uname>`
-//        (use `mulle-sourcetree-to-c --unames` to list known values)
-#import <MulleObjC/MulleObjC.h>   // MulleObjC
-
 #ifdef __has_include
 # if __has_include( "_MulleObjCLockFoundation-include.h")
 #  include "_MulleObjCLockFoundation-include.h"

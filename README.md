@@ -49,6 +49,7 @@ Then edit `MulleFoundationBase.h` and add the envelope header to the others.
 | [src/MulleObjCUnicodeFoundation](https://github.com/MulleFoundation/MulleObjCUnicodeFoundation@*)             | 🤓 Unicode 3.x.x support for mulle-objc
 | [src/MulleObjCUUIDFoundation](https://github.com/MulleFoundation/MulleObjCUUIDFoundation@*)             | 🛂 MulleObjCUUIDFoundation provides NSUUID
 | [src/MulleObjCValueFoundation](https://github.com/MulleFoundation/MulleObjCValueFoundation@*)             | 💶 Value classes NSNumber, NSString, NSDate, NSData
+| [src/MulleObjCRegexFoundation](https://github.com/MulleFoundation/MulleObjCRegexFoundation)             | 🛸 MulleObjCRegexFoundation does something
 
 
 

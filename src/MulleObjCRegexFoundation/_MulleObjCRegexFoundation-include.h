@@ -14,16 +14,6 @@
 #ifndef _mulle_objc_regex_foundation_include_h__
 #define _mulle_objc_regex_foundation_include_h__
 
-// You can tweak the following #include with these commands.
-// (Use A4B2C45C-4B58-43BA-A41A-CA4741FA7655 instead of mulle-regex if there are duplicate entries)
-//    remove #include:: `mulle-sde dependency mark mulle-regex no-header`
-//    rename:              `mulle-sde dependency|library set mulle-regex include whatever.h`
-//    reorder:             `mulle-sde dependency move mulle-regex <up|down>`
-//    toggle #include:    `mulle-sde dependency mark mulle-regex [no-]import`
-//    toggle public:       `mulle-sde dependency mark mulle-regex [no-]public`
-//    toggle optional:     `mulle-sde dependency mark mulle-regex [no-]require`
-//    remove for platform: `mulle-sde dependency mark mulle-regex no-platform-<uname>`
-//        (use `mulle-sourcetree-to-c --unames` to list known values)
-#include <mulle-regex/mulle-regex.h>   // mulle-regex
+/* no headers */
 
 #endif
