@@ -79,6 +79,14 @@
          user="MulleFoundation";
       },
       {
+         description="🫅 Search and replace with regular expressions";
+         domain="clib";
+         name="src/MulleObjCRegexFoundation";
+         repo="MulleObjCRegexFoundation";
+         url="https://github.com/MulleFoundation/MulleObjCRegexFoundation";
+         user="MulleFoundation";
+      },
+      {
          description="🚤 Objective-C classes based on the C standard library";
          domain="clib";
          name="src/MulleObjCStandardFoundation";
@@ -116,14 +124,6 @@
          name="src/MulleObjCValueFoundation";
          repo="MulleObjCValueFoundation@*";
          url="https://github.com/MulleFoundation/MulleObjCValueFoundation@*";
-         user="MulleFoundation";
-      },
-      {
-         description="🛸 MulleObjCRegexFoundation does something";
-         domain="clib";
-         name="src/MulleObjCRegexFoundation";
-         repo="MulleObjCRegexFoundation";
-         url="https://github.com/MulleFoundation/MulleObjCRegexFoundation";
          user="MulleFoundation";
       }
    );

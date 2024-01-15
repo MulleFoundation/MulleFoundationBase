@@ -39,7 +39,7 @@
 
 #if ! defined( DEBUG_REGEX)
 # ifdef DEBUG
-#  define DEBUG_REGEX   1
+#  define DEBUG_REGEX   0
 # else
 #  define DEBUG_REGEX   0
 # endif
@@ -131,7 +131,12 @@ static unichar   *convertWildcardPatternForShortestRange( NSString *pattern,
          case '*'  :
             rover = MulleStringForGetEnumerator( c);
             if( ! MulleStringEnumeratorNext( rover, &a))
+            {
+               // trailing * is just .*
+               *p++ = '.';
+               *p++ = '*';
                break;
+            }
 
             // so we have
             if( a == '[')

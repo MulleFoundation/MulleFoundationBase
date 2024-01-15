@@ -11,7 +11,7 @@ The advantages of **MulleFoundationBase** are:
 
 * compiles faster than almost a dozen individual projects
 * you only need to link against one library file
-* `#import` statements of the individual libraries can remain unchanged or cab be simplified to `#import <MulleFoundationBase/MulleFoundationBase.h>`
+* `#import` statements of the individual libraries can remain unchanged or can be simplified to `#import <MulleFoundationBase/MulleFoundationBase.h>`
 
 
 
@@ -38,28 +38,35 @@ Then edit `MulleFoundationBase.h` and add the envelope header to the others.
 
 | Constituent                                  | Description
 |----------------------------------------------|-----------------------
-| [src/MulleObjCArchiverFoundation](https://github.com/MulleFoundation/MulleObjCArchiverFoundation@*)             | 🚪 NSCoding classes like NSArchiver/NSUnarchiver
-| [src/MulleObjCContainerFoundation](https://github.com/MulleFoundation/MulleObjCContainerFoundation@*)             | 🛍 Container classes like NSArray, NSSet, NSDictionary
-| [src/MulleObjCKVCFoundation](https://github.com/MulleFoundation/MulleObjCKVCFoundation@*)             | 🔑 Key-Value-Coding based on MulleObjCStandardFoundation
-| [src/MulleObjCLockFoundation](https://github.com/MulleFoundation/MulleObjCLockFoundation@*)             | 🔐 MulleObjCLockFoundation provides locking support
-| [src/MulleObjCMathFoundation](https://github.com/MulleFoundation/MulleObjCMathFoundation@*)             | 📈 NSNumber refines that use the math library
-| [src/MulleObjCPlistFoundation](https://github.com/MulleFoundation/MulleObjCPlistFoundation@*)             | 🏢 PropertyList parsing and printing
-| [src/MulleObjCStandardFoundation](https://github.com/MulleFoundation/MulleObjCStandardFoundation@*)             | 🚤 Objective-C classes based on the C standard library
-| [src/MulleObjCTimeFoundation](https://github.com/MulleFoundation/MulleObjCTimeFoundation@*)             | 💰 MulleObjCTimeFoundation provides time classes
-| [src/MulleObjCUnicodeFoundation](https://github.com/MulleFoundation/MulleObjCUnicodeFoundation@*)             | 🤓 Unicode 3.x.x support for mulle-objc
-| [src/MulleObjCUUIDFoundation](https://github.com/MulleFoundation/MulleObjCUUIDFoundation@*)             | 🛂 MulleObjCUUIDFoundation provides NSUUID
-| [src/MulleObjCValueFoundation](https://github.com/MulleFoundation/MulleObjCValueFoundation@*)             | 💶 Value classes NSNumber, NSString, NSDate, NSData
-| [src/MulleObjCRegexFoundation](https://github.com/MulleFoundation/MulleObjCRegexFoundation)             | 🛸 MulleObjCRegexFoundation does something
-
+| [MulleObjCArchiverFoundation](https://github.com/MulleFoundation/MulleObjCArchiverFoundation) | 🚪 NSCoding classes like NSArchiver/NSUnarchiver
+| [MulleObjCContainerFoundation](https://github.com/MulleFoundation/MulleObjCContainerFoundation) | 🛍 Container classes like NSArray, NSSet, NSDictionary
+| [MulleObjCKVCFoundation](https://github.com/MulleFoundation/MulleObjCKVCFoundation) | 🔑 Key-Value-Coding based on MulleObjCStandardFoundation
+| [MulleObjCLockFoundation](https://github.com/MulleFoundation/MulleObjCLockFoundation) | 🔐 MulleObjCLockFoundation provides locking support
+| [MulleObjCMathFoundation](https://github.com/MulleFoundation/MulleObjCMathFoundation) | 📈 NSNumber refines that use the math library
+| [MulleObjCPlistFoundation](https://github.com/MulleFoundation/MulleObjCPlistFoundation) | 🏢 PropertyList parsing and printing
+| [MulleObjCRegexFoundation](https://github.com/MulleFoundation/MulleObjCRegexFoundation) | 🫅 Search and replace with regular expressions
+| [MulleObjCStandardFoundation](https://github.com/MulleFoundation/MulleObjCStandardFoundation) | 🚤 Objective-C classes based on the C standard library
+| [MulleObjCTimeFoundation](https://github.com/MulleFoundation/MulleObjCTimeFoundation) | 💰 MulleObjCTimeFoundation provides time classes
+| [MulleObjCUUIDFoundation](https://github.com/MulleFoundation/MulleObjCUUIDFoundation) | 🛂 MulleObjCUUIDFoundation provides NSUUID
+| [MulleObjCUnicodeFoundation](https://github.com/MulleFoundation/MulleObjCUnicodeFoundation) | 🤓 Unicode 3.x.x support for mulle-objc
+| [MulleObjCValueFoundation](https://github.com/MulleFoundation/MulleObjCValueFoundation) | 💶 Value classes NSNumber, NSString, NSDate, NSData
 
 
 ## Add
+
+**This project is a component of the [MulleFoundation](//github.com/MulleFoundation/MulleFoundation) library.
+As such you usually will *not* add or install it individually, unless you
+specifically do not want to link against `MulleFoundation`.**
+
+
+### Add as an individual component
 
 Use [mulle-sde](//github.com/mulle-sde) to add MulleFoundationBase to your project:
 
 ``` sh
 mulle-sde add github:MulleFoundation/MulleFoundationBase
 ```
+
 
 ## Install
 

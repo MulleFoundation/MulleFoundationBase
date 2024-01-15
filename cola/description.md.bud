@@ -7,6 +7,6 @@ The advantages of **MulleFoundationBase** are:
 
 * compiles faster than almost a dozen individual projects
 * you only need to link against one library file
-* `#import` statements of the individual libraries can remain unchanged or cab be simplified to `#import <MulleFoundationBase/MulleFoundationBase.h>`
+* `#import` statements of the individual libraries can remain unchanged or can be simplified to `#import <MulleFoundationBase/MulleFoundationBase.h>`
 
 
