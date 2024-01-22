@@ -78,8 +78,17 @@ static inline int   double_is_long_long( double value)
 }
 
 
+// Cosmopolitan doesn't have llrintl, so we just say OK lets just check
+// for double, OK what does that mean ? If you initialize with a long 
+// double that matches long long integer value, which does not fit into
+// double, then it will become a FP NSNumber not an int NSNumber, no
+// problem you say, well in terms of comparison it could get bad, so
+// it's probably best to just not do long double on cosmopolitan
 static inline int   long_double_is_long_long( long double value)
 {
+#ifdef __MULLE_COSMOPOLITAN__
+   return( double_is_long_long( value));
+#else   
    long long     ll_val;
    long double   d_val;
 
@@ -89,6 +98,7 @@ static inline int   long_double_is_long_long( long double value)
    if( fetestexcept( FE_INVALID))
       return( 0);
    return( d_val == value);
+#endif   
 }
 
 
@@ -122,6 +132,7 @@ static inline id   initWithLongDouble( NSNumber *self, long double value)
    _mulle_objc_universe_get_foundationspace( universe, (void **) &config, NULL);
 
    self = [config->numbersubclasses[ _NSNumberClassClusterLongDoubleType] newWithLongDouble:value];
+   
    return( self);
 }
 
@@ -140,7 +151,11 @@ static inline id   initWithLongDouble( NSNumber *self, long double value)
 
 - (instancetype) initWithLongDouble:(long double) value
 {
+#ifdef __MULLE_COSMOPOLITAN__
+   abort(); // can't really suport it, might pain some tests more than me 
+#endif   
    return( initWithLongDouble( self, value));
+
 }
 
 
