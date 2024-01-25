@@ -20,19 +20,4 @@
 # endif
 #endif
 
-#if defined( MULLE__UNICODE_VERSION)
-# ifndef MULLE__UNICODE_VERSION_MIN
-#  define MULLE__UNICODE_VERSION_MIN  ((2UL << 20) | (4 << 8) | 7)
-# endif
-# ifndef MULLE__UNICODE_VERSION_MAX
-#  define MULLE__UNICODE_VERSION_MAX  ((3UL << 20) | (0 << 8) | 0)
-# endif
-# if MULLE__UNICODE_VERSION < MULLE__UNICODE_VERSION_MIN
-#  error "mulle-unicode is too old"
-# endif
-# if MULLE__UNICODE_VERSION >= MULLE__UNICODE_VERSION_MAX
-#  error "mulle-unicode is too new"
-# endif
-#endif
-
 #endif
