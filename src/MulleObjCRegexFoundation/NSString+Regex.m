@@ -378,7 +378,6 @@ static size_t    patternSizeWithOptions( NSString *pattern,
                           range:(NSRange) range
 {
    NSRange      resultRange;
-   NSUInteger   pattern_length;
    int          result;
    unichar      *p;
    void         *r;
@@ -392,8 +391,7 @@ static size_t    patternSizeWithOptions( NSString *pattern,
    {
       p = convertPatternWithOptions( pattern, pattern_characters, options);
 
-      pattern_length = p - pattern_characters;
-      assert( pattern_length <= size);
+      assert( (p - pattern_characters) <= size);
 
       //
       // This is maybe too big to alloca, and its variable sized, so init
@@ -457,7 +455,6 @@ static size_t    patternSizeWithOptions( NSString *pattern,
                                      options:(MulleObjCPatternOptions) options
                                        range:(NSRange) range
 {
-   NSUInteger                pattern_length;
    NSUInteger                substitution_length;
    NSUInteger                rep_length;
    NSUInteger                dst_length;
@@ -483,8 +480,7 @@ static size_t    patternSizeWithOptions( NSString *pattern,
    {
       p = convertPatternWithOptions( pattern, pattern_characters, options);
 
-      pattern_length = p - pattern_characters;
-      assert( pattern_length <= size);
+      assert( (p - pattern_characters) <= size);
 
       //
       // This is maybe too big to alloca, and its variable sized, so init
