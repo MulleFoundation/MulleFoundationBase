@@ -58,7 +58,7 @@
 //
 //
 // _MulleObjCConcreteDate is floating point with all it's problems.
-@interface _MulleObjCConcreteDate : NSDate < MulleObjCImmutable>
+@interface _MulleObjCConcreteDate : NSDate < MulleObjCValueProtocols>
 {
    NSTimeInterval   _interval;
 }

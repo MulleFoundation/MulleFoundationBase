@@ -3,6 +3,8 @@
    {
       description="🧱 MulleFoundationBase amalgamates Foundations projects";
       domain="github";
+      language="c";
+      dialect="objc";
       name="MulleFoundationBase";
       user="MulleFoundation";
       repo="MulleFoundationBase";
@@ -52,14 +54,6 @@
          name="src/MulleObjCKVCFoundation";
          repo="MulleObjCKVCFoundation@*";
          url="https://github.com/MulleFoundation/MulleObjCKVCFoundation@*";
-         user="MulleFoundation";
-      },
-      {
-         description="🔐 MulleObjCLockFoundation provides locking support";
-         domain="clib";
-         name="src/MulleObjCLockFoundation";
-         repo="MulleObjCLockFoundation@*";
-         url="https://github.com/MulleFoundation/MulleObjCLockFoundation@*";
          user="MulleFoundation";
       },
       {

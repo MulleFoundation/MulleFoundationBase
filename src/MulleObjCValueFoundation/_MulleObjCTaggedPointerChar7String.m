@@ -38,11 +38,13 @@
 // other files in this library
 #import "NSString+Hash.h"
 #import "NSMutableData.h"
+#import "_MulleObjCValueTaggedPointer.h"
 #import "_MulleObjCTaggedPointerChar7String.h"
 
 // std-c and dependencies
 #import "import-private.h"
 #include <assert.h>
+
 
 
 #ifdef __MULLE_OBJC_TPS__
@@ -51,11 +53,7 @@
 
 + (void) load
 {
-   if( MulleObjCTaggedPointerRegisterClassAtIndex( self, 0x3))
-   {
-      perror( "Need tag pointer aware runtime for _MulleObjCTaggedPointerChar7String with empty slot #3\n");
-      abort();
-   }
+   MulleObjCTaggedPointerRegisterClassAtIndex( self, MulleObjCChar7TPSIndex);
 }
 
 
@@ -157,7 +155,7 @@ static NSUInteger   grab_ascii_char7( _MulleObjCTaggedPointerChar7String *self,
    length = MulleObjCTaggedPointerChar7StringGetLength( self);
    if( length > maxLength)
       length = maxLength;
-   length = grab_ascii_char7_range( self, length, buf, NSMakeRange( 0, length));
+   length = grab_ascii_char7_range( self, length, buf, NSRangeMake( 0, length));
    return( length);
 }
 
@@ -284,7 +282,7 @@ static NSUInteger   grab_ascii_char7( _MulleObjCTaggedPointerChar7String *self,
 
    length = MulleObjCTaggedPointerChar7StringGetLength( self);
    s      = MulleObjCCallocAutoreleased( length + 1, sizeof( char));
-   grab_ascii_char7_range( self, length, s, NSMakeRange( 0, length));
+   grab_ascii_char7_range( self, length, s, NSRangeMake( 0, length));
    // final byte already zero by calloc
    return( (char *) s);
 }

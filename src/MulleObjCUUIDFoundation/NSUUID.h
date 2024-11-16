@@ -45,7 +45,7 @@
 #define MulleUUIDStringLength  37
 
 
-@interface NSUUID : NSData
+@interface NSUUID : NSData < MulleObjCValueProtocols>
 {
    unsigned char  _bytes[ MulleUUIDBytesLength];
 }

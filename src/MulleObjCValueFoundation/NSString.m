@@ -38,6 +38,7 @@
 // other files in this library
 #import "NSString+Hash.h"
 #import "NSString+ClassCluster.h"
+#import "_MulleObjCValueTaggedPointer.h"
 #import "_MulleObjCTaggedPointerChar5String.h"
 #import "_MulleObjCTaggedPointerChar7String.h"
 #import "_MulleObjCASCIIString.h"
@@ -148,7 +149,8 @@ enum _NSStringClassClusterStringSize
    if( self != [NSString class])
       return;
 
-   [super initialize]; // get MulleObjCClassCluster initialize
+   // no need for this
+   // [super initialize]; // get MulleObjCClassCluster initialize
 
    assert( _MULLE_OBJC_FOUNDATIONINFO_N_STRINGSUBCLASSES >= _NSStringClassClusterStringSizeMax);
 
@@ -244,15 +246,27 @@ NSString  *_MulleObjCNewASCIIStringWithUTF32Characters( mulle_utf32_t *s,
 // obsolete
 + (NSString *) string
 {
-   return( [[[self alloc] init] autorelease]);
+   NSString   *obj;
+
+   // written like this for debuggability (TAO)
+   obj = [self alloc];
+   obj = [obj init];
+   obj = [obj autorelease];
+   return( obj);
 }
 
 
 + (instancetype) stringWithCharacters:(unichar *) s
                                length:(NSUInteger) len;
 {
-   return( [[[self alloc] initWithCharacters:s
-                                      length:len] autorelease]);
+   NSString   *obj;
+
+   // written like this for debuggability (TAO)
+   obj = [self alloc];
+   obj = [obj initWithCharacters:s
+                          length:len];
+   obj = [obj autorelease];
+   return( obj);
 }
 
 
@@ -260,24 +274,42 @@ NSString  *_MulleObjCNewASCIIStringWithUTF32Characters( mulle_utf32_t *s,
                                           length:(NSUInteger) len
                                        allocator:(struct mulle_allocator *) allocator;
 {
-   return( [[[self alloc] mulleInitWithCharactersNoCopy:s
-                                                 length:len
-                                              allocator:allocator] autorelease]);
+   NSString   *obj;
+
+   // written like this for debuggability (TAO)
+   obj = [self alloc];
+   obj = [obj mulleInitWithCharactersNoCopy:s
+                                    length:len
+                                 allocator:allocator];
+   obj = [obj autorelease];
+   return( obj);
 }
 
 
 // keep UTF8String: as (char *)
 + (instancetype) stringWithUTF8String:(char *) s
 {
-   return( [[[self alloc] initWithUTF8String:s] autorelease]);
+   NSString   *obj;
+
+   // written like this for debuggability (TAO)
+   obj = [self alloc];
+   obj = [obj initWithUTF8String:s];
+   obj = [obj autorelease];
+   return( obj);
 }
 
 
 + (instancetype) mulleStringWithUTF8Characters:(char *) s
                                         length:(NSUInteger) len
 {
-   return( [[[self alloc] mulleInitWithUTF8Characters:s
-                                               length:len] autorelease]);
+   NSString   *obj;
+
+   // written like this for debuggability (TAO)
+   obj = [self alloc];
+   obj = [obj mulleInitWithUTF8Characters:s
+                                   length:len];
+   obj = [obj autorelease];
+   return( obj);
 }
 
 
@@ -287,18 +319,29 @@ NSString  *_MulleObjCNewASCIIStringWithUTF32Characters( mulle_utf32_t *s,
 {
    assert( s);
    assert( len);
+   NSString   *obj;
 
-   return( [[[self alloc] mulleInitWithUTF8CharactersNoCopy:s
-                                                     length:len
-                                                  allocator:allocator] autorelease]);
+   // written like this for debuggability (TAO)
+   obj = [self alloc];
+   obj = [obj mulleInitWithUTF8CharactersNoCopy:s
+                                         length:len
+                                      allocator:allocator];
+   obj = [obj autorelease];
+   return( obj);
 }
 
 
 + (instancetype) stringWithString:(NSString *) s
-{
-   return( [[[self alloc] initWithString:s] autorelease]);
-}
 
+{
+   NSString   *obj;
+
+   // written like this for debuggability (TAO)
+   obj = [self alloc];
+   obj = [obj initWithString:s];
+   obj = [obj autorelease];
+   return( obj);
+}
 
 
 #pragma mark - generic init
@@ -337,7 +380,7 @@ NSString  *_MulleObjCNewASCIIStringWithUTF32Characters( mulle_utf32_t *s,
 }
 
 
-- (NSString *) mulleDebugContentsDescription
+- (NSString *) mulleDebugContentsDescription      MULLE_OBJC_THREADSAFE_METHOD
 {
    return( self);
 }
@@ -447,7 +490,7 @@ struct mulle_utf8data  MulleStringUTF8Data( NSString *self,
 - (void) getCharacters:(unichar *) buf
 {
    [self getCharacters:buf
-                 range:NSMakeRange( 0, [self length])];  // don't use -1!
+                 range:NSRangeMake( 0, [self length])];  // don't use -1!
 }
 
 
@@ -496,7 +539,7 @@ struct mulle_utf8data  MulleStringUTF8Data( NSString *self,
    size = length * 4 + 1; // unichar explodes max to 4 bytes
    buf  = mulle_allocator_malloc( NULL, size);
    [self getCharacters:(unichar *) buf
-                 range:NSMakeRange( 0, length)];
+                 range:NSRangeMake( 0, length)];
 
    // mulle_utf32_t can't become larger than 4 bytes max
    // so we can actually inplace convert
@@ -552,7 +595,7 @@ struct mulle_utf8data  MulleStringUTF8Data( NSString *self,
 {
    NSRange   range;
 
-   range = NSMakeRange( index, [self length] - index);
+   range = NSRangeMake( index, [self length] - index);
    return( [self substringWithRange:range]);
 }
 
@@ -561,7 +604,7 @@ struct mulle_utf8data  MulleStringUTF8Data( NSString *self,
 {
    NSRange   range;
 
-   range = NSMakeRange( 0, index);
+   range = NSRangeMake( 0, index);
    return( [self substringWithRange:range]);
 }
 
@@ -776,7 +819,6 @@ static char   *mulleUTF8StringWithLeadingSpacesRemoved( NSString *self)
 {
    return( strtold( (char *) mulleUTF8StringWithLeadingSpacesRemoved( self), NULL));
 }
-
 
 
 - (float) floatValue

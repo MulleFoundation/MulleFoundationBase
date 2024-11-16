@@ -10,7 +10,6 @@
 #import <MulleObjCArchiverFoundation/MulleObjCArchiverFoundation.h>
 #import <MulleObjCContainerFoundation/MulleObjCContainerFoundation.h>
 #import <MulleObjCKVCFoundation/MulleObjCKVCFoundation.h>
-#import <MulleObjCLockFoundation/MulleObjCLockFoundation.h>
 #import <MulleObjCMathFoundation/MulleObjCMathFoundation.h>
 #import <MulleObjCPlistFoundation/MulleObjCPlistFoundation.h>
 #import <MulleObjCRegexFoundation/MulleObjCRegexFoundation.h>

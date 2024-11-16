@@ -16,7 +16,6 @@
 @interface NSObject( NSString)
 
 - (NSString *) description;
-- (NSString *) debugDescription;
 
 //
 // mulleTestDescription can be the same as description, but shouldn't present
@@ -32,7 +31,5 @@
 
 @end
 
-// useful to set to 1 for tests, since it suppresses the varying pointer value
-MULLE_OBJC_VALUE_FOUNDATION_GLOBAL
-BOOL   MulleDebugDescriptionEllideAddressOutput;
+
 

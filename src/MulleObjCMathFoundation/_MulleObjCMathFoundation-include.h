@@ -28,7 +28,12 @@
 //    remove for platform : `mulle-sde dependency mark math no-platform-<uname>`
 //        (use `mulle-sourcetree-to-c --unames` to list known values)
 # if ! defined( _WIN32)
-# include <math.h>   // math
+# ifdef __has_include
+#  if __has_include(<math.h>)
+#    include <math.h>   // math
+#   define HAVE_LIB_MATH
+#  endif
+# endif
 #endif
 
 #endif

@@ -446,32 +446,32 @@ static int   check_header_8( struct mulle_buffer *buffer, char *expect)
    [super init];
 
    allocator  = MulleObjCInstanceGetAllocator( self);
-   _objects   = _NSCreateMapTableWithAllocator( NSIntegerMapKeyCallBacks,
+   _objects   = MulleObjCMapTableCreateWithAllocator( NSIntegerMapKeyCallBacks,
                                                 NSNonRetainedObjectMapValueCallBacks,
                                                 16,
                                                 allocator);
-   _offsets   = _NSCreateMapTableWithAllocator( NSIntegerMapKeyCallBacks,
+   _offsets   = MulleObjCMapTableCreateWithAllocator( NSIntegerMapKeyCallBacks,
                                                 mulle_container_valuecallback_intptr,
                                                 16,
                                                 allocator);
-   _classes   = _NSCreateMapTableWithAllocator( NSIntegerMapKeyCallBacks,
+   _classes   = MulleObjCMapTableCreateWithAllocator( NSIntegerMapKeyCallBacks,
                                                 NSNonRetainedObjectMapValueCallBacks,
                                                 16,
                                                 allocator);
-   _selectors = _NSCreateMapTableWithAllocator( NSIntegerMapKeyCallBacks,
+   _selectors = MulleObjCMapTableCreateWithAllocator( NSIntegerMapKeyCallBacks,
                                                 NSIntegerMapValueCallBacks,
                                                 16,
                                                 allocator);
-   _blobs     = _NSCreateMapTableWithAllocator( NSIntegerMapKeyCallBacks,
+   _blobs     = MulleObjCMapTableCreateWithAllocator( NSIntegerMapKeyCallBacks,
                                                 NSOwnedPointerMapValueCallBacks,
                                                 16,
                                                 allocator);
 
-   _classNameSubstitutions = _NSCreateMapTableWithAllocator( mulle_container_keycallback_copied_cstring,
+   _classNameSubstitutions = MulleObjCMapTableCreateWithAllocator( mulle_container_keycallback_copied_cstring,
                                                              mulle_container_valuecallback_copied_cstring,
                                                              16,
                                                              allocator);
-   _objectSubstitutions    = _NSCreateMapTableWithAllocator( NSObjectMapKeyCallBacks,
+   _objectSubstitutions    = MulleObjCMapTableCreateWithAllocator( NSObjectMapKeyCallBacks,
                                                              NSObjectMapValueCallBacks,
                                                              16,
                                                              allocator);

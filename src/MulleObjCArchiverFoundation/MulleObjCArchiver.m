@@ -60,7 +60,7 @@ NSString  *NSInvalidArchiveOperationException = @"NSInvalidArchiveOperationExcep
 {
    _allocator = *MulleObjCInstanceGetAllocator( self);
 
-   mulle_buffer_init( &_buffer, &_allocator);
+   mulle_buffer_init( &_buffer, 0x1000, &_allocator);
 
    self->_callback.keycallback   = mulle_container_keycallback_nonowned_pointer;
    self->_callback.valuecallback = mulle_container_valuecallback_intptr;
@@ -78,16 +78,16 @@ NSString  *NSInvalidArchiveOperationException = @"NSInvalidArchiveOperationExcep
 
    MulleObjCPointerHandleMapInit( &_blobs, 0x100, &_blob_callback, &_allocator);
 
-   _classNameSubstitutions = _NSCreateMapTableWithAllocator( mulle_container_keycallback_copied_cstring,
+   _classNameSubstitutions = MulleObjCMapTableCreateWithAllocator( mulle_container_keycallback_copied_cstring,
                                                              mulle_container_valuecallback_copied_cstring,
                                                              16,
                                                              &_allocator);
-   _objectSubstitutions    = _NSCreateMapTableWithAllocator( _MulleObjCContainerRetainPointerCompareKeyCallback,
+   _objectSubstitutions    = MulleObjCMapTableCreateWithAllocator( _MulleObjCContainerRetainPointerCompareKeyCallback,
                                                              NSObjectMapValueCallBacks,
                                                              16,
                                                              &_allocator);
 
-   _offsets                = _NSCreateMapTableWithAllocator( NSNonOwnedPointerMapKeyCallBacks,
+   _offsets                = MulleObjCMapTableCreateWithAllocator( NSNonOwnedPointerMapKeyCallBacks,
                                                              mulle_container_valuecallback_intptr,
                                                              16,
                                                              &_allocator);
@@ -188,7 +188,7 @@ NSString  *NSInvalidArchiveOperationException = @"NSInvalidArchiveOperationExcep
                   format:@"could not archive object %p", rootObject];
 
    if( _copyTo)
-      [_copyTo replaceBytesInRange:NSMakeRange( 0, mulle_buffer_get_length( &_buffer))
+      [_copyTo replaceBytesInRange:NSRangeMake( 0, mulle_buffer_get_length( &_buffer))
                          withBytes:mulle_buffer_get_bytes( &_buffer)];
 }
 

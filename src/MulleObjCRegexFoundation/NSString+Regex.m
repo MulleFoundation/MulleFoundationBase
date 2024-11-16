@@ -384,7 +384,7 @@ static size_t    patternSizeWithOptions( NSString *pattern,
    size_t       size;
 
    range       = MulleObjCRangeValidateAgainstLength( range, [self length]);
-   resultRange = NSMakeRange( NSNotFound, 0);
+   resultRange = NSRangeMake( NSNotFound, 0);
    size        = patternSizeWithOptions( pattern, options);
 
    mulle_alloca_do( pattern_characters, unichar, size)
@@ -392,6 +392,7 @@ static size_t    patternSizeWithOptions( NSString *pattern,
       p = convertPatternWithOptions( pattern, pattern_characters, options);
 
       assert( (p - pattern_characters) <= size);
+      MULLE_C_UNUSED( p);
 
       //
       // This is maybe too big to alloca, and its variable sized, so init
@@ -420,7 +421,7 @@ static size_t    patternSizeWithOptions( NSString *pattern,
              break;
 
          if( result == 0)  // no match, keep what we've got
-            resultRange = NSMakeRange( 0, 0);
+            resultRange = NSRangeMake( 0, 0);
          else
          {
             resultRange = mulle_utf32regex_range_for_index( r, 0);
@@ -481,7 +482,7 @@ static size_t    patternSizeWithOptions( NSString *pattern,
       p = convertPatternWithOptions( pattern, pattern_characters, options);
 
       assert( (p - pattern_characters) <= size);
-
+      MULLE_C_UNUSED( p);
       //
       // This is maybe too big to alloca, and its variable sized, so init
       // is tough as well. So, can't get rid of this malloc easily
@@ -535,7 +536,7 @@ static size_t    patternSizeWithOptions( NSString *pattern,
             // figure out the length of the prefix and the suffix we want to
             // keep.
             //
-            MulleObjCRangeSubtract( NSMakeRange( 0, length), resultRange, affixRanges);
+            MulleObjCRangeSubtract( NSRangeMake( 0, length), resultRange, affixRanges);
 
             // figure out the length of the substitution
             rep_length = mulle_utf32regex_substitution_length( r, substitution_characters);

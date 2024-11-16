@@ -64,7 +64,7 @@
    type = [self objCType];
    NSGetSizeAndAlignment( type, &size, NULL);
 
-   mulle_flexbuffer_do( bytes, 128, size)
+   mulle_alloca_do( bytes, char, size)
    {
       [self getValue:bytes
                 size:size];
@@ -79,7 +79,7 @@
 
 
 
-- (NSString *) mulleDebugContentsDescription
+- (NSString *) mulleDebugContentsDescription      MULLE_OBJC_THREADSAFE_METHOD
 {
    struct mulle_buffer   buffer;
    char                  tmp[ 512];

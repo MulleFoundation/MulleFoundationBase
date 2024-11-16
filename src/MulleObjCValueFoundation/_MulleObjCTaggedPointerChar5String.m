@@ -37,6 +37,7 @@
 
 // other files in this library
 #import "NSString+Hash.h"
+#import "_MulleObjCValueTaggedPointer.h"
 #import "_MulleObjCTaggedPointerChar5String.h"
 //#import "NSMutableData.h"
 
@@ -52,11 +53,7 @@
 
 + (void) load
 {
-   if( MulleObjCTaggedPointerRegisterClassAtIndex( self, 0x1))
-   {
-      perror( "Need tag pointer aware runtime for _MulleObjCTaggedPointerChar5String with empty slot #1\n");
-      abort();
-   }
+   MulleObjCTaggedPointerRegisterClassAtIndex( self, MulleObjCChar5TPSIndex);
 }
 
 
@@ -175,7 +172,7 @@ static NSUInteger   grab_ascii_char5( _MulleObjCTaggedPointerChar5String *self,
    length = MulleObjCTaggedPointerChar5StringGetLength( self);
    if( length > maxLength)
       length = maxLength;
-   length = grab_ascii_char5_range( self, length, buf, NSMakeRange( 0, length));
+   length = grab_ascii_char5_range( self, length, buf, NSRangeMake( 0, length));
    return( length);
 }
 
@@ -307,7 +304,7 @@ static NSUInteger   grab_ascii_char5( _MulleObjCTaggedPointerChar5String *self,
 
    length  = MulleObjCTaggedPointerChar5StringGetLength( self);
    s       = MulleObjCCallocAutoreleased( length + 1, sizeof( char));
-   grab_ascii_char5_range( self, length, s, NSMakeRange( 0, length));
+   grab_ascii_char5_range( self, length, s, NSRangeMake( 0, length));
    // final byte already zero by calloc
    return( (char *) s);
 }

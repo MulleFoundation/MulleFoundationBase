@@ -37,6 +37,7 @@
 #import "NSString+ClassCluster.h"
 
 // other files in this library
+#import "_MulleObjCValueTaggedPointer.h"
 #import "_MulleObjCTaggedPointerChar5String.h"
 #import "_MulleObjCTaggedPointerChar7String.h"
 #import "_MulleObjCASCIIString.h"
@@ -194,7 +195,7 @@ static NSString  *
    struct mulle_data     data;
 
    assert( length);
-   mulle_buffer_init( &buffer, allocator);
+   mulle_buffer_init( &buffer, 0, allocator);
 
    // make intital alloc large enough for optimal case
    mulle_buffer_guarantee( &buffer, length * sizeof( mulle_utf16_t));
@@ -294,10 +295,18 @@ static NSString  *newStringWithUTF8Characters( char *buf,
       _NSThrowInvalidUTF8Exception( buf, len, &info);
 
 #ifdef __MULLE_OBJC_TPS__
-   if( info.is_ascii && info.utf8len <= mulle_char7_get_maxlength())
+   if( MulleObjCChar7TPSIndex <= mulle_objc_get_taggedpointer_mask()
+       && info.is_ascii
+       && info.utf8len <= mulle_char7_get_maxlength())
+   {
       return( MulleObjCTaggedPointerChar7StringWithASCIICharacters( (char *) info.start, info.utf8len));
-   if( info.is_char5 && info.utf8len <= mulle_char5_get_maxlength())
+   }
+   if( MulleObjCChar7TPSIndex <= mulle_objc_get_taggedpointer_mask()
+       && info.is_char5
+       && info.utf8len <= mulle_char5_get_maxlength())
+   {
       return( MulleObjCTaggedPointerChar5StringWithASCIICharacters( (char *) info.start, info.utf8len));
+   }
 #endif
 
    if( info.is_ascii)

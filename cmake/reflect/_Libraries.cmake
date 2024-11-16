@@ -12,31 +12,35 @@ if( MULLE_TRACE_INCLUDE)
 endif()
 
 #
-# Generated from sourcetree: 6DBDF29B-2C7A-4DBA-A20D-694887076058;math;no-all-load,no-build,no-cmake-inherit,no-delete,no-dependency,no-fs,no-import,no-platform-windows,no-update;m
+# Generated from sourcetree: 6DBDF29B-2C7A-4DBA-A20D-694887076058;math;no-all-load,no-build,no-cmake-inherit,no-delete,no-dependency,no-fs,no-import,no-platform-windows,no-require,no-update;m
 # Disable with : `mulle-sourcetree mark math `
 # Disable for this platform: `mulle-sourcetree mark math no-cmake-platform-${MULLE_UNAME}`
 # Disable for a sdk: `mulle-sourcetree mark math no-cmake-sdk-<name>`
 #
 if( NOT ${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-   if( NOT MATH_LIBRARY)
-      find_library( MATH_LIBRARY NAMES
-         m
-      )
-      message( STATUS "MATH_LIBRARY is ${MATH_LIBRARY}")
-      #
-      # The order looks ascending, but due to the way this file is read
-      # it ends up being descending, which is what we need.
-      #
-      if( MATH_LIBRARY)
+   if( COLLECT_OS_SPECIFIC_LIBRARIES_AS_NAMES)
+      list( APPEND OS_SPECIFIC_LIBRARIES "m")
+   else()
+      if( NOT MATH_LIBRARY)
+         find_library( MATH_LIBRARY NAMES
+            m
+         )
+         message( STATUS "MATH_LIBRARY is ${MATH_LIBRARY}")
          #
-         # Add MATH_LIBRARY to OS_SPECIFIC_LIBRARIES list.
-         # Disable with: `mulle-sourcetree mark math no-cmake-add`
+         # The order looks ascending, but due to the way this file is read
+         # it ends up being descending, which is what we need.
          #
-         list( APPEND OS_SPECIFIC_LIBRARIES ${MATH_LIBRARY})
-         # intentionally left blank
-      else()
-         # Disable with: `mulle-sourcetree mark math no-require-link`
-         message( FATAL_ERROR "MATH_LIBRARY was not found")
+         if( MATH_LIBRARY)
+            #
+            # Add MATH_LIBRARY to OS_SPECIFIC_LIBRARIES list.
+            # Disable with: `mulle-sourcetree mark math no-cmake-add`
+            #
+            list( APPEND OS_SPECIFIC_LIBRARIES ${MATH_LIBRARY})
+            # intentionally left blank
+         else()
+            # Enable with: `mulle-sourcetree mark math require`
+            message( STATUS "MATH_LIBRARY is missing but it is marked as \"no-require\"")
+         endif()
       endif()
    endif()
-   endif()
+endif()

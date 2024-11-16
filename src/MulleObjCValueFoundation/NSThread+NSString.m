@@ -18,13 +18,13 @@
 }
 
 
-- (NSString *) mulleDebugContentsDescription
+- (NSString *) mulleDebugContentsDescription      MULLE_OBJC_THREADSAFE_METHOD
 {
    return( nil);
 }
 
 
-- (NSString *) debugDescription
+- (NSString *) debugDescription                   MULLE_OBJC_THREADSAFE_METHOD
 {
    return( [NSString stringWithFormat:@"<%@ %p \"%s\">", [self class], self, [self mulleNameUTF8String]]);
 }

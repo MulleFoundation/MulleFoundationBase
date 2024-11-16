@@ -27,7 +27,8 @@
 // you must add the timer immediately to a runloop or UIApplication,
 // else you get skew.
 //
-// Candidate for a class-cluster!
+// Candidate for a class-cluster! Could be immutable, if it weren't for
+// -invalidate. Could make this ThreadSafe though...
 //
 @class NSTimer;
 @class NSInvocation;
@@ -40,7 +41,12 @@
 typedef void   NSTimerCallback_t( NSTimer *, id userInfo);
 
 
-@interface NSTimer : NSObject
+//
+// The timer is immutable and the invocation is private, but the target and
+// userinfo can change behind our backs. So the contents are not completely
+// immutable.
+//
+@interface NSTimer : NSObject < MulleObjCImmutableProtocols>
 {
    union
    {

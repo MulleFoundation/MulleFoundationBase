@@ -68,7 +68,7 @@
    callback.is_equal = (mulle_container_keycallback_is_equal_t *) blob_is_equal;
    callback.describe = blob_describe;
 
-   _scope = _NSCreateMapTableWithAllocator( callback,
+   _scope = MulleObjCMapTableCreateWithAllocator( callback,
                               NSIntegerMapValueCallBacks,
                               16, MulleObjCInstanceGetAllocator( self));
    return( [super initForReadingWithData:data]);

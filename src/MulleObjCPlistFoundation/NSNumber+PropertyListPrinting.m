@@ -43,6 +43,7 @@
 #import "import-private.h"
 
 // private classes of MulleObjCValueFoundation
+#import <MulleObjCValueFoundation/_MulleObjCValueTaggedPointer.h>
 #import <MulleObjCValueFoundation/_MulleObjCConcreteNumber.h>
 #import <MulleObjCValueFoundation/_MulleObjCTaggedPointerIntegerNumber.h>
 #import <MulleObjCValueFoundation/NSNumber-Private.h>

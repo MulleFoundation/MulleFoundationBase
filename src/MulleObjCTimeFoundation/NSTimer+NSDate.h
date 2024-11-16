@@ -11,8 +11,13 @@
  *  $Id$
  *
  */
-#import "NSTimer.h"
+#ifdef __has_include
+# if __has_include( "NSTimer.h")
+#  import "NSTimer.h"
+# endif
+#endif
 
+#import "import.h"
 
 @class NSDate;
 
@@ -35,7 +40,6 @@
                               selector:(SEL) selector
                               userInfo:(id) userInfo
                                repeats:(BOOL) repeats;
-
 
 
 - (instancetype) initWithFireDate:(NSDate *) date
@@ -65,7 +69,4 @@
 
 - (NSTimeInterval) timeInterval;  // this is the repeat interval!!!!
 
-
 @end
-
-

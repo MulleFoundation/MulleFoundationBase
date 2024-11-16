@@ -45,6 +45,7 @@ static void uuid4_generate(char *dst);
 #include "uuid4.c"
 
 
+
 @implementation NSUUID
 
 static struct
@@ -55,6 +56,8 @@ static struct
 
 + (void) load
 {
+   MULLE_C_UNUSED( uuid4_generate);
+
    mulle_thread_mutex_init( &Self._lock);
 }
 

@@ -45,7 +45,7 @@
 // this is a class cluster with one subclass here for the regular NSDate
 // and NSCalendarDate in a future library.
 //
-@interface NSDate : NSObject < MulleObjCClassCluster, NSDateFactory, NSCopying, MulleObjCValue>
+@interface NSDate : NSObject < MulleObjCClassCluster, NSDateFactory, NSCopying>
 {
 }
 
@@ -59,6 +59,11 @@
                             sinceDate:(NSDate *) refDate;
 - (instancetype) initWithTimeIntervalSince1970:(NSTimeInterval) seconds;
 
+//
+// MEMO: if other is nil, then this will return "same", though counterintuitive
+//       at first, this makes [date compare:nil] and [nil compare:date] return
+//       the same value. Gotta check how NSNumber and NSString think about this
+//
 - (NSComparisonResult) compare:(id) other;
 - (instancetype) dateByAddingTimeInterval:(NSTimeInterval) seconds;
 - (NSDate *) earlierDate:(NSDate *) other;

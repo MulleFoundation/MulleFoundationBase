@@ -35,7 +35,6 @@
 //
 #import "import.h"
 
-
 // other files in this library
 #import "NSString.h"
 #import "NSString+Sprintf.h"
@@ -47,13 +46,8 @@
 
 // std-c and dependencies
 #include <ctype.h>
+#import <MulleObjC/NSDebug.h>
 
-
-#ifdef MULLE_TEST
-BOOL   MulleDebugDescriptionEllideAddressOutput = YES;
-#else
-BOOL   MulleDebugDescriptionEllideAddressOutput = NO;
-#endif
 
 @implementation NSObject( NSString)
 
@@ -92,20 +86,36 @@ BOOL   MulleDebugDescriptionEllideAddressOutput = NO;
 }
 
 
-- (NSString *) mulleDebugContentsDescription
+//
+// This method should be marked as thread safe, it is assumed that ONLY
+// the debugger calls it and that therefore all other threads are stopped
+// 
+- (NSString *) mulleDebugContentsDescription      MULLE_OBJC_THREADSAFE_METHOD
 {
    return( nil);
 }
 
-
-- (NSString *) debugDescription
+//
+// This method should be marked as thread safe, it is assumed that ONLY
+// the debugger calls it and that therefore all other threads are stopped
+// 
+- (NSString *) debugDescription                   MULLE_OBJC_THREADSAFE_METHOD
 {
-   NSString     *contents;
-   NSUInteger   length;
+   NSString         *contents;
+   NSUInteger       length;
 
-   contents = [self mulleDebugContentsDescription];
-   length   = [contents length];
-   if( MulleDebugDescriptionEllideAddressOutput)
+   @try
+   {
+      contents = [self mulleDebugContentsDescription];
+      length   = [contents length];
+   }
+   @catch( id exception)
+   {
+      contents = @"";
+      length   = 0;
+   }
+
+   if( MulleObjCDebugElideAddressOutput)
    {
       if( ! length)
          return( [NSString stringWithFormat:@"<%@>", [self class]]);

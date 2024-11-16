@@ -5,7 +5,7 @@
  *
  *  version:  major, minor, patch
  */
-#define MULLE_OBJC_UUID_FOUNDATION_VERSION  ((0UL << 20) | (0 << 8) | 3)
+#define MULLE_OBJC_UUID_FOUNDATION_VERSION  ((0UL << 20) | (0 << 8) | 4)
 
 
 static inline unsigned int   MulleObjCUUIDFoundation_get_version_major( void)

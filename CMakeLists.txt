@@ -8,18 +8,18 @@
 #
 cmake_minimum_required( VERSION 3.13)
 
-project( MulleFoundationBase C)
+project( MulleFoundationBase VERSION 0.24.0 LANGUAGES C)
 
 
 set( MULLE_PROJECT_TYPE "Library")
-set( PROJECT_VERSION  0.23.0)
+set( PROJECT_VERSION  0.24.0)
 
 ### mulle-sde environment
 
 # add cmake module paths to search path
-list( INSERT CMAKE_MODULE_PATH 0 "${PROJECT_SOURCE_DIR}/cmake/share")
-list( INSERT CMAKE_MODULE_PATH 0 "${PROJECT_SOURCE_DIR}/cmake/reflect")
-list( INSERT CMAKE_MODULE_PATH 0 "${PROJECT_SOURCE_DIR}/cmake")
+list( INSERT CMAKE_MODULE_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/cmake/share")
+list( INSERT CMAKE_MODULE_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/cmake/reflect")
+list( INSERT CMAKE_MODULE_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 include( Environment)
 
@@ -136,6 +136,11 @@ elseif( "${MULLE_PROJECT_TYPE}" STREQUAL "Library")
    endif()
 
    include( InstallLibrary)
+
+   if( LINK_PHASE)
+      include( InstallCMakeInclude)
+      include( InstallCMakePackage)
+   endif()
 
 else()
 

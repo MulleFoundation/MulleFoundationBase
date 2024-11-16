@@ -41,7 +41,6 @@ Then edit `MulleFoundationBase.h` and add the envelope header to the others.
 | [MulleObjCArchiverFoundation](https://github.com/MulleFoundation/MulleObjCArchiverFoundation) | 🚪 NSCoding classes like NSArchiver/NSUnarchiver
 | [MulleObjCContainerFoundation](https://github.com/MulleFoundation/MulleObjCContainerFoundation) | 🛍 Container classes like NSArray, NSSet, NSDictionary
 | [MulleObjCKVCFoundation](https://github.com/MulleFoundation/MulleObjCKVCFoundation) | 🔑 Key-Value-Coding based on MulleObjCStandardFoundation
-| [MulleObjCLockFoundation](https://github.com/MulleFoundation/MulleObjCLockFoundation) | 🔐 MulleObjCLockFoundation provides locking support
 | [MulleObjCMathFoundation](https://github.com/MulleFoundation/MulleObjCMathFoundation) | 📈 NSNumber refines that use the math library
 | [MulleObjCPlistFoundation](https://github.com/MulleFoundation/MulleObjCPlistFoundation) | 🏢 PropertyList parsing and printing
 | [MulleObjCRegexFoundation](https://github.com/MulleFoundation/MulleObjCRegexFoundation) | 🫅 Search and replace with regular expressions
@@ -70,8 +69,6 @@ mulle-sde add github:MulleFoundation/MulleFoundationBase
 
 ## Install
 
-### Install with mulle-sde
-
 Use [mulle-sde](//github.com/mulle-sde) to build and install MulleFoundationBase and all dependencies:
 
 ``` sh
@@ -79,7 +76,7 @@ mulle-sde install --prefix /usr/local \
    https://github.com/MulleFoundation/MulleFoundationBase/archive/latest.tar.gz
 ```
 
-### Manual Installation
+### Legacy Installation
 
 Install the requirements:
 
