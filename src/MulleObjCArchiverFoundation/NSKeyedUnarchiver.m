@@ -130,7 +130,7 @@
       offset = mulle_buffer_get_seek( &_buffer);
       NSMapInsert( _scope, blob, (void *) offset);
 
-      mulle_buffer_set_seek( &_buffer, MULLE_BUFFER_SEEK_CUR, skip);
+      mulle_buffer_set_seek( &_buffer, skip, MULLE_BUFFER_SEEK_CUR);
    }
 
    return( [obj initWithCoder:self]);
@@ -150,11 +150,11 @@
                   format:@"unknown key \"%@\"", key];
 
    memo = mulle_buffer_get_seek( &_buffer);
-   mulle_buffer_set_seek( &_buffer, MULLE_BUFFER_SEEK_SET, offset);
+   mulle_buffer_set_seek( &_buffer, offset, MULLE_BUFFER_SEEK_SET);
 
    p = [self _decodeValueOfObjCType:type
                                  at:p];
-   mulle_buffer_set_seek( &_buffer, MULLE_BUFFER_SEEK_SET, memo);
+   mulle_buffer_set_seek( &_buffer, memo, MULLE_BUFFER_SEEK_SET);
    return( p);
 }
 
@@ -262,11 +262,11 @@
                   format:@"unknown key \"%@\"", key];
 
    memo = mulle_buffer_get_seek( &_buffer);
-   mulle_buffer_set_seek( &_buffer, MULLE_BUFFER_SEEK_SET, offset);
+   mulle_buffer_set_seek( &_buffer, offset, MULLE_BUFFER_SEEK_SET);
 
    blob = [self _nextBlob];
 
-   mulle_buffer_set_seek( &_buffer, MULLE_BUFFER_SEEK_SET, memo);
+   mulle_buffer_set_seek( &_buffer, memo, MULLE_BUFFER_SEEK_SET);
 
    // memory is owned by NSKeyedUnarchiver its OK
    if( ! blob)

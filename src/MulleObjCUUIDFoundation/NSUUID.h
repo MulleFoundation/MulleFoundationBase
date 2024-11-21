@@ -88,7 +88,7 @@ static inline unsigned int   MulleUUIDBytesGetVersion( unsigned char bytes[ Mull
 }
 
 
-static inline int   MulleUTF8StringGetUUIDVersion( unsigned char s[ MulleUUIDStringLength])
+static inline int   MulleUTF8StringGetUUIDVersion( char s[ MulleUUIDStringLength])
 {
    int   c;
 
@@ -99,7 +99,7 @@ static inline int   MulleUTF8StringGetUUIDVersion( unsigned char s[ MulleUUIDStr
 }
 
 
-static inline int   MulleUTF8StringGetUUIDVariant( unsigned char s[ MulleUUIDStringLength])
+static inline int   MulleUTF8StringGetUUIDVariant( char s[ MulleUUIDStringLength])
 {
    int   c;
 

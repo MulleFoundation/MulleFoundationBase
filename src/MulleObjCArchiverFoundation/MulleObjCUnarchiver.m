@@ -243,7 +243,7 @@ static int   check_header_8( struct mulle_buffer *buffer, char *expect)
    {
       offset = (size_t) NSMapGet( _offsets, obj_index);
 
-      if( ! offset || mulle_buffer_set_seek( &_buffer, MULLE_BUFFER_SEEK_SET, offset))
+      if( ! offset || mulle_buffer_set_seek( &_buffer, offset, MULLE_BUFFER_SEEK_SET))
          [NSException raise:NSInconsistentArchiveException
                      format:@"archive damaged"];
 
@@ -270,7 +270,7 @@ static int   check_header_8( struct mulle_buffer *buffer, char *expect)
    {
       offset = (size_t) NSMapGet( _offsets, obj_index);
 
-      if( ! offset || mulle_buffer_set_seek( &_buffer, MULLE_BUFFER_SEEK_SET, offset))
+      if( ! offset || mulle_buffer_set_seek( &_buffer, offset, MULLE_BUFFER_SEEK_SET))
          [NSException raise:NSInconsistentArchiveException
                      format:@"archive damaged"];
 
@@ -291,7 +291,7 @@ static int   check_header_8( struct mulle_buffer *buffer, char *expect)
    {
       offset = (size_t) NSMapGet( _offsets, obj_index);
 
-      if( ! offset || mulle_buffer_set_seek( &_buffer, MULLE_BUFFER_SEEK_SET, offset))
+      if( ! offset || mulle_buffer_set_seek( &_buffer, offset, MULLE_BUFFER_SEEK_SET))
          [NSException raise:NSInconsistentArchiveException
                      format:@"archive damaged"];
 
@@ -302,7 +302,7 @@ static int   check_header_8( struct mulle_buffer *buffer, char *expect)
    mulle_pointerarray_done( &_classcluster);
 
 
-   mulle_buffer_set_seek( &_buffer, MULLE_BUFFER_SEEK_SET, memo);
+   mulle_buffer_set_seek( &_buffer, memo, MULLE_BUFFER_SEEK_SET);
 }
 
 
@@ -400,7 +400,7 @@ static int   check_header_8( struct mulle_buffer *buffer, char *expect)
    [self _readHeader];
 
    // read table offsets at end
-   mulle_buffer_set_seek( &_buffer, MULLE_BUFFER_SEEK_END, sizeof( long long) * 5 + 8);
+   mulle_buffer_set_seek( &_buffer, sizeof( long long) * 5 + 8, MULLE_BUFFER_SEEK_END);
 
    if( ! check_header_8( &_buffer, "**off**"))
       return( NO);
@@ -418,23 +418,23 @@ static int   check_header_8( struct mulle_buffer *buffer, char *expect)
    if( startBlob < startSelector)
       return( NO);
 
-   mulle_buffer_set_seek( &_buffer, MULLE_BUFFER_SEEK_SET, startBlob);
+   mulle_buffer_set_seek( &_buffer, startBlob, MULLE_BUFFER_SEEK_SET);
    if( ! [self _nextBlobTable])
       return( NO);
 
-   mulle_buffer_set_seek( &_buffer, MULLE_BUFFER_SEEK_SET, startSelector);
+   mulle_buffer_set_seek( &_buffer, startSelector, MULLE_BUFFER_SEEK_SET);
    if( ! [self _nextSelectorTable])
       return( NO);
 
-   mulle_buffer_set_seek( &_buffer, MULLE_BUFFER_SEEK_SET, startClass);
+   mulle_buffer_set_seek( &_buffer, startClass, MULLE_BUFFER_SEEK_SET);
    if( ! [self _nextClassTable])
       return( NO);
 
-   mulle_buffer_set_seek( &_buffer, MULLE_BUFFER_SEEK_SET, startObject);
+   mulle_buffer_set_seek( &_buffer, startObject, MULLE_BUFFER_SEEK_SET);
    if( ! [self _nextObjectTable])
       return( NO);
 
-   mulle_buffer_set_seek( &_buffer, MULLE_BUFFER_SEEK_SET, startData);
+   mulle_buffer_set_seek( &_buffer, startData, MULLE_BUFFER_SEEK_SET);
    return( check_header_8( &_buffer, "**dta**"));
 }
 
