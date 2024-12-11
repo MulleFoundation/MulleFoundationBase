@@ -1,3 +1,8 @@
+## 0.25.0
+
+* incorporate changes from subprojects
+
+
 ## 0.24.0
 
 
