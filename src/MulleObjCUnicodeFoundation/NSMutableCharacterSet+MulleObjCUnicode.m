@@ -50,7 +50,13 @@ MULLE_OBJC_DEPENDS_ON_LIBRARY( MulleObjCStandardFoundation);
 
 static id   construct( SEL _cmd)
 {
-   return( [[[NSCharacterSet performSelector:_cmd] mutableCopy] autorelease]);
+   NSMutableCharacterSet   *set;
+   NSCharacterSet          *other;
+
+   other = [NSCharacterSet performSelector:_cmd];
+   set   = [NSMutableCharacterSet object];
+   [set formUnionWithCharacterSet:other];
+   return( set);
 }
 
 

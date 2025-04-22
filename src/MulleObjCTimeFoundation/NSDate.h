@@ -45,7 +45,7 @@
 // this is a class cluster with one subclass here for the regular NSDate
 // and NSCalendarDate in a future library.
 //
-@interface NSDate : NSObject < MulleObjCClassCluster, NSDateFactory, NSCopying>
+@interface NSDate : NSObject < MulleObjCClassCluster, NSDateFactory, MulleObjCImmutable>
 {
 }
 
