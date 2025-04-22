@@ -95,6 +95,7 @@
       { @selector( NSMutableString), MULLE_OBJC_NO_CATEGORYID },      // 63662493;NSMutableString;;
       { @selector( NSNotification), MULLE_OBJC_NO_CATEGORYID },      // 4cf6fadb;NSNotification;;
       { @selector( NSNotificationCenter), MULLE_OBJC_NO_CATEGORYID },      // 1c4865c0;NSNotificationCenter;;
+      { @selector( NSNull), @selector( NSString) },      // f0c42d79;NSNull;1994a171;NSString
       { @selector( NSNull), @selector( PropertyListPrinting) },      // f0c42d79;NSNull;91aeee11;PropertyListPrinting
       { @selector( NSNumber), @selector( Math) },      // 8ba34f39;NSNumber;569c3af5;Math
       { @selector( NSNumber), @selector( MulleObjCKVCArithmetic) },      // 8ba34f39;NSNumber;51efafe9;MulleObjCKVCArithmetic

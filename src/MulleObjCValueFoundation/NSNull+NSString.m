@@ -1,9 +1,8 @@
 //
-//  _MulleObjCDateSubclasses.m
+//  NSValue+NSString.m
 //  MulleObjCValueFoundation
 //
-//  Copyright (c) 2021 Nat! - Mulle kybernetiK.
-//  Copyright (c) 2021 Codeon GmbH.
+//  Copyright (c) 2025 Nat! - Mulle kybernetiK.
 //  All rights reserved.
 //
 //
@@ -33,44 +32,23 @@
 //  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 //  POSSIBILITY OF SUCH DAMAGE.
 //
-#import "_MulleObjCDateSubclasses.h"
 
+#import "NSString.h"
+
+// other files in this library
+// std-c dependencies
 #import "import-private.h"
 
 
+@implementation NSNull( NSString)
 
-@implementation _MulleObjCConcreteDate
-
-+ (instancetype) newWithTimeIntervalSinceReferenceDate:(NSTimeInterval) interval
+//
+// bounce to -UTF8String because there where its defined
+//
+- (NSString *) description
 {
-   _MulleObjCConcreteDate   *obj;
-
-   obj = NSAllocateObject( self, 0, NULL);
-   obj->_interval = interval;
-   return( obj);
+    return( [NSString stringWithUTF8String:[self UTF8String]]);
 }
-
-
-- (NSTimeInterval) timeIntervalSinceReferenceDate
-{
-   return( _interval);
-}
-
 
 @end
 
-#ifdef __APPLE__
-char    MulleObjCTimeFoundationUnusedAppleGlobal;
-#endif
-
-
-// @implementation _MulleObjCConcreteDate( NSCoder)
-//
-// - (void) encodeWithCoder:(NSCoder *) coder
-// {
-//    [coder encodeValueOfObjCType:@encode( NSTimeInterval)
-//                              at:&_interval];
-// }
-//
-// @end
-//
