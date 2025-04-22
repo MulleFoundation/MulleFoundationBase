@@ -223,10 +223,4 @@
    return( [self isEqualToDate:other]);
 }
 
-
-- (id) copy
-{
-   return( [self retain]);
-}
-
 @end

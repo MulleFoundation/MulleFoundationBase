@@ -69,8 +69,8 @@
    callback.describe = blob_describe;
 
    _scope = MulleObjCMapTableCreateWithAllocator( callback,
-                              NSIntegerMapValueCallBacks,
-                              16, MulleObjCInstanceGetAllocator( self));
+                                                  NSIntegerMapValueCallBacks,
+                                                  16, MulleObjCInstanceGetAllocator( self));
    return( [super initForReadingWithData:data]);
 }
 
