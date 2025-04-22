@@ -62,3 +62,5 @@ wilted/
 mulle-template-composer-*
 mulle-markdown-preview-*.html
 cola/wilted/
+.mulle/etc/make/build-dir
+vgcore.*

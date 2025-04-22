@@ -76,8 +76,8 @@
          description="🫅 Search and replace with regular expressions";
          domain="clib";
          name="src/MulleObjCRegexFoundation";
-         repo="MulleObjCRegexFoundation";
-         url="https://github.com/MulleFoundation/MulleObjCRegexFoundation";
+         repo="MulleObjCRegexFoundation@*";
+         url="https://github.com/MulleFoundation/MulleObjCRegexFoundation@*";
          user="MulleFoundation";
       },
       {

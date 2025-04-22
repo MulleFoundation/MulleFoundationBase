@@ -59,6 +59,9 @@
 
 @end
 
+#ifdef __APPLE__
+char    MulleObjCTimeFoundationUnusedAppleGlobal;
+#endif
 
 
 // @implementation _MulleObjCConcreteDate( NSCoder)

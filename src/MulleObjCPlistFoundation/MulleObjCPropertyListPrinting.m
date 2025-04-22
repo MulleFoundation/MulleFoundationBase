@@ -97,8 +97,8 @@ PROTOCOLCLASS_IMPLEMENTATION( MulleObjCPropertyListPrinting)
    MulleObjCPrintPlistContextInit( &ctxt, handle);
    ctxt.dateFormatter = [[[NSDateFormatter alloc] initWithDateFormat:MulleDateFormatISOWithMilliseconds
                                                 allowNaturalLanguage:NO] autorelease];
-   ctxt.allowsNull          = YES;
-   ctxt.printsBool          = YES;
+   ctxt.allowsNull    = YES;
+   ctxt.printsBool    = YES;
 
    [self mullePrintPlist:&ctxt];
 }

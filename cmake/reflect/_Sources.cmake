@@ -193,6 +193,7 @@ src/MulleObjCValueFoundation/NSMutableData+Unicode.m
 src/MulleObjCValueFoundation/NSMutableData.m
 src/MulleObjCValueFoundation/NSMutableString+NSData.m
 src/MulleObjCValueFoundation/NSMutableString.m
+src/MulleObjCValueFoundation/NSNull+NSString.m
 src/MulleObjCValueFoundation/NSNumber+NSCoder.m
 src/MulleObjCValueFoundation/NSNumber+NSString.m
 src/MulleObjCValueFoundation/NSNumber.m
