@@ -1,3 +1,8 @@
+## 0.26.0
+
+Various small improvements
+
+
 ## 0.25.0
 
 * incorporate changes from subprojects
