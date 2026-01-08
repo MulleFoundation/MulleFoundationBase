@@ -84,6 +84,7 @@ static inline int   double_is_long_long( double value)
 // double, then it will become a FP NSNumber not an int NSNumber, no
 // problem you say, well in terms of comparison it could get bad, so
 // it's probably best to just not do long double on cosmopolitan
+#ifdef _C_LNG_DBL
 static inline int   long_double_is_long_long( long double value)
 {
 #ifdef __MULLE_COSMOPOLITAN__
@@ -100,6 +101,7 @@ static inline int   long_double_is_long_long( long double value)
    return( d_val == value);
 #endif   
 }
+#endif
 
 
 static inline id   initWithDouble( NSNumber *self, double value)
@@ -118,6 +120,7 @@ static inline id   initWithDouble( NSNumber *self, double value)
 }
 
 
+#ifdef _C_LNG_DBL
 static inline id   initWithLongDouble( NSNumber *self, long double value)
 {
    struct _mulle_objc_universefoundationinfo   *config;
@@ -135,7 +138,7 @@ static inline id   initWithLongDouble( NSNumber *self, long double value)
    
    return( self);
 }
-
+#endif
 
 - (instancetype) initWithFloat:(float) value
 {
@@ -149,6 +152,7 @@ static inline id   initWithLongDouble( NSNumber *self, long double value)
 }
 
 
+#ifdef _C_LNG_DBL
 - (instancetype) initWithLongDouble:(long double) value
 {
 #ifdef __MULLE_COSMOPOLITAN__
@@ -157,7 +161,7 @@ static inline id   initWithLongDouble( NSNumber *self, long double value)
    return( initWithLongDouble( self, value));
 
 }
-
+#endif
 
 @end
 

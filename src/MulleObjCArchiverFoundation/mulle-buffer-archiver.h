@@ -93,7 +93,7 @@ static inline double   mulle_buffer_next_double( struct mulle_buffer *buffer)
    return( NSSwapBigDoubleToHost( swap));
 }
 
-
+#ifdef _C_LNG_DBL
 static inline long double
    mulle_buffer_next_long_double( struct mulle_buffer *buffer)
 {
@@ -102,6 +102,7 @@ static inline long double
    mulle_buffer_next_bytes( buffer, &swap, sizeof( swap));
    return( NSSwapBigLongDoubleToHost( swap));
 }
+#endif
 
 
 # pragma mark - mulle_buffer extended writing
@@ -287,6 +288,7 @@ static inline void   mulle_buffer_add_double( struct mulle_buffer *buffer, doubl
 }
 
 
+#ifdef _C_LNG_DBL
 static inline void   mulle_buffer_add_long_double( struct mulle_buffer *buffer,
                                                    long double v)
 {
@@ -295,3 +297,4 @@ static inline void   mulle_buffer_add_long_double( struct mulle_buffer *buffer,
    swap = NSSwapHostLongDoubleToBig( v);
    mulle_buffer_add_bytes( buffer, &swap, sizeof( swap));
 }
+#endif

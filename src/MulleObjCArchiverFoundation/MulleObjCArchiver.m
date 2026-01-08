@@ -413,9 +413,10 @@ NSString  *NSInvalidArchiveOperationException = @"NSInvalidArchiveOperationExcep
                       return( (float *) p + 1);
    case _C_DBL      : mulle_buffer_add_double( &_buffer, *(double *) p);
                       return( (double *) p + 1);
+#ifdef _C_LNG_DBL
    case _C_LNG_DBL  : mulle_buffer_add_long_double( &_buffer, *(long double *) p);
                       return( (long double *) p + 1);
-
+#endif
    case _C_CHARPTR  : [self _appendUTF8String:*(char **) p];
                       return( (char *) p + 1);
    case _C_COPY_ID  :

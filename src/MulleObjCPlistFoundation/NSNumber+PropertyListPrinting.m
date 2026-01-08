@@ -137,7 +137,8 @@ void   MullePlistPrintNumberToStream( NSNumber *self, id <MulleObjCOutputStream>
 @end
 
 
-
+// this problem has been solved with mulle_dtostr
+#if 0
 //
 // The core problem here is, that a double has no 1:1 representation with
 // many numbers like f.e. 0.8, the double value is really 0.80000000000000004.
@@ -167,7 +168,9 @@ void   MullePListPrintFPNumberToStream( NSNumber *self,
                                         id <MulleObjCOutputStream> handle)
 {
    char          *type;
+#ifdef _C_LNG_DBL
    long double   lv1, lv2;
+#endif
    double        v1, v2;
    char          buf[ 32];
    int           len;
@@ -195,6 +198,7 @@ void   MullePListPrintFPNumberToStream( NSNumber *self,
          len = sprintf( buf, "%0.17g", v1);
       break;
 
+#ifdef _C_LNG_DBL
    case _C_LNG_DBL :
       lv1 = [self longDoubleValue];
       len = sprintf( buf, "%0.20Lg", lv1);
@@ -202,6 +206,7 @@ void   MullePListPrintFPNumberToStream( NSNumber *self,
       if( lv1 != lv2)
         len = sprintf( buf, "%0.21Lg", lv1);
       break;
+#endif
    }
    [handle mulleWriteBytes:buf
                     length:len];
@@ -237,3 +242,4 @@ void   MullePListPrintFPNumberToStream( NSNumber *self,
 
 @end
 
+#endif

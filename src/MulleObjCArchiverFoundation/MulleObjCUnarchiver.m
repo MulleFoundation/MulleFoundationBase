@@ -675,9 +675,10 @@ static int   check_header_8( struct mulle_buffer *buffer, char *expect)
    case _C_DBL      : *(double *) p = (double) mulle_buffer_next_double( &_buffer);
                       return( (double *) p + 1);
 
+#ifdef _C_LNG_DBL
    case _C_LNG_DBL  : *(long double *) p = (long double) mulle_buffer_next_long_double( &_buffer);
                       return( (long double *) p + 1);
-
+#endif
    case _C_CHARPTR  : //assert( ! *(char **) p);  // leak protection
                       *(char **) p = MulleObjCInstanceDuplicateUTF8String( self, [self _nextUTF8String]); /* BUG! #1# */
                       return( (char *) p + 1);
