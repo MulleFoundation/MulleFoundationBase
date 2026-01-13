@@ -38,7 +38,7 @@
 #import "NSString+Regex.h"
 
 
-#define MULLE_OBJC_REGEX_FOUNDATION_VERSION   ((0UL << 20) | (20 << 8) | 7)
+#define MULLE_OBJC_REGEX_FOUNDATION_VERSION   ((0UL << 20) | (20 << 8) | 8)
 
 #import "import.h"
 

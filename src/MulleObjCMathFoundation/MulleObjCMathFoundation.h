@@ -10,7 +10,7 @@
  *
  *  version:  major, minor, patch
  */
-#define MULLE_OBJC_MATH_FOUNDATION_VERSION  ((0UL << 20) | (20 << 8) | 7)
+#define MULLE_OBJC_MATH_FOUNDATION_VERSION  ((0UL << 20) | (20 << 8) | 8)
 
 
 static inline unsigned int   MulleObjCMathFoundation_get_version_major( void)

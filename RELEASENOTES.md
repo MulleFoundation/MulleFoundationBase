@@ -1,3 +1,13 @@
+## 0.27.0
+
+feature: reorganize foundation constituents and add regex support
+
+* MulleObjCRegexFoundation added with NSString regex search and replace
+* new tagged pointer optimizations for NSNumber float and double values
+* MulleObjCContainer helper class for array operations
+* **BREAKING** NSLock, NSCondition, and related classes moved from MulleObjCLockFoundation to MulleObjCTimeFoundation
+
+
 ## 0.26.0
 
 Various small improvements
