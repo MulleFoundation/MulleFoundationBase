@@ -50,7 +50,7 @@
 
 - (BOOL) lockBeforeDate:(NSDate *) limit
 {
-   return( [self lockBeforeTimeInterval:[limit timeIntervalSinceReferenceDate]]);
+   return( [self lockBeforeTimeInterval:[limit timeIntervalSince1970]]);
 }
 
 @end

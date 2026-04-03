@@ -44,8 +44,12 @@
 //
 // ugliness... make this thread local at the very least
 //
+MULLE_OBJC_PLIST_FOUNDATION_GLOBAL_VAR
 BOOL   _MulleObjCPropertyListSortedDictionary;
+
+MULLE_OBJC_PLIST_FOUNDATION_GLOBAL_VAR
 BOOL   _MulleObjCJSONSortedDictionary;
+
 
 @interface NSObject( _NS)
 

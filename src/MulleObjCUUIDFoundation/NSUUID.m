@@ -215,7 +215,7 @@ fail:
 {
    if( (bytes[ 6] & 0xF0) || (bytes[ 8] & 0xC0))
    {
-      fprintf( stderr, "UUID bytes contain bits in non-representable positions\n");
+      mulle_fprintf( stderr, "UUID bytes contain bits in non-representable positions\n");
       [self release];
       return( nil);
    }

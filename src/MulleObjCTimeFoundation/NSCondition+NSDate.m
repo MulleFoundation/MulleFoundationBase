@@ -33,8 +33,6 @@
 //  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 //  POSSIBILITY OF SUCH DAMAGE.
 //
-#define _GNU_SOURCE
-
 #import "NSCondition+NSDate.h"
 
 #import "import-private.h"
@@ -55,20 +53,8 @@
 }
 
 
-#ifndef  _WIN32
-static void  rval_perror_abort( char *s, int rval)
-{
-   errno = rval;
-   perror( s);
-   abort();
-}
-#endif
-
-
-
 - (BOOL) mulleWaitUntilTimeInterval:(NSTimeInterval) interval
 {
-#ifndef  _WIN32
    struct timespec   wait_time;
    NSTimeInterval    secondsSince1970;
    int               rval;
@@ -87,31 +73,38 @@ static void  rval_perror_abort( char *s, int rval)
    wait_time.tv_sec  = (long) secondsSince1970;
    wait_time.tv_nsec = (long) ((secondsSince1970 - wait_time.tv_sec) * (double) (1000.0*1000*1000));
    _mulleIsLocked    = NO;
-   rval              = pthread_cond_timedwait( &self->_condition,
-                                               &self->_lock,
-                                               &wait_time);
+   rval              = mulle_thread_cond_timedwait( &self->_condition,
+                                                    &self->_lock,
+                                                    &wait_time);
    if( rval == ETIMEDOUT)
    {
-      // surprisingly, we have to do this... pthread is so strange
-      rval = pthread_mutex_unlock( &self->_lock);
-      assert( ! rval);
+      mulle_thread_mutex_unlock( &self->_lock);
       return( NO);
    }
-   if( rval)
-      rval_perror_abort( "pthread_cond_timedwait", rval);
-#endif
 
-   _mulleIsLocked = YES;
+   _mulleIsLocked    = YES;
    return( YES);
 }
 
 
 - (BOOL) mulleWaitWithTimeout:(mulle_relativetime_t) seconds
 {
-   NSTimeInterval   interval;
+   mulle_absolutetime_t    start;
+   mulle_relativetime_t    elapsed;
+   BOOL                    flag;
 
-   interval = _NSTimeIntervalNow() + seconds;
-   return( [self mulleWaitUntilTimeInterval:interval]);
+   // so absolute time is different then calendar time, and we guarantee
+   // here on absolute time so need to be sure
+   start = mulle_absolutetime_now();
+retry:
+   flag = [self mulleWaitUntilTimeInterval:_NSTimeIntervalNow() + seconds];
+   if( ! flag && ! isinf( seconds))
+   {
+      elapsed = mulle_absolutetime_now() - start;
+      if( elapsed < seconds)
+         goto retry;
+   }
+   return( flag);
 }
 
 @end

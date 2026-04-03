@@ -48,6 +48,7 @@
 
 @implementation _MulleObjCEmptySet
 
+MULLE_OBJC_CONTAINER_FOUNDATION_GLOBAL_VAR
 Class  _MulleObjCEmptySetClass;
 
 + (void) load
@@ -70,20 +71,20 @@ Class  _MulleObjCEmptySetClass;
 
 - (BOOL) containsObject:(id) obj
 {
+   MULLE_C_UNUSED( obj);
    return( NO);
 }
 
 
 - (id) member:(id) obj
 {
+   MULLE_C_UNUSED( obj);
    return( nil);
 }
 
 
-- (id) :(id) obj
-{
-   return( nil);
-}
+@method_implementation -: = -member:;
+
 
 
 - (NSEnumerator *) objectEnumerator
@@ -96,6 +97,9 @@ Class  _MulleObjCEmptySetClass;
                                    objects:(id *) buffer
                                      count:(NSUInteger) len;
 {
+   MULLE_C_UNUSED( rover);
+   MULLE_C_UNUSED( buffer);
+   MULLE_C_UNUSED( len);
    return( 0);
 }
 

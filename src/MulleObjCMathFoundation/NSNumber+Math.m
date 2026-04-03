@@ -41,6 +41,9 @@
 #import <MulleObjC/mulle-objc-exceptionhandlertable-private.h>
 #import <MulleObjC/mulle-objc-universeconfiguration-private.h>
 
+#include <math.h>
+#include <limits.h>
+
 
 #pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
 //
@@ -66,6 +69,18 @@
 
 static inline int   double_is_long_long( double value)
 {
+#if defined( _WIN32)
+   double   v;  // new code from ChatGPT...
+
+   if( ! isfinite( value))
+      return( 0);
+
+   if( value < (double) LLONG_MIN || value > (double) LLONG_MAX)
+      return( 0);
+
+   v = round( value);
+   return( v == value);
+#else
    long long   l_val;
    double      d_val;
 
@@ -75,6 +90,7 @@ static inline int   double_is_long_long( double value)
    if( fetestexcept( FE_INVALID))
       return( 0);
    return( d_val == value);
+#endif
 }
 
 
@@ -82,13 +98,21 @@ static inline int   double_is_long_long( double value)
 // for double, OK what does that mean ? If you initialize with a long 
 // double that matches long long integer value, which does not fit into
 // double, then it will become a FP NSNumber not an int NSNumber, no
-// problem you say, well in terms of comparison it could get bad, so
-// it's probably best to just not do long double on cosmopolitan
+// problem you say, well in terms of comparison it could get bad
 #ifdef _C_LNG_DBL
 static inline int   long_double_is_long_long( long double value)
 {
-#ifdef __MULLE_COSMOPOLITAN__
-   return( double_is_long_long( value));
+#if defined( __MULLE_COSMOPOLITAN__) || defined( _WIN32)
+   long double   v;  // new code from ChatGPT...
+
+   if( ! isfinite( value))
+      return( 0);
+
+   if( value < (long double) LLONG_MIN || value > (long double) LLONG_MAX)
+      return( 0);
+
+   v = round( value);
+   return( v == value);
 #else   
    long long     ll_val;
    long double   d_val;

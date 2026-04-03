@@ -13,7 +13,7 @@
 #define _mulle_objc_time_foundation__export_h__
 
 
-#import "MulleObjCLoader+MulleObjCTimeFoundation.h"
+#import "MulleObjCDeps+MulleObjCTimeFoundation.h"
 #import "NSConditionLock+NSDate.h"
 #import "NSCondition+NSDate.h"
 #import "NSDateFactory.h"

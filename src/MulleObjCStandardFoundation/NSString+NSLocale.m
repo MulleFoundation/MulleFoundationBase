@@ -51,6 +51,7 @@
    mulle_vararg_list   args;
 
    // [locale set]
+   MULLE_C_UNUSED( locale);
    mulle_vararg_start( args, locale);
    self = [self initWithFormat:format
                mulleVarargList:args];

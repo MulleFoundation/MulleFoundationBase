@@ -12,6 +12,8 @@ endif()
 #
 set( SOURCES
 src/MulleObjCArchiverFoundation/MulleObjCArchiver.m
+src/MulleObjCArchiverFoundation/MulleObjCStreamArchiver.m
+src/MulleObjCArchiverFoundation/MulleObjCStreamUnarchiver.m
 src/MulleObjCArchiverFoundation/MulleObjCUnarchiver.m
 src/MulleObjCArchiverFoundation/NSArchiver+OSBase.m
 src/MulleObjCArchiverFoundation/NSArchiver.m
@@ -217,18 +219,18 @@ src/MulleObjCValueFoundation/NSValue.m
 # contents selected with patternfile ??-source--stage2-sources
 #
 set( STAGE2_SOURCES
-src/MulleObjCArchiverFoundation/MulleObjCLoader+MulleObjCArchiverFoundation.m
-src/MulleObjCContainerFoundation/MulleObjCLoader+MulleObjCContainerFoundation.m
-src/MulleObjCKVCFoundation/MulleObjCLoader+MulleObjCKVCFoundation.m
-src/MulleObjCMathFoundation/MulleObjCLoader+MulleObjCMathFoundation.m
-src/MulleObjCPlistFoundation/MulleObjCLoader+MulleObjCPlistFoundation.m
-src/MulleObjCRegexFoundation/MulleObjCLoader+MulleObjCRegexFoundation.m
-src/MulleObjCStandardFoundation/MulleObjCLoader+MulleObjCStandardFoundation.m
-src/MulleObjCTimeFoundation/MulleObjCLoader+MulleObjCTimeFoundation.m
-src/MulleObjCUUIDFoundation/MulleObjCLoader+MulleObjCUUIDFoundation.m
-src/MulleObjCUnicodeFoundation/MulleObjCLoader+MulleObjCUnicodeFoundation.m
-src/MulleObjCValueFoundation/MulleObjCLoader+MulleObjCValueFoundation.m
-src/generic/MulleObjCLoader+MulleFoundationBase.m
+src/MulleObjCArchiverFoundation/MulleObjCDeps+MulleObjCArchiverFoundation.m
+src/MulleObjCContainerFoundation/MulleObjCDeps+MulleObjCContainerFoundation.m
+src/MulleObjCKVCFoundation/MulleObjCDeps+MulleObjCKVCFoundation.m
+src/MulleObjCMathFoundation/MulleObjCDeps+MulleObjCMathFoundation.m
+src/MulleObjCPlistFoundation/MulleObjCDeps+MulleObjCPlistFoundation.m
+src/MulleObjCRegexFoundation/MulleObjCDeps+MulleObjCRegexFoundation.m
+src/MulleObjCStandardFoundation/MulleObjCDeps+MulleObjCStandardFoundation.m
+src/MulleObjCTimeFoundation/MulleObjCDeps+MulleObjCTimeFoundation.m
+src/MulleObjCUUIDFoundation/MulleObjCDeps+MulleObjCUUIDFoundation.m
+src/MulleObjCUnicodeFoundation/MulleObjCDeps+MulleObjCUnicodeFoundation.m
+src/MulleObjCValueFoundation/MulleObjCDeps+MulleObjCValueFoundation.m
+src/generic/MulleObjCDeps+MulleFoundationBase.m
 )
 
 #

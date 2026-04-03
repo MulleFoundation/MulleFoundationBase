@@ -140,3 +140,10 @@ static inline void
                       (id) length);
 }
 
+
+// two uglies, that may vanish
+MULLE_OBJC_PLIST_FOUNDATION_GLOBAL
+BOOL   _MulleObjCPropertyListSortedDictionary;
+
+MULLE_OBJC_PLIST_FOUNDATION_GLOBAL
+BOOL   _MulleObjCJSONSortedDictionary;

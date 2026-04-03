@@ -194,6 +194,7 @@ static struct
                           options:(NSPropertyListWriteOptions) options
                             error:(NSError **) p_error
 {
+   MULLE_C_UNUSED( options );
    NSString   *errorDescription;
    NSData     *data;
 
@@ -234,6 +235,7 @@ static struct
             mutabilityOption:(NSPropertyListMutabilityOptions) opt
                       format:(NSPropertyListFormat) format
 {
+   MULLE_C_UNUSED( opt );
    int   i;
    id    plist;
    id    parser;
@@ -243,7 +245,7 @@ static struct
    i = Self._n_parsor;
    while( --i >= 0)
    {
-      // fprintf( stderr, "%ld vs %ld\n", Self._parsor[ i].format, format);
+      // mulle_fprintf( stderr, "%ld vs %ld\n", Self._parsor[ i].format, format);
       if( Self._parsor[ i].format != format)
          continue;
 

@@ -13,7 +13,7 @@
 #define _mulle_objc_unicode_foundation__export_h__
 
 
-#import "MulleObjCLoader+MulleObjCUnicodeFoundation.h"
+#import "MulleObjCDeps+MulleObjCUnicodeFoundation.h"
 #import "NSCharacterSet+MulleObjCUnicode.h"
 #import "NSMutableCharacterSet+MulleObjCUnicode.h"
 #import "NSString+MulleObjCUnicode.h"

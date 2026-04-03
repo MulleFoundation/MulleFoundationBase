@@ -158,7 +158,7 @@
 //- (void) setFireDate:(NSDate *) date
 //{
 //#ifdef DEBUG
-//   fprintf( stderr, "Not possible in mulle-objc\n");
+//   mulle_fprintf( stderr, "Not possible in mulle-objc\n");
 //   abort();
 //#endif
 //}

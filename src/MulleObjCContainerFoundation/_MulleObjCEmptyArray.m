@@ -44,6 +44,7 @@
 
 @implementation _MulleObjCEmptyArray
 
+MULLE_OBJC_CONTAINER_FOUNDATION_GLOBAL_VAR
 Class  _MulleObjCEmptyArrayClass;
 
 + (void) load
@@ -72,15 +73,8 @@ Class  _MulleObjCEmptyArrayClass;
 - (void) getObjects:(id *) buf
               range:(NSRange) range
 {
+   MULLE_C_UNUSED( buf);
    MulleObjCValidateRangeAgainstLength( range, 0);
-}
-
-
-// need @alias for this
-- (id) :(NSUInteger) i
-{
-   MulleObjCThrowInvalidIndexException( i);
-   return( nil);
 }
 
 
@@ -90,13 +84,18 @@ Class  _MulleObjCEmptyArrayClass;
    return( nil);
 }
 
+@method_implementation -: = -objectAtIndex:;
+
+
 - (void) decodeWithCoder:(NSCoder *) coder
 {
+   MULLE_C_UNUSED( coder);
 }
 
 
 - (NSArray *) sortedArrayUsingSelector:(SEL) comparator
 {
+   MULLE_C_UNUSED( comparator);
    return( self);
 }
 
@@ -104,6 +103,8 @@ Class  _MulleObjCEmptyArrayClass;
 - (NSArray *) sortedArrayUsingFunction:(NSComparisonResult (*)(id, id, void *)) f
                                context:(void *) context
 {
+   MULLE_C_UNUSED( f);
+   MULLE_C_UNUSED( context);
    return( self);
 }
 
@@ -112,6 +113,9 @@ Class  _MulleObjCEmptyArrayClass;
                                    objects:(id *) stackbuf
                                      count:(NSUInteger) len
 {
+   MULLE_C_UNUSED( state);
+   MULLE_C_UNUSED( stackbuf);
+   MULLE_C_UNUSED( len);
    return( 0);
 }
 
