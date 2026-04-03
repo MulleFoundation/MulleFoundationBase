@@ -17,16 +17,6 @@
  */
 
 #import "_MulleObjCPlistFoundation-import.h"
-#ifdef MULLE_OBJC_PLIST_FOUNDATION_BUILD
-# define MULLE_OBJC_PLIST_FOUNDATION_GLOBAL    MULLE_C_GLOBAL
-#else
-# if defined( MULLE_OBJC_PLIST_FOUNDATION_INCLUDE_DYNAMIC) || (defined( MULLE_INCLUDE_DYNAMIC) && ! defined( MULLE_OBJC_PLIST_FOUNDATION_INCLUDE_STATIC))
-#  define MULLE_OBJC_PLIST_FOUNDATION_GLOBAL   MULLE_C_EXTERN_GLOBAL
-# else
-#  define MULLE_OBJC_PLIST_FOUNDATION_GLOBAL   extern
-# endif
-#endif
-
 
 /* You can add some more import statements here */
 

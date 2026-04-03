@@ -158,8 +158,11 @@ static mulle_relativetime_t   tryLockUntilTimeout( NSConditionLock *self,
 - (BOOL) mulleLockWhenCondition:(NSInteger) value
                         timeout:(mulle_relativetime_t) timeout
 {
-   mulle_relativetime_t   remain;
+   mulle_absolutetime_t     deadline;
+   mulle_relativetime_t     remain;
 
+   deadline = mulle_absolutetime_now() + timeout;
+   
    remain = tryLockUntilTimeout( self, timeout);
    if( remain < 0)
       return( NO);
@@ -167,14 +170,28 @@ static mulle_relativetime_t   tryLockUntilTimeout( NSConditionLock *self,
    // now we are locked and can wait on the condition
    // waiting means, we unlock, get signalled and then relock
    while( value != (NSUInteger) _mulle_atomic_pointer_nonatomic_read( &_currentCondition))
+   {
+      remain = deadline - mulle_absolutetime_now();
+      if( remain <= 0.0)
+      {
+         // Timed out before waiting — we still hold the lock, release it.
+#ifdef LOCK_DEBUG
+         mulle_fprintf( stderr, "%@: %@ %s %td,%.3f == failed, timeout reached (no wait)\n",
+                              [NSThread currentThread], self, __PRETTY_FUNCTION__, value, timeout);
+#endif
+         [self unlock];
+         return( NO);
+      }
       if( ! [self mulleWaitWithTimeout:remain])
       {
+         // mulleWaitWithTimeout already unlocked on timeout.
 #ifdef LOCK_DEBUG
          mulle_fprintf( stderr, "%@: %@ %s %td,%.3f == failed, timeout reached\n",
-                              [NSThread currentThread], self, __PRETTY_FUNCTION__, value, remain);
+                              [NSThread currentThread], self, __PRETTY_FUNCTION__, value, timeout);
 #endif
          return( NO);
       }
+   }
 
 #ifdef LOCK_DEBUG
    mulle_fprintf( stderr, "%@: %@ %s %td == success (locked)\n",

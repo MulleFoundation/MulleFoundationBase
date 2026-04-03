@@ -118,7 +118,7 @@
 - (instancetype) initWithTimeInterval:(NSTimeInterval) seconds
                             sinceDate:(NSDate *) refDate
 {
-   return( [self initWithTimeIntervalSinceReferenceDate:seconds - [refDate timeIntervalSinceReferenceDate]]);
+   return( [self initWithTimeIntervalSinceReferenceDate:[refDate timeIntervalSinceReferenceDate] + seconds]);
 }
 
 

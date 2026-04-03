@@ -154,6 +154,7 @@ static void   shrinkWithStrings( NSMutableString *self,
 
 + (instancetype) allocWithZone:(NSZone *) zone
 {
+   MULLE_C_UNUSED( zone);
    return( NSAllocateObject( self, 0, NULL));
 }
 
@@ -527,10 +528,7 @@ static inline unichar   characterAtIndex( NSMutableString *self, NSUInteger inde
 }
 
 
-- (unichar) :(NSUInteger) index
-{
-   return( characterAtIndex( self, index));
-}
+@method_implementation -: = -characterAtIndex:;
 
 
 static inline void   getCharactersInRange( NSMutableString *self,

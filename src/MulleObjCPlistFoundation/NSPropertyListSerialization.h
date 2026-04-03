@@ -147,5 +147,7 @@ enum MullePropertyListFormatOption
 
 @end
 
+
+MULLE_OBJC_PLIST_FOUNDATION_GLOBAL
 NSString   *MulleStringFromPropertListFormatString( NSPropertyListFormat format);
 

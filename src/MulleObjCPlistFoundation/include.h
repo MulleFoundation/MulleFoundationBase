@@ -21,14 +21,16 @@
 
 #include "_MulleObjCPlistFoundation-include.h"
 
-#ifdef MULLE_OBJC_PLIST_FOUNDATION_BUILD
-# define MULLE_OBJC_PLIST_FOUNDATION_GLOBAL    MULLE_C_GLOBAL
+#if defined( MULLE_OBJC_PLIST_FOUNDATION_BUILD) || defined( MULLE_FOUNDATION_BASE_BUILD)
+# define MULLE_OBJC_PLIST_FOUNDATION_GLOBAL        MULLE_C_GLOBAL
+# define MULLE_OBJC_PLIST_FOUNDATION_GLOBAL_VAR    MULLE_C_GLOBAL_VAR
 #else
 # if defined( MULLE_OBJC_PLIST_FOUNDATION_INCLUDE_DYNAMIC) || (defined( MULLE_INCLUDE_DYNAMIC) && ! defined( MULLE_OBJC_PLIST_FOUNDATION_INCLUDE_STATIC))
-#  define MULLE_OBJC_PLIST_FOUNDATION_GLOBAL   MULLE_C_EXTERN_GLOBAL
+#  define MULLE_OBJC_PLIST_FOUNDATION_GLOBAL       MULLE_C_EXTERN_GLOBAL
 # else
-#  define MULLE_OBJC_PLIST_FOUNDATION_GLOBAL   extern
+#  define MULLE_OBJC_PLIST_FOUNDATION_GLOBAL       extern
 # endif
+# define MULLE_OBJC_PLIST_FOUNDATION_GLOBAL_VAR
 #endif
 
 
@@ -36,6 +38,7 @@
 
 /* add some C headers from MulleObjC, for the benefit of C code
    But avoid that, when compiling ObjC (it would be too early)
+   (nat) Not sure what C code i was talking about here...
  */
 
 #ifndef __MULLE_OBJC__
@@ -45,8 +48,8 @@
 // the runtime via exceptions
 //
 # include <MulleObjC/mulle-objc.h>
+# include <mulle-container/mulle-container.h>
 #endif
 
-#include <mulle-container/mulle-container.h>
 
 #endif

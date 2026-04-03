@@ -13,7 +13,7 @@
 #define _mulle_objc_plist_foundation__export_h__
 
 
-#import "MulleObjCLoader+MulleObjCPlistFoundation.h"
+#import "MulleObjCDeps+MulleObjCPlistFoundation.h"
 #import "NSDictionary+PropertyList.h"
 #import "NSPropertyListSerialization.h"
 #import "NSString+PropertyList.h"

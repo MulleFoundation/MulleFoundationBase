@@ -46,6 +46,7 @@
 
 - (void) decodeWithCoder:(NSCoder *) coder
 {
+   MULLE_C_UNUSED( coder);
    // done in _MulleObjCConcreteArray or other subclass
    abort();
 }

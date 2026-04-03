@@ -51,9 +51,11 @@
 // this is a BOOL: if you get NO, you know that limit has been reached
 // Enter here in a locked state, unlock afterwards.
 // TimeInterval as calendar date
+// Note: On some platforms (Windows/Wine) may return slightly early due to
+// clock precision issues. Use mulleWaitWithTimeout for guaranteed timeouts.
 - (BOOL) mulleWaitUntilTimeInterval:(NSTimeInterval) timeInterval;
 
-// timeout (will still use mulleWaitUntilTimeInterval) because of pthreads
+// timeout: Guarantees to wait at least the specified duration using monotonic time
 - (BOOL) mulleWaitWithTimeout:(mulle_relativetime_t) seconds;
 
 @end

@@ -155,7 +155,7 @@ NSString  *NSInvalidArchiveOperationException = @"NSInvalidArchiveOperationExcep
       for( i = start; i < curr; i++)
       {
          obj = (id) _mulle_pointerarray_get( &_objects.array, i);
-         NSMapInsertKnownAbsent( _offsets, obj, (void *) mulle_buffer_get_seek( &_buffer));
+         NSMapInsertKnownAbsent( _offsets, obj, (void *) (intptr_t) mulle_buffer_get_seek( &_buffer));
 
          [obj encodeWithCoder:self];
          mulle_buffer_add_byte( &_buffer, 0);  // terminate with a zero
@@ -315,25 +315,25 @@ NSString  *NSInvalidArchiveOperationException = @"NSInvalidArchiveOperationExcep
    assert( [obj class]);
 
 #ifdef ARCHIVER_DEBUG
-   fprintf( stderr, "check _objectSubstitutions for %p\n", obj);
+   mulle_fprintf( stderr, "check _objectSubstitutions for %p\n", obj);
 #endif
    other = NSMapGet( _objectSubstitutions, obj);
    if( other)
    {
 #ifdef ARCHIVER_DEBUG
-      fprintf( stderr, "substituted %p with %p\n", obj, other);
+      mulle_fprintf( stderr, "substituted %p with %p\n", obj, other);
 #endif
       obj = other;
    }
 
 #ifdef ARCHIVER_DEBUG
-   fprintf( stderr, "check _objects.map for %p\n", obj);
+   mulle_fprintf( stderr, "check _objects.map for %p\n", obj);
 #endif
    handle = (intptr_t) mulle_map_get( &_objects.map, obj);
    if( ! handle)
    {
 #ifdef ARCHIVER_DEBUG
-      fprintf( stderr, "check _conditionalObjects.map for %p\n", obj);
+      mulle_fprintf( stderr, "check _conditionalObjects.map for %p\n", obj);
 #endif
       handle = (intptr_t) mulle_map_get( &_conditionalObjects.map, obj);
       if( ! handle)

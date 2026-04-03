@@ -14,7 +14,7 @@
 
 
 #import "NSUUID.h"
-#import "MulleObjCLoader+MulleObjCUUIDFoundation.h"
+#import "MulleObjCDeps+MulleObjCUUIDFoundation.h"
 
 
 #endif

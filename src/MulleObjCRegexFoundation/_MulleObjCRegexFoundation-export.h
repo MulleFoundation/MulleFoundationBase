@@ -14,7 +14,7 @@
 
 
 #import "NSString+Regex.h"
-#import "MulleObjCLoader+MulleObjCRegexFoundation.h"
+#import "MulleObjCDeps+MulleObjCRegexFoundation.h"
 
 
 #endif

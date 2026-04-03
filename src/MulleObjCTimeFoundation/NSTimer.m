@@ -148,7 +148,7 @@
 - (void) finalize
 {
 #ifdef NSTIMER_DEBUG
-   fprintf( stderr, "%s %s\n", [self UTF8String], __PRETTY_FUNCTION__);
+   mulle_fprintf( stderr, "%s %s\n", [self UTF8String], __PRETTY_FUNCTION__);
 #endif
 
    [self invalidate];
@@ -161,7 +161,7 @@
 - (void) invalidate
 {
 #ifdef NSTIMER_DEBUG
-   fprintf( stderr, "%s %s\n", [self UTF8String], __PRETTY_FUNCTION__);
+   mulle_fprintf( stderr, "%s %s\n", [self UTF8String], __PRETTY_FUNCTION__);
 #endif
    [self->_o.target autorelease];
    self->_o.target = nil;
@@ -186,7 +186,7 @@
    id   argument;
 
 #ifdef NSTIMER_DEBUG
-   fprintf( stderr, "%s %s\n", [self UTF8String], __PRETTY_FUNCTION__);
+   mulle_fprintf( stderr, "%s %s\n", [self UTF8String], __PRETTY_FUNCTION__);
 #endif
    //
    // usually NSTimer passes self as argument and then you need to

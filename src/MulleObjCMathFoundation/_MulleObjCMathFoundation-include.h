@@ -22,7 +22,7 @@
 //    remove #include: `mulle-sde dependency mark math no-header`
 //    rename              : `mulle-sde dependency|library set math include whatever.h`
 //    reorder             : `mulle-sde dependency move math <up|down>`
-//    toggle #include: `mulle-sde dependency mark math [no-]import`
+//    toggle objc         : `mulle-sde dependency mark math [no-]import`
 //    toggle public       : `mulle-sde dependency mark math [no-]public`
 //    toggle optional     : `mulle-sde dependency mark math [no-]require`
 //    remove for platform : `mulle-sde dependency mark math no-platform-<uname>`
