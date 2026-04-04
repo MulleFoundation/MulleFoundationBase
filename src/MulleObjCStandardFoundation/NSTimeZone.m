@@ -52,7 +52,6 @@
 
 - (NSMethodSignature *) methodSignatureForSelector:(SEL) aSelector
 {
-   MULLE_C_UNUSED( aSelector);
    return( [super methodSignatureForSelector:@selector( self)]);
 }
 

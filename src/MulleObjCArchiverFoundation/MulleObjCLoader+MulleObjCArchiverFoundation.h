@@ -1,5 +1,5 @@
 //
-//  MulleObjCDeps+Foundation.h
+//  MulleObjCLoader+Foundation.h
 //  MulleObjCArchiverFoundation
 //
 //  Created by Nat! on 11.05.17.
@@ -8,5 +8,5 @@
 #import <MulleObjC/MulleObjC.h>
 
 
-@interface MulleObjCDeps( MulleObjCArchiverFoundation)
+@interface MulleObjCLoader( MulleObjCArchiverFoundation)
 @end

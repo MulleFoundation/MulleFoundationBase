@@ -89,13 +89,11 @@ Class  _MulleObjCEmptyArrayClass;
 
 - (void) decodeWithCoder:(NSCoder *) coder
 {
-   MULLE_C_UNUSED( coder);
 }
 
 
 - (NSArray *) sortedArrayUsingSelector:(SEL) comparator
 {
-   MULLE_C_UNUSED( comparator);
    return( self);
 }
 

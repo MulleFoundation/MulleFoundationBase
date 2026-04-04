@@ -15,9 +15,7 @@
 
 #import "MulleObjCArchiverFoundation.h"
 #import "MulleObjCArchiver.h"
-#import "MulleObjCDeps+MulleObjCArchiverFoundation.h"
-#import "MulleObjCStreamArchiver.h"
-#import "MulleObjCStreamUnarchiver.h"
+#import "MulleObjCLoader+MulleObjCArchiverFoundation.h"
 #import "MulleObjCUnarchiver.h"
 #import "NSArchiver+OSBase.h"
 #import "NSArchiver.h"
