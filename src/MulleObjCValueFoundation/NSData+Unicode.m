@@ -40,8 +40,7 @@
 #import "import-private.h"
 
 
-@implementation NSData( _Unicode)
-
+@implementation NSData( Unicode)
 
 static _MulleObjCByteOrderMark  byteOrderMark( uint8_t *p, size_t len)
 {

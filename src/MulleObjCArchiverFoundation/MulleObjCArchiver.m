@@ -46,8 +46,10 @@
 
 // std-c and dependencies
 
-
+MULLE_OBJC_ARCHIVER_FOUNDATION_GLOBAL_VAR
 NSString  *NSInconsistentArchiveException     = @"NSInconsistentArchiveException";
+
+MULLE_OBJC_ARCHIVER_FOUNDATION_GLOBAL_VAR
 NSString  *NSInvalidArchiveOperationException = @"NSInvalidArchiveOperationException";
 
 // #define ARCHIVER_DEBUG
@@ -155,7 +157,7 @@ NSString  *NSInvalidArchiveOperationException = @"NSInvalidArchiveOperationExcep
       for( i = start; i < curr; i++)
       {
          obj = (id) _mulle_pointerarray_get( &_objects.array, i);
-         NSMapInsertKnownAbsent( _offsets, obj, (void *) mulle_buffer_get_seek( &_buffer));
+         NSMapInsertKnownAbsent( _offsets, obj, (void *) (uintptr_t) mulle_buffer_get_seek( &_buffer));
 
          [obj encodeWithCoder:self];
          mulle_buffer_add_byte( &_buffer, 0);  // terminate with a zero

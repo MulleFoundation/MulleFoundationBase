@@ -103,13 +103,6 @@ src/MulleObjCValueFoundation/NSValue-Private.h
 )
 
 #
-# contents selected with patternfile ??-header--project-only-headers
-#
-set( PROJECT_ONLY_HEADERS
-src/MulleObjCArchiverFoundation/objc-loader.inc
-)
-
-#
 # contents selected with patternfile ??-header--public-generated-headers
 #
 set( PUBLIC_GENERATED_HEADERS
@@ -194,7 +187,7 @@ src/MulleFoundationBase.h
 src/MulleObjCArchiverFoundation/MulleObjCArchiverFoundation.h
 src/MulleObjCArchiverFoundation/_MulleObjCArchiverFoundation-versioncheck.h
 src/MulleObjCArchiverFoundation/MulleObjCArchiver.h
-src/MulleObjCArchiverFoundation/MulleObjCLoader+MulleObjCArchiverFoundation.h
+src/MulleObjCArchiverFoundation/MulleObjCDeps+MulleObjCArchiverFoundation.h
 src/MulleObjCArchiverFoundation/MulleObjCUnarchiver.h
 src/MulleObjCArchiverFoundation/NSArchiver+OSBase.h
 src/MulleObjCArchiverFoundation/NSArchiver.h
