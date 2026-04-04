@@ -43,7 +43,6 @@
 
 - (void) decodeWithCoder:(NSCoder *) coder
 {
-   MULLE_C_UNUSED( coder);
 }
 
 @end

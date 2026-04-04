@@ -86,7 +86,6 @@ Class  _MulleObjCEmptyDictionaryClass;
 
 - (id) objectForKey:(id) key
 {
-   MULLE_C_UNUSED( key);
    return( nil);
 }
 

@@ -1,22 +1,22 @@
 //
-//  MulleObjCDeps+Foundation.m
+//  MulleObjCLoader+Foundation.m
 //  MulleObjCArchiverFoundation
 //
 //  Created by Nat! on 11.05.17.
 //  Copyright © 2017 Mulle kybernetiK. All rights reserved.
 //
 
-#import "MulleObjCDeps+MulleObjCArchiverFoundation.h"
+#import "MulleObjCLoader+MulleObjCArchiverFoundation.h"
 
 
-@implementation MulleObjCDeps( MulleObjCArchiverFoundation)
+@implementation MulleObjCLoader( MulleObjCArchiverFoundation)
 
 + (struct _mulle_objc_dependency *) dependencies
 {
    static struct _mulle_objc_dependency   dependencies[] =
    {
 
-#include "objc-deps.inc"
+#include "objc-loader.inc"
 
       { MULLE_OBJC_NO_CLASSID, MULLE_OBJC_NO_CATEGORYID }
    };

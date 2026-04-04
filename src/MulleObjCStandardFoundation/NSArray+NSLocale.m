@@ -53,7 +53,6 @@
 
 - (NSString *) descriptionWithLocale:(NSLocale *) locale
 {
-   MULLE_C_UNUSED( locale);
    return( [self description]);
 }
 

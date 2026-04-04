@@ -119,7 +119,7 @@
    unsigned char         tmp[ 0x400];
 
 #ifdef ENCODE_DEBUG
-   mulle_fprintf( stderr, "key=%p\n", key);
+   fprintf( stderr, "key=%p\n", key);
 #endif
    [self _appendKey:key];
 
@@ -154,9 +154,9 @@
                forKey:(NSString *) key
 {
 #ifdef ENCODE_DEBUG  
-   mulle_fprintf( stderr, "key=%p\n", key);
-   mulle_fprintf( stderr, "obj=%p\n", obj);
-   mulle_fprintf( stderr, "&obj=%p\n", &obj);
+   fprintf( stderr, "key=%p\n", key);
+   fprintf( stderr, "obj=%p\n", obj);
+   fprintf( stderr, "&obj=%p\n", &obj);
 #endif
    [self encodeValueOfObjCType:@encode( id)
                             at:&obj
