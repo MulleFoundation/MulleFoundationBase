@@ -73,7 +73,7 @@
 
 @end
 
-@interface NSDate ( Subclasses)
+@interface NSDate ( SubclassesFuture)
 
 - (instancetype) initWithTimeIntervalSinceReferenceDate:(NSTimeInterval) seconds;
 - (NSTimeInterval) timeIntervalSinceReferenceDate;

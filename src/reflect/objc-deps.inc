@@ -7,8 +7,6 @@
       { @selector( MulleObjCInMemoryInputStream), MULLE_OBJC_NO_CATEGORYID },      // c11e0f43;MulleObjCInMemoryInputStream;;
       { @selector( MulleObjCOutputStream), MULLE_OBJC_NO_CATEGORYID },      // 94c18dd3;MulleObjCOutputStream;;
       { @selector( MulleObjCPropertyListPrinting), MULLE_OBJC_NO_CATEGORYID },      // ae35af0f;MulleObjCPropertyListPrinting;;
-      { @selector( MulleObjCStreamArchiver), MULLE_OBJC_NO_CATEGORYID },      // 3a843741;MulleObjCStreamArchiver;;
-      { @selector( MulleObjCStreamUnarchiver), MULLE_OBJC_NO_CATEGORYID },      // 3e16ebbe;MulleObjCStreamUnarchiver;;
       { @selector( MulleObjCUTF8StreamReader), MULLE_OBJC_NO_CATEGORYID },      // 1570378d;MulleObjCUTF8StreamReader;;
       { @selector( MulleObjCUnarchiver), MULLE_OBJC_NO_CATEGORYID },      // 6c32efb0;MulleObjCUnarchiver;;
       { @selector( MulleObjCUnkeyedArchiver), MULLE_OBJC_NO_CATEGORYID },      // f57df630;MulleObjCUnkeyedArchiver;;

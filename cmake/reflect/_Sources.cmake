@@ -12,7 +12,6 @@ endif()
 #
 set( SOURCES
 src/MulleObjCArchiverFoundation/MulleObjCArchiver.m
-src/MulleObjCArchiverFoundation/MulleObjCLoader+MulleObjCArchiverFoundation.m
 src/MulleObjCArchiverFoundation/MulleObjCUnarchiver.m
 src/MulleObjCArchiverFoundation/NSArchiver+OSBase.m
 src/MulleObjCArchiverFoundation/NSArchiver.m
@@ -218,6 +217,7 @@ src/MulleObjCValueFoundation/NSValue.m
 # contents selected with patternfile ??-source--stage2-sources
 #
 set( STAGE2_SOURCES
+src/MulleObjCArchiverFoundation/MulleObjCDeps+MulleObjCArchiverFoundation.m
 src/MulleObjCContainerFoundation/MulleObjCDeps+MulleObjCContainerFoundation.m
 src/MulleObjCKVCFoundation/MulleObjCDeps+MulleObjCKVCFoundation.m
 src/MulleObjCMathFoundation/MulleObjCDeps+MulleObjCMathFoundation.m

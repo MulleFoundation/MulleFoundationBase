@@ -1,5 +1,5 @@
 # MulleFoundationBase Library Documentation for AI
-<!-- Keywords: amalgamation, foundation -->
+<!-- Keywords: ObjectiveC, collections, foundation, archiver, plist, regex, unicode -->
 
 ## 1. Introduction & Purpose
 

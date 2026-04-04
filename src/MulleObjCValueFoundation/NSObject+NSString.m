@@ -135,5 +135,4 @@
    return( [NSString stringWithFormat:@"<%@ %p %@>", [self class], self, contents]);
 }
 
-
 @end

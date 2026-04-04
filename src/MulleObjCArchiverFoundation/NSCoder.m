@@ -59,6 +59,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 -(void) setObjectZone:(NSZone *)zone
 {
+   MULLE_C_UNUSED( zone);
 }
 
 
