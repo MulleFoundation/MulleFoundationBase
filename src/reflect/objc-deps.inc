@@ -40,7 +40,7 @@
       { @selector( NSData), @selector( NSPropertyListParsing) },      // 8fce7861;NSData;060a8c9c;NSPropertyListParsing
       { @selector( NSData), @selector( NSString) },      // 8fce7861;NSData;1994a171;NSString
       { @selector( NSData), @selector( PropertyListPrinting) },      // 8fce7861;NSData;91aeee11;PropertyListPrinting
-      { @selector( NSData), @selector( _Unicode) },      // 8fce7861;NSData;ac921392;_Unicode
+      { @selector( NSData), @selector( Unicode) },      // 8fce7861;NSData;94ece403;Unicode
       { @selector( NSData), MULLE_OBJC_NO_CATEGORYID },      // 8fce7861;NSData;;
       { @selector( NSDate), @selector( NSCalendarDate) },      // cfcedd21;NSDate;b8742fcb;NSCalendarDate
       { @selector( NSDate), @selector( NSCoder) },      // cfcedd21;NSDate;100c54ba;NSCoder
@@ -142,16 +142,16 @@
       { @selector( NSSortDescriptor), MULLE_OBJC_NO_CATEGORYID },      // 38a79ab2;NSSortDescriptor;;
       { @selector( NSString), @selector( ClassCluster) },      // 1994a171;NSString;d38b16ff;ClassCluster
       { @selector( NSString), @selector( Components) },      // 1994a171;NSString;c6c03895;Components
-      { @selector( NSString), @selector( DoubleQuotedString) },      // 1994a171;NSString;4cfd171d;DoubleQuotedString
+      { @selector( NSString), @selector( DoubleQuotes) },      // 1994a171;NSString;5059afd2;DoubleQuotes
       { @selector( NSString), @selector( Enumerator) },      // 1994a171;NSString;bd761fff;Enumerator
       { @selector( NSString), @selector( Escaping) },      // 1994a171;NSString;742c5512;Escaping
-      { @selector( NSString), @selector( Locale) },      // 1994a171;NSString;d6e5bb7d;Locale
       { @selector( NSString), @selector( MulleObjCOutputStream) },      // 1994a171;NSString;94c18dd3;MulleObjCOutputStream
       { @selector( NSString), @selector( MulleObjCUnicode) },      // 1994a171;NSString;4d57c73a;MulleObjCUnicode
       { @selector( NSString), @selector( NSCharacterSet) },      // 1994a171;NSString;bb258d72;NSCharacterSet
       { @selector( NSString), @selector( NSCoder) },      // 1994a171;NSString;100c54ba;NSCoder
       { @selector( NSString), @selector( NSData) },      // 1994a171;NSString;8fce7861;NSData
       { @selector( NSString), @selector( NSDataPrivate) },      // 1994a171;NSString;542e5a5f;NSDataPrivate
+      { @selector( NSString), @selector( NSLocale) },      // 1994a171;NSString;22b7d78c;NSLocale
       { @selector( NSString), @selector( NSMutableString) },      // 1994a171;NSString;63662493;NSMutableString
       { @selector( NSString), @selector( NSPropertyListParsing) },      // 1994a171;NSString;060a8c9c;NSPropertyListParsing
       { @selector( NSString), @selector( PropertyList) },      // 1994a171;NSString;827edd0f;PropertyList
