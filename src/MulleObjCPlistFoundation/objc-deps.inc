@@ -1,3 +1,4 @@
+      { @selector( MulleObjCDeps), @selector( MulleObjCStandardFoundation) },      // 3c20656f;MulleObjCDeps;ed704a42;MulleObjCStandardFoundation
       { @selector( MulleObjCBufferedInputStream), MULLE_OBJC_NO_CATEGORYID },      // 0d289418;MulleObjCBufferedInputStream;;
       { @selector( MulleObjCBufferedOutputStream), MULLE_OBJC_NO_CATEGORYID },      // f919266f;MulleObjCBufferedOutputStream;;
       { @selector( MulleObjCInMemoryInputStream), MULLE_OBJC_NO_CATEGORYID },      // c11e0f43;MulleObjCInMemoryInputStream;;

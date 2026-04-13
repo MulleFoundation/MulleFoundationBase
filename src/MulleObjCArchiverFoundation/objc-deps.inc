@@ -1,3 +1,4 @@
+      { @selector( MulleObjCDeps), @selector( MulleObjCStandardFoundation) },      // 3c20656f;MulleObjCDeps;ed704a42;MulleObjCStandardFoundation
       { @selector( MulleObjCArchiver), MULLE_OBJC_NO_CATEGORYID },      // 6c636b4d;MulleObjCArchiver;;
       { @selector( MulleObjCUnarchiver), MULLE_OBJC_NO_CATEGORYID },      // 6c32efb0;MulleObjCUnarchiver;;
       { @selector( MulleObjCUnkeyedArchiver), MULLE_OBJC_NO_CATEGORYID },      // f57df630;MulleObjCUnkeyedArchiver;;
