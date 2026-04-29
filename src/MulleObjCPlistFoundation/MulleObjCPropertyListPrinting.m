@@ -71,7 +71,7 @@ void  MulleObjCPrintPlistContextInit( struct MulleObjCPrintPlistContext *ctxt,
 }
 
 
-PROTOCOLCLASS_IMPLEMENTATION( MulleObjCPropertyListPrinting)
+@implementation  MulleObjCPropertyListPrinting
 
 - (void) mullePrintPlistToStream:(id <MulleObjCOutputStream>) handle;
 {
@@ -202,6 +202,6 @@ void   MulleObjCPrintPlistContextWriteUTF8Indentation( struct MulleObjCPrintPlis
 }
 
 
-PROTOCOLCLASS_END()
+@end
 
 #pragma clang diagnostic pop

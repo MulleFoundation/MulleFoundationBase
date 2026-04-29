@@ -73,7 +73,7 @@ void  MulleObjCPrintPlistContextSetHandle( struct MulleObjCPrintPlistContext *ct
 
 // TODO: prefix with mulle, this is all incompatible
 
-PROTOCOLCLASS_INTERFACE0( MulleObjCPropertyListPrinting)
+@mixin MulleObjCPropertyListPrinting < NSObject>
 
 //
 // This is what participating classes should implement. This also allows
@@ -99,7 +99,7 @@ PROTOCOLCLASS_INTERFACE0( MulleObjCPropertyListPrinting)
 - (void) mullePrintJSONToStream:(id <MulleObjCOutputStream>) handle;
 
 
-PROTOCOLCLASS_END()
+@end
 
 
 // these helper methods produce indentation

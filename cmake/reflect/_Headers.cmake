@@ -96,10 +96,8 @@ src/MulleObjCContainerFoundation/NSArray-Private.h
 src/MulleObjCStandardFoundation/_MulleGMTTimeZone-Private.h
 src/MulleObjCStandardFoundation/mulle-foundation-startup-private.inc
 src/MulleObjCStandardFoundation/mulle-foundation-universeconfiguration-private.h
-src/MulleObjCValueFoundation/_MulleObjCConcreteValue-Private.h
 src/MulleObjCValueFoundation/NSNumber-Private.h
 src/MulleObjCValueFoundation/NSString+Substring-Private.h
-src/MulleObjCValueFoundation/NSValue-Private.h
 )
 
 #
@@ -375,7 +373,6 @@ src/MulleObjCValueFoundation/_MulleObjCASCIIString.h
 src/MulleObjCValueFoundation/_MulleObjCCheatingASCIIString.h
 src/MulleObjCValueFoundation/_MulleObjCConcreteMutableData.h
 src/MulleObjCValueFoundation/_MulleObjCConcreteNumber.h
-src/MulleObjCValueFoundation/_MulleObjCConcreteValue.h
 src/MulleObjCValueFoundation/_MulleObjCDataSubclasses.h
 src/MulleObjCValueFoundation/MulleObjCDeps+MulleObjCValueFoundation.h
 src/MulleObjCValueFoundation/_MulleObjCTaggedPointerChar5String.h
@@ -402,6 +399,7 @@ src/MulleObjCValueFoundation/NSNumber+NSString.h
 src/MulleObjCValueFoundation/NSNumber.h
 src/MulleObjCValueFoundation/NSObject+NSString.h
 src/MulleObjCValueFoundation/NSString+ClassCluster.h
+src/MulleObjCValueFoundation/NSStringEncoding.h
 src/MulleObjCValueFoundation/NSString+Enumerator.h
 src/MulleObjCValueFoundation/NSString+Hash.h
 src/MulleObjCValueFoundation/NSString+NSCoder.h
@@ -410,7 +408,6 @@ src/MulleObjCValueFoundation/NSStringObjCFunctions.h
 src/MulleObjCValueFoundation/NSString+Sprintf.h
 src/MulleObjCValueFoundation/NSString.h
 src/MulleObjCValueFoundation/NSValue+NSCoder.h
-src/MulleObjCValueFoundation/NSValue.h
 src/MulleObjCValueFoundation/mulle-chardata.h
 src/generic/MulleObjCDeps+MulleFoundationBase.h
 )

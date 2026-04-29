@@ -51,8 +51,9 @@
 @end
 
 
-PROTOCOLCLASS_INTERFACE( MulleObjCOutputStream, NSObject)
+@mixin MulleObjCOutputStream < NSObject>
 
+@required
 - (void) mulleWriteBytes:(void *) bytes
                   length:(NSUInteger) length;
 
@@ -60,7 +61,7 @@ PROTOCOLCLASS_INTERFACE( MulleObjCOutputStream, NSObject)
 - (void) writeData:(NSData *) data;
 - (void) mulleWriteUTF8String:(char *) s;
 
-PROTOCOLCLASS_END();
+@end
 
 
 #pragma mark - Concrete helper

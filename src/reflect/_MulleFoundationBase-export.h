@@ -168,6 +168,7 @@
 #import "NSNumber.h"
 #import "NSObject+NSString.h"
 #import "NSString+ClassCluster.h"
+#import "NSStringEncoding.h"
 #import "NSString+Enumerator.h"
 #import "NSString+Hash.h"
 #import "NSString+NSCoder.h"
@@ -176,7 +177,6 @@
 #import "NSString+Sprintf.h"
 #import "NSString.h"
 #import "NSValue+NSCoder.h"
-#import "NSValue.h"
 #import "MulleObjCDeps+MulleFoundationBase.h"
 
 

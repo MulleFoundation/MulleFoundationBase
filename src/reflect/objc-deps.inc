@@ -6,7 +6,6 @@
       { @selector( MulleObjCContainer), MULLE_OBJC_NO_CATEGORYID },      // 6380327d;MulleObjCContainer;;
       { @selector( MulleObjCInMemoryInputStream), MULLE_OBJC_NO_CATEGORYID },      // c11e0f43;MulleObjCInMemoryInputStream;;
       { @selector( MulleObjCOutputStream), MULLE_OBJC_NO_CATEGORYID },      // 94c18dd3;MulleObjCOutputStream;;
-      { @selector( MulleObjCPropertyListPrinting), MULLE_OBJC_NO_CATEGORYID },      // ae35af0f;MulleObjCPropertyListPrinting;;
       { @selector( MulleObjCUTF8StreamReader), MULLE_OBJC_NO_CATEGORYID },      // 1570378d;MulleObjCUTF8StreamReader;;
       { @selector( MulleObjCUnarchiver), MULLE_OBJC_NO_CATEGORYID },      // 6c32efb0;MulleObjCUnarchiver;;
       { @selector( MulleObjCUnkeyedArchiver), MULLE_OBJC_NO_CATEGORYID },      // f57df630;MulleObjCUnkeyedArchiver;;
@@ -35,6 +34,9 @@
       { @selector( NSCondition), @selector( NSDate) },      // 0397143e;NSCondition;cfcedd21;NSDate
       { @selector( NSConditionLock), @selector( NSDate) },      // 5e0deecf;NSConditionLock;cfcedd21;NSDate
       { @selector( NSConstantString), MULLE_OBJC_NO_CATEGORYID },      // 02cf74f7;NSConstantString;;
+      { @selector( NSConstantStringLoader), MULLE_OBJC_NO_CATEGORYID },      // e0e143cb;NSConstantStringLoader;;
+      { @selector( NSConstantStringUTF16), MULLE_OBJC_NO_CATEGORYID },      // 4d708877;NSConstantStringUTF16;;
+      { @selector( NSConstantStringUTF32), MULLE_OBJC_NO_CATEGORYID },      // 0db66396;NSConstantStringUTF32;;
       { @selector( NSData), @selector( Components) },      // 8fce7861;NSData;c6c03895;Components
       { @selector( NSData), @selector( NSCoder) },      // 8fce7861;NSData;100c54ba;NSCoder
       { @selector( NSData), @selector( NSPropertyListParsing) },      // 8fce7861;NSData;060a8c9c;NSPropertyListParsing
@@ -127,7 +129,6 @@
       { @selector( NSObject), @selector( _NSSet) },      // b3a66256;NSObject;2f766bf1;_NSSet
       { @selector( NSObject), @selector( _NSString) },      // b3a66256;NSObject;37e49041;_NSString
       { @selector( NSObject), @selector( _NSTimeZone) },      // b3a66256;NSObject;f3165c68;_NSTimeZone
-      { @selector( NSObject), @selector( _NSValue) },      // b3a66256;NSObject;8fc3f568;_NSValue
       { @selector( NSPropertyListSerialization), MULLE_OBJC_NO_CATEGORYID },      // 87901b51;NSPropertyListSerialization;;
       { @selector( NSProxy), @selector( _MulleObjCKVCInformation) },      // 9a42ec29;NSProxy;9789c697;_MulleObjCKVCInformation
       { @selector( NSScanner), @selector( NSLocale) },      // 0b3d6aca;NSScanner;22b7d78c;NSLocale
@@ -172,7 +173,6 @@
       { @selector( NSUndoManager), MULLE_OBJC_NO_CATEGORYID },      // 0e5330bc;NSUndoManager;;
       { @selector( NSValue), @selector( NSCoder) },      // 96deaa7d;NSValue;100c54ba;NSCoder
       { @selector( NSValue), @selector( NSString) },      // 96deaa7d;NSValue;1994a171;NSString
-      { @selector( NSValue), MULLE_OBJC_NO_CATEGORYID },      // 96deaa7d;NSValue;;
       { @selector( _MulleGMTTimeZone), MULLE_OBJC_NO_CATEGORYID },      // d6f534a3;_MulleGMTTimeZone;;
       { @selector( _MulleObjCASCIIString), @selector( Components) },      // b82142dd;_MulleObjCASCIIString;c6c03895;Components
       { @selector( _MulleObjCASCIIString), MULLE_OBJC_NO_CATEGORYID },      // b82142dd;_MulleObjCASCIIString;;
@@ -202,7 +202,6 @@
       { @selector( _MulleObjCConcreteRangeCharacterSet), MULLE_OBJC_NO_CATEGORYID },      // 09c86c6e;_MulleObjCConcreteRangeCharacterSet;;
       { @selector( _MulleObjCConcreteSet), MULLE_OBJC_NO_CATEGORYID },      // 2823d0a0;_MulleObjCConcreteSet;;
       { @selector( _MulleObjCConcreteValue), @selector( NSCoder) },      // 7aa5a738;_MulleObjCConcreteValue;100c54ba;NSCoder
-      { @selector( _MulleObjCConcreteValue), MULLE_OBJC_NO_CATEGORYID },      // 7aa5a738;_MulleObjCConcreteValue;;
       { @selector( _MulleObjCDictionary), MULLE_OBJC_NO_CATEGORYID },      // 2b722f90;_MulleObjCDictionary;;
       { @selector( _MulleObjCDictionaryKeyEnumerator), MULLE_OBJC_NO_CATEGORYID },      // 047702a5;_MulleObjCDictionaryKeyEnumerator;;
       { @selector( _MulleObjCDictionaryObjectEnumerator), MULLE_OBJC_NO_CATEGORYID },      // 49965c09;_MulleObjCDictionaryObjectEnumerator;;
@@ -252,9 +251,11 @@
       { @selector( _MulleObjCUInt32Number), MULLE_OBJC_NO_CATEGORYID },      // 92030c9c;_MulleObjCUInt32Number;;
       { @selector( _MulleObjCUInt64Number), @selector( NSString) },      // c62e3ae1;_MulleObjCUInt64Number;1994a171;NSString
       { @selector( _MulleObjCUInt64Number), MULLE_OBJC_NO_CATEGORYID },      // c62e3ae1;_MulleObjCUInt64Number;;
+      { @selector( _MulleObjCUTF16ShadowingString), MULLE_OBJC_NO_CATEGORYID },      // 1f776927;_MulleObjCUTF16ShadowingString;;
       { @selector( _MulleObjCUTF16String), @selector( Components) },      // d817650f;_MulleObjCUTF16String;c6c03895;Components
       { @selector( _MulleObjCUTF16String), @selector( Search) },      // d817650f;_MulleObjCUTF16String;646a2c9c;Search
       { @selector( _MulleObjCUTF16String), MULLE_OBJC_NO_CATEGORYID },      // d817650f;_MulleObjCUTF16String;;
+      { @selector( _MulleObjCUTF32ShadowingString), MULLE_OBJC_NO_CATEGORYID },      // 852e7a85;_MulleObjCUTF32ShadowingString;;
       { @selector( _MulleObjCUTF32String), @selector( Components) },      // 318d8f60;_MulleObjCUTF32String;c6c03895;Components
       { @selector( _MulleObjCUTF32String), MULLE_OBJC_NO_CATEGORYID },      // 318d8f60;_MulleObjCUTF32String;;
       { @selector( _MulleObjCZeroBytesData), MULLE_OBJC_NO_CATEGORYID },      // e3b0c32a;_MulleObjCZeroBytesData;;

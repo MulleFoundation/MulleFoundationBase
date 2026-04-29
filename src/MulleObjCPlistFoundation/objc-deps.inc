@@ -3,7 +3,6 @@
       { @selector( MulleObjCBufferedOutputStream), MULLE_OBJC_NO_CATEGORYID },      // f919266f;MulleObjCBufferedOutputStream;;
       { @selector( MulleObjCInMemoryInputStream), MULLE_OBJC_NO_CATEGORYID },      // c11e0f43;MulleObjCInMemoryInputStream;;
       { @selector( MulleObjCOutputStream), MULLE_OBJC_NO_CATEGORYID },      // 94c18dd3;MulleObjCOutputStream;;
-      { @selector( MulleObjCPropertyListPrinting), MULLE_OBJC_NO_CATEGORYID },      // ae35af0f;MulleObjCPropertyListPrinting;;
       { @selector( MulleObjCUTF8StreamReader), MULLE_OBJC_NO_CATEGORYID },      // 1570378d;MulleObjCUTF8StreamReader;;
       { @selector( NSArray), @selector( NSPropertyListParsing) },      // 233490fe;NSArray;060a8c9c;NSPropertyListParsing
       { @selector( NSArray), @selector( PropertyListPrinting) },      // 233490fe;NSArray;91aeee11;PropertyListPrinting

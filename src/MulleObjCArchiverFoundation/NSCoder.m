@@ -80,28 +80,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #pragma mark - MulleObjCUnkeyedArchiver Protocol with default implementations
 
 
-@interface MulleObjCUnkeyedArchiver < MulleObjCUnkeyedArchiver>
-@end
-
-
-@interface MulleObjCUnkeyedArchiver ( Declarations)
-
-- (void) encodeValueOfObjCType:(char *) type
-                            at:(void *) addr;
-- (void) encodeObject:(id) obj;
-- (void) encodeBycopyObject:(id) obj;
-- (void) encodeByrefObject:(id) obj;
-- (void) encodeConditionalObject:(id) obj;
-- (void) encodeValuesOfObjCTypes:(char *) types, ...;
-- (void) encodeArrayOfObjCType:(char *)type
-                         count:(NSUInteger) count
-                            at:(void *) array;
-- (void) encodeBytes:(void *)bytes
-              length:(NSUInteger)length;
-- (void) encodePropertyList:(id) aPropertyList;
-
-@end
-
 
 @implementation MulleObjCUnkeyedArchiver
 
@@ -210,26 +188,6 @@ static void   codecValuesOfObjCTypes( NSCoder< NSObject> *self,
 
 
 #pragma mark - MulleObjCUnkeyedUnarchiver Protocol with default implementations
-
-@interface MulleObjCUnkeyedUnarchiver < MulleObjCUnkeyedUnarchiver>
-@end
-
-
-@interface MulleObjCUnkeyedUnarchiver ( Declarations)
-
-- (void) decodeValueOfObjCType:(char *) type
-                            at:(void *)data;
-- (void) decodeValuesOfObjCTypes:(char *) types, ...;
-- (void) decodeArrayOfObjCType:(char *) itemType
-                         count:(NSUInteger) count
-                            at:(void *) array;
-
-- (void *) decodeBytesWithReturnedLength:(NSUInteger *) len_p;
-
-- (id) decodeObject;
-- (id) decodePropertyList;
-
-@end
 
 
 @implementation MulleObjCUnkeyedUnarchiver
