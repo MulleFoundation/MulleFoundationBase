@@ -49,7 +49,7 @@
 #include <string.h>
 
 
-@interface NSObject( Future)
+@interface NSObject( Future) < MulleObjCFuture>
 
 - (BOOL) _propertyListIsValidForFormat:(NSPropertyListFormat) format;
 

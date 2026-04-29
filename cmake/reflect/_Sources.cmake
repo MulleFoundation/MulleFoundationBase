@@ -173,7 +173,6 @@ src/MulleObjCValueFoundation/_MulleObjCCheatingASCIIString.m
 src/MulleObjCValueFoundation/_MulleObjCConcreteMutableData.m
 src/MulleObjCValueFoundation/_MulleObjCConcreteNumber+NSString.m
 src/MulleObjCValueFoundation/_MulleObjCConcreteNumber.m
-src/MulleObjCValueFoundation/_MulleObjCConcreteValue.m
 src/MulleObjCValueFoundation/_MulleObjCDataSubclasses.m
 src/MulleObjCValueFoundation/_MulleObjCTaggedPointerChar5String.m
 src/MulleObjCValueFoundation/_MulleObjCTaggedPointerChar7String.m
@@ -210,7 +209,6 @@ src/MulleObjCValueFoundation/NSString.m
 src/MulleObjCValueFoundation/NSThread+NSString.m
 src/MulleObjCValueFoundation/NSValue+NSCoder.m
 src/MulleObjCValueFoundation/NSValue+NSString.m
-src/MulleObjCValueFoundation/NSValue.m
 )
 
 #

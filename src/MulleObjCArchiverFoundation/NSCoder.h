@@ -164,36 +164,44 @@
 //
 // these protocols supply implementations
 //
-PROTOCOLCLASS_INTERFACE0( MulleObjCUnkeyedArchiver)
+@mixin MulleObjCUnkeyedArchiver < NSObject>
 
 @optional
-- (void) encodeObject:(id) obj;
-- (void) encodeBycopyObject:(id) obj;
-- (void) encodeByrefObject:(id) obj;
-- (void) encodeConditionalObject:(id) obj;
-- (void) encodeValuesOfObjCTypes:(char *) types, ...;
 - (void) encodeArrayOfObjCType:(char *)type
                          count:(NSUInteger) count
                             at:(void *) array;
 
+- (void) encodeBycopyObject:(id) obj;
+- (void) encodeByrefObject:(id) obj;
 - (void) encodeBytes:(void *)bytes
               length:(NSUInteger)length;
+- (void) encodeConditionalObject:(id) obj;
+- (void) encodeObject:(id) obj;
+- (void) encodeValuesOfObjCTypes:(char *) types, ...;
 
-PROTOCOLCLASS_END()
+@required
+- (void) encodeValueOfObjCType:(char *) type
+                            at:(void *) data;
+
+@end
 
 
-PROTOCOLCLASS_INTERFACE0( MulleObjCUnkeyedUnarchiver)
+@mixin MulleObjCUnkeyedUnarchiver < NSObject>
 
 @optional
-- (id) decodeObject;
-- (void) decodeValuesOfObjCTypes:(char *) types, ...;
+- (void *) decodeBytesWithReturnedLength:(NSUInteger *) len_p;
+
 - (void) decodeArrayOfObjCType:(char *) itemType
                          count:(NSUInteger) count
                             at:(void *) array;
-
-- (void *) decodeBytesWithReturnedLength:(NSUInteger *) len_p;
-
-- (void) encodePropertyList:(id) aPropertyList;
+- (id) decodeObject;
 - (id)  decodePropertyList;
+- (void) decodePropertyList:(id) aPropertyList;
 
-PROTOCOLCLASS_END()
+- (void) decodeValuesOfObjCTypes:(char *) types, ...;
+
+@required
+- (void) decodeValueOfObjCType:(char *) type
+                            at:(void *) data;
+
+@end

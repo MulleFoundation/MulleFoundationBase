@@ -73,7 +73,7 @@
 
 @end
 
-@interface NSDate ( SubclassesFuture)
+@interface NSDate( SubclassesFuture) < MulleObjCFuture>
 
 - (instancetype) initWithTimeIntervalSinceReferenceDate:(NSTimeInterval) seconds;
 - (NSTimeInterval) timeIntervalSinceReferenceDate;
@@ -81,7 +81,7 @@
 @end
 
 
-@interface NSDate ( Future)
+@interface NSDate( Future) < MulleObjCFuture>
 
 // obsolete, use +object, keep typed
 + (NSDate *) date;

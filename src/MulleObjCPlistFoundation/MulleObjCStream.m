@@ -44,7 +44,7 @@
 // std-c and dependencies
 
 
-PROTOCOLCLASS_IMPLEMENTATION( MulleObjCOutputStream)
+@implementation  MulleObjCOutputStream
 
 - (void) writeData:(NSData *) data
 {
@@ -58,7 +58,7 @@ PROTOCOLCLASS_IMPLEMENTATION( MulleObjCOutputStream)
                   length:-1];
 }
 
-PROTOCOLCLASS_END();
+@end
 
 
 @implementation MulleObjCInMemoryInputStream : NSObject
@@ -194,16 +194,16 @@ void   MulleStringWriteToStreamUsingEncoding( NSString *self,
                           length:utf16data.length];
          return;
       }
-      data = [self _utf16DataWithEndianness:native_end_first
+      data = [self _utf16DataWithEndianness:NSStringEncodingNativeEndFirst
                             encodingOptions:0];
       break;
 
    case NSUTF16LittleEndianStringEncoding :
-      data = [self _utf16DataWithEndianness:little_end_first
+      data = [self _utf16DataWithEndianness:NSStringEncodingLittleEndFirst
                             encodingOptions:0];
       break;
    case NSUTF16BigEndianStringEncoding :
-      data = [self _utf16DataWithEndianness:big_end_first
+      data = [self _utf16DataWithEndianness:NSStringEncodingBigEndFirst
                             encodingOptions:0];
       break;
 
@@ -214,15 +214,15 @@ void   MulleStringWriteToStreamUsingEncoding( NSString *self,
                           length:utf32data.length];
          return;
       }
-      data = [self _utf32DataWithEndianness:native_end_first
+      data = [self _utf32DataWithEndianness:NSStringEncodingNativeEndFirst
                             encodingOptions:0];
       break;
    case NSUTF32LittleEndianStringEncoding :
-      data = [self _utf32DataWithEndianness:little_end_first
+      data = [self _utf32DataWithEndianness:NSStringEncodingLittleEndFirst
                             encodingOptions:0];
       break;
    case NSUTF32BigEndianStringEncoding :
-      data = [self _utf32DataWithEndianness:big_end_first
+      data = [self _utf32DataWithEndianness:NSStringEncodingBigEndFirst
                             encodingOptions:0];
       break;
    }
