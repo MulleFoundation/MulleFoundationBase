@@ -35,7 +35,7 @@
 //
 
 
-#define MULLE_OBJC_TIME_FOUNDATION_VERSION   ((0UL << 20) | (2 << 8) | 4)
+#define MULLE_OBJC_TIME_FOUNDATION_VERSION   ((0UL << 20) | (2 << 8) | 5)
 
 
 #import "_MulleObjCTimeFoundation-export.h"
