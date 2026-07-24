@@ -9,17 +9,11 @@
  *
  *      mulle-sde environment set MULLE_MATCH_TO_C_RUN DISABLE
  */
-#ifndef _mulle_foundation_base__provide_h__
-#define _mulle_foundation_base__provide_h__
+#ifndef _mulle_objc_uuid_foundation__provide_h__
+#define _mulle_objc_uuid_foundation__provide_h__
 
 
-#include "mulle-buffer-archiver.h"
-#include "mulle-qsort-pointers.h"
-#include "ns-hash-table.h"
-#include "ns-map-table.h"
-#include "mulle-mini-tm.h"
-#include "uuid4.h"
-#include "mulle-chardata.h"
+// no headers
 
 
 #endif

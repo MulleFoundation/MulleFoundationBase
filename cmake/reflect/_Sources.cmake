@@ -163,6 +163,7 @@ src/MulleObjCTimeFoundation/NSTimer+NSDate.m
 src/MulleObjCTimeFoundation/NSTimer.m
 src/MulleObjCUUIDFoundation/MulleObjCUUIDFoundation.m
 src/MulleObjCUUIDFoundation/NSUUID.m
+src/MulleObjCUUIDFoundation/uuid4.c
 src/MulleObjCUnicodeFoundation/MulleObjCUnicodeFoundation.m
 src/MulleObjCUnicodeFoundation/NSCharacterSet+MulleObjCUnicode.m
 src/MulleObjCUnicodeFoundation/NSMutableCharacterSet+MulleObjCUnicode.m

@@ -362,6 +362,7 @@ src/MulleObjCUUIDFoundation/MulleObjCDeps+MulleObjCUUIDFoundation.h
 src/MulleObjCUUIDFoundation/MulleObjCUUIDFoundation.h
 src/MulleObjCUUIDFoundation/_MulleObjCUUIDFoundation-versioncheck.h
 src/MulleObjCUUIDFoundation/NSUUID.h
+src/MulleObjCUUIDFoundation/uuid4.h
 src/MulleObjCUnicodeFoundation/MulleObjCDeps+MulleObjCUnicodeFoundation.h
 src/MulleObjCUnicodeFoundation/MulleObjCUnicodeFoundation.h
 src/MulleObjCUnicodeFoundation/_MulleObjCUnicodeFoundation-versioncheck.h
