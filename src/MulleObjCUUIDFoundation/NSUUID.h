@@ -1,5 +1,5 @@
 //
-//  NSUUID.m
+//  NSUUID.h
 //  MulleObjCUUIDFoundation
 //
 //  Copyright (c) 2022 Nat! - Mulle kybernetiK.

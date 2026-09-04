@@ -1,8 +1,8 @@
 //
 //  NSDate.h
-//  MulleObjCValueFoundation
+//  MulleObjCTimeFoundation
 //
-//  Copyright (c) 2011 Nat! - Mulle kybernetiK.
+//  Copyright (c) 2022 Nat! - Mulle kybernetiK.
 //  Copyright (c) 2011 Codeon GmbH.
 //  All rights reserved.
 //

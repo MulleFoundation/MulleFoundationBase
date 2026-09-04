@@ -1,5 +1,5 @@
 //
-//  NSNumber-Math.h
+//  NSNumber+Math.m
 //  MulleObjCMathFoundation
 //
 //  Copyright (c) 2020 Nat! - Mulle kybernetiK.

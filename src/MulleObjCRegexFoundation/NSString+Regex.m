@@ -1,6 +1,6 @@
 //
 //  NSString+Regex.m
-//  MulleStringExpansion
+//  MulleObjCRegexFoundation
 //
 //  Copyright (c) 2023 Nat! - Mulle kybernetiK.
 //  All rights reserved.

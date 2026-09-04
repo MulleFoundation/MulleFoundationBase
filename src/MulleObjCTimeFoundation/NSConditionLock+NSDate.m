@@ -1,8 +1,8 @@
 //
 //  NSConditionLock+NSDate.m
-//  MulleObjCLockFoundation
+//  MulleObjCTimeFoundation
 //
-//  Copyright (c) 2021 Nat! - Mulle kybernetiK.
+//  Copyright (c) 2024 Nat! - Mulle kybernetiK.
 //  Copyright (c) 2021 Codeon GmbH.
 //  All rights reserved.
 //
