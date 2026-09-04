@@ -1,8 +1,8 @@
 //
 //  NSCoder.m
-//  MulleObjC
+//  MulleObjCArchiverFoundation
 //
-//  Copyright (c) 2007 Nat! - Mulle kybernetiK.
+//  Copyright (c) 2021 Nat! - Mulle kybernetiK.
 //  Copyright (c) 2007 Codeon GmbH.
 //  All rights reserved.
 //

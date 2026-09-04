@@ -1,5 +1,5 @@
 //
-//  NSString+MulleObjCUnicode.h
+//  NSString+MulleObjCUnicode.m
 //  MulleObjCUnicodeFoundation
 //
 //  Copyright (c) 2020 Nat! - Mulle kybernetiK.

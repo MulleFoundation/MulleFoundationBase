@@ -22,25 +22,31 @@ if( NOT ${CMAKE_SYSTEM_NAME} MATCHES "Windows")
       list( APPEND OS_SPECIFIC_LIBRARIES "m")
    else()
       if( NOT MATH_LIBRARY)
-         find_library( MATH_LIBRARY NAMES
-            m
-         )
+         foreach( _TMP_MATH_LIBRARY_TARGET m)
+            if( TARGET ${_TMP_MATH_LIBRARY_TARGET})
+               set( MATH_LIBRARY ${_TMP_MATH_LIBRARY_TARGET})
+               break()
+            endif()
+         endforeach()
+         if( NOT MATH_LIBRARY)
+            find_library( MATH_LIBRARY NAMES
+               m
+            )
+         endif()
          message( STATUS "MATH_LIBRARY is ${MATH_LIBRARY}")
-         #
-         # The order looks ascending, but due to the way this file is read
-         # it ends up being descending, which is what we need.
-         #
-         if( MATH_LIBRARY)
+      endif()
+      if( MATH_LIBRARY)
             #
             # Add MATH_LIBRARY to OS_SPECIFIC_LIBRARIES list.
             # Disable with: `mulle-sourcetree mark math no-cmake-add`
             #
-            list( APPEND OS_SPECIFIC_LIBRARIES ${MATH_LIBRARY})
+            if( NOT ${MATH_LIBRARY} IN_LIST OS_SPECIFIC_LIBRARIES)
+               list( APPEND OS_SPECIFIC_LIBRARIES ${MATH_LIBRARY})
+            endif()
             # intentionally left blank
-         else()
-            # Enable with: `mulle-sourcetree mark math require`
-            message( STATUS "MATH_LIBRARY is missing but it is marked as \"no-require\"")
-         endif()
+      else()
+         # Enable with: `mulle-sourcetree mark math require`
+         message( STATUS "MATH_LIBRARY is missing but it is marked as \"no-require\"")
       endif()
    endif()
 endif()

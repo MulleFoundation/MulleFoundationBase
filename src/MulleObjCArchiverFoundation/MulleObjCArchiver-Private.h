@@ -2,7 +2,7 @@
 //  MulleObjCArchiver-Private.h
 //  MulleObjCArchiverFoundation
 //
-//  Copyright (c) 2016 Nat! - Mulle kybernetiK.
+//  Copyright (c) 2021 Nat! - Mulle kybernetiK.
 //  Copyright (c) 2016 Codeon GmbH.
 //  All rights reserved.
 //
@@ -33,7 +33,6 @@
 //  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 //  POSSIBILITY OF SUCH DAMAGE.
 //
-
 #import "NSArchiver.h"
 
 #import "import.h"
@@ -49,8 +48,8 @@ struct blob
 };
 
 
-static inline  uintptr_t   blob_hash( struct mulle_container_keycallback *ignore,
-                                      struct blob *blob)
+static inline  uintptr_t   blob_hash( const struct mulle_container_keycallback *ignore,
+                                      const struct blob *blob)
 {
    NSUInteger   len;
 
@@ -61,9 +60,9 @@ static inline  uintptr_t   blob_hash( struct mulle_container_keycallback *ignore
 }
 
 
-static inline int   blob_is_equal( struct mulle_container_keycallback *ignore,
-                                   struct blob  *a,
-                                   struct blob  *b)
+static inline int   blob_is_equal( const struct mulle_container_keycallback *ignore,
+                                   const struct blob  *a,
+                                   const struct blob  *b)
 {
    assert( a && b);
    if( a->_length != b->_length)
@@ -72,11 +71,11 @@ static inline int   blob_is_equal( struct mulle_container_keycallback *ignore,
 }
 
 
-static inline char   *blob_describe( struct mulle_container_keycallback *ignore,
+static inline char   *blob_describe( const struct mulle_container_keycallback *ignore,
                                      void  *_blob,
                                      struct mulle_allocator **p_allocator)
 {
-   struct blob  *blob = _blob;
+   const struct blob  *blob = _blob;
 
    *p_allocator = NULL;
    return( [[NSString stringWithFormat:@"<%ld %p %.*s>",

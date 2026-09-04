@@ -1,8 +1,8 @@
 //
-//  MulleObjCFoundation.h
+//  MulleObjCArchiverFoundation.h
 //  MulleObjCArchiverFoundation
 //
-//  Copyright (c) 2016 Nat! - Mulle kybernetiK.
+//  Copyright (c) 2021 Nat! - Mulle kybernetiK.
 //  Copyright (c) 2016 Codeon GmbH.
 //  All rights reserved.
 //
@@ -33,11 +33,10 @@
 //  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 //  POSSIBILITY OF SUCH DAMAGE.
 //
-
 #import "import.h"
 
 // keep this in sync with MULLE_OBJC_VERSION, else pain! (why ?)
-#define MULLE_OBJC_ARCHIVER_FOUNDATION_VERSION   ((0UL << 20) | (22 << 8) | 5)
+#define MULLE_OBJC_ARCHIVER_FOUNDATION_VERSION   ((0UL << 20) | (22 << 8) | 6)
 
 // we do it manually...
 

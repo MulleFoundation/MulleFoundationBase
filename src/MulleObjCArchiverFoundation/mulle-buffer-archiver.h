@@ -1,8 +1,8 @@
 //
-//  mulle_buffer_archiver.h
+//  mulle-buffer-archiver.h
 //  MulleObjCArchiverFoundation
 //
-//  Copyright (c) 2016 Nat! - Mulle kybernetiK.
+//  Copyright (c) 2021 Nat! - Mulle kybernetiK.
 //  Copyright (c) 2016 Codeon GmbH.
 //  All rights reserved.
 //
@@ -33,7 +33,6 @@
 //  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 //  POSSIBILITY OF SUCH DAMAGE.
 //
-
 #import <mulle-buffer/mulle-buffer.h>
 
 #include <MulleObjC/minimal.h>

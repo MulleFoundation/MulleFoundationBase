@@ -1,8 +1,8 @@
 //
 //  NSCharacterSet+MulleObjCUnicode.m
-//  MulleObjCStandardFoundation
+//  MulleObjCUnicodeFoundation
 //
-//  Copyright (c) 2016-2020 Nat! - Mulle kybernetiK.
+//  Copyright (c) 2020 Nat! - Mulle kybernetiK.
 //  Copyright (c) 2016-2020 Codeon GmbH.
 //  All rights reserved.
 //

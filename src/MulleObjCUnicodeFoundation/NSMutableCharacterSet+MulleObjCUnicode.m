@@ -2,7 +2,7 @@
 //  NSMutableCharacterSet+MulleObjCUnicode.m
 //  MulleObjCUnicodeFoundation
 //
-//  Copyright (c) 2019-2020 Nat! - Mulle kybernetiK.
+//  Copyright (c) 2020 Nat! - Mulle kybernetiK.
 //  Copyright (c) 2019-2020 Codeon GmbH.
 //  All rights reserved.
 //

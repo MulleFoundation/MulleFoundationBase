@@ -2,7 +2,7 @@
 //  NSKeyedUnarchiver.m
 //  MulleObjCArchiverFoundation
 //
-//  Copyright (c) 2016 Nat! - Mulle kybernetiK.
+//  Copyright (c) 2021 Nat! - Mulle kybernetiK.
 //  Copyright (c) 2016 Codeon GmbH.
 //  All rights reserved.
 //
@@ -66,7 +66,7 @@
    callback          = NSNonOwnedPointerMapKeyCallBacks;
    callback.hash     = (mulle_container_keycallback_hash_t *) blob_hash;
    callback.is_equal = (mulle_container_keycallback_is_equal_t *) blob_is_equal;
-   callback.describe = blob_describe;
+   callback.describe = (mulle_container_keycallback_describe_t *) blob_describe;
 
    _scope = MulleObjCMapTableCreateWithAllocator( callback,
                                                   NSIntegerMapValueCallBacks,
