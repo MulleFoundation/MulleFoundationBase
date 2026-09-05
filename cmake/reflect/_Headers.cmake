@@ -410,6 +410,5 @@ src/MulleObjCValueFoundation/NSString.h
 src/MulleObjCValueFoundation/NSValue+NSCoder.h
 src/MulleObjCValueFoundation/mulle-chardata.h
 src/generic/MulleObjCDeps+MulleFoundationBase.h
-src/reflect/_MulleFoundationBase-versioncheck.h
 )
 
