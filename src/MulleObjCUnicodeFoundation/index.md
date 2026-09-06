@@ -23,7 +23,7 @@ This section lists the main public headers and their exported symbols. Use heade
 
 - Purpose: central public header that exposes version information and small inline helpers that forward to the underlying mulle-utf* routines.
 - Key symbols:
-  - #define MULLE_OBJC_UNICODE_FOUNDATION_VERSION  ((0UL << 20) | (21 << 8) | 0)
+  - #define MULLE_OBJC_UNICODE_FOUNDATION_VERSION  ((0UL << 20) | (21 << 8) | 2)
   - static inline unsigned int MulleObjCUnicodeFoundation_get_version_major(void)
   - static inline unsigned int MulleObjCUnicodeFoundation_get_version_minor(void)
   - static inline unsigned int MulleObjCUnicodeFoundation_get_version_patch(void)

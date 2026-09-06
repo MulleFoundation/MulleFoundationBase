@@ -1,286 +1,175 @@
 # MulleObjCMathFoundation Library Documentation for AI
-<!-- Keywords: math, numeric-functions -->
+<!-- Keywords: math, numbers, float, double, precision, libm -->
 
 ## 1. Introduction & Purpose
 
-MulleObjCMathFoundation extends MulleObjCValueFoundation's NSNumber class with mathematical functions requiring the math library (libm). Provides NSNumber category methods for trigonometric, logarithmic, exponential, and other mathematical operations. Enables mathematical computations on NSNumber objects directly, maintaining Objective-C object semantics throughout scientific and engineering calculations.
+`MulleObjCMathFoundation` is a small Objective-C extension library for `MulleObjCValueFoundation`. It refines the `NSNumber` class via a category named `NSNumber( Math)` to improve how floating-point values (`float`, `double`, `long double`) are turned into `NSNumber` instances.
+
+The library exists because this refinement requires the C math library (`libm`, linked with `-lm`), so it is factored out of `MulleObjCValueFoundation` as an optional add-on. It does NOT provide trig/log/exp functions — those "methods" do not exist here. Its single job is **number unification**: deciding whether a floating-point input is actually an integral value (and thus should become an integer `NSNumber`) or a true fractional value (and thus should become a `double` or `long double` `NSNumber`).
+
+It is a component of the `MulleFoundation` library family.
 
 ## 2. Key Concepts & Design Philosophy
 
-- **Category Extension**: Extends NSNumber without subclassing
-- **Math Library Integration**: Wraps standard C math functions (sin, cos, log, sqrt, etc.)
-- **Unified API**: All math operations return NSNumber for consistency
-- **Type Unification**: Automatically determines if result should be long or double
-- **Precision Preservation**: Uses long double internally where possible for accuracy
-- **Exception Handling**: Integrates with Objective-C exception handling for math errors
+- **Number Unification:** The core idea is that a float like `1.0` should become an integer `NSNumber`, while `1.5` should become a double `NSNumber`. The category checks if a `float`/`double`/`long double` value is integral and fits into a signed 64-bit integer.
+- **Precision Preservation:** Fractional `long double` values are never silently degraded to `double`. The correct concrete number subclass is chosen from the universe foundation space (`numbersubclasses[ _NSNumberClassClusterDoubleType]` / `_NSNumberClassClusterLongDoubleType]`).
+- **Category Extension, not Subclassing:** Uses a `@implementation NSNumber( Math)` category to override the `initWithFloat:`, `initWithDouble:` and `initWithLongDouble:` methods.
+- **libm Dependency:** Uses `feclearexcept`, `fetestexcept`, `llrint`, `llrintl`, `isfinite` and `round` from `libm` to robustly detect integral values, including on Windows.
+- **Delegation:** On detection of an integral value it delegates to `[self initWithLongLong:]`; otherwise it allocates the appropriate concrete number subclass.
 
 ## 3. Core API & Data Structures
 
-### NSNumber (Math) Category
+### 3.1. `src/MulleObjCMathFoundation.h`
 
-#### Basic Trigonometric Functions
+Main public header. Defines version information.
 
-- `- sin` → `NSNumber *`: Sine function (radians)
-- `- cos` → `NSNumber *`: Cosine function (radians)
-- `- tan` → `NSNumber *`: Tangent function (radians)
-- `- asin` → `NSNumber *`: Arcsine (inverse sine)
-- `- acos` → `NSNumber *`: Arccosine (inverse cosine)
-- `- atan` → `NSNumber *`: Arctangent (inverse tangent)
-- `- atan2:(NSNumber *)x` → `NSNumber *`: Two-argument arctangent
+- `#define MULLE_OBJC_MATH_FOUNDATION_VERSION ((0UL << 20) | (21 << 8) | 2)` — encodes major/minor/patch (currently 0.21.2).
+- `static inline unsigned int MulleObjCMathFoundation_get_version_major( void)` — returns the major version.
+- `static inline unsigned int MulleObjCMathFoundation_get_version_minor( void)` — returns the minor version.
+- `static inline unsigned int MulleObjCMathFoundation_get_version_patch( void)` — returns the patch version.
+- `MULLE_OBJC_MATH_FOUNDATION_GLOBAL uint32_t MulleObjCMathFoundation_get_version( void);` — returns the full encoded version, installed by `src/MulleObjCMathFoundation.m`.
 
-#### Hyperbolic Functions
+The header imports `MulleObjCValueFoundation/MulleObjCValueFoundation.h` (via `generic/import.h`) and the generated export/versioncheck headers.
 
-- `- sinh` → `NSNumber *`: Hyperbolic sine
-- `- cosh` → `NSNumber *`: Hyperbolic cosine
-- `- tanh` → `NSNumber *`: Hyperbolic tangent
-- `- asinh` → `NSNumber *`: Inverse hyperbolic sine
-- `- acosh` → `NSNumber *`: Inverse hyperbolic cosine
-- `- atanh` → `NSNumber *`: Inverse hyperbolic tangent
+### 3.2. `src/MulleObjCDeps+MulleObjCMathFoundation.h`
 
-#### Exponential & Logarithmic Functions
+- `@interface MulleObjCDeps( MulleObjCMathFoundation)` — declares the category method `+ (struct _mulle_objc_dependency *) dependencies;` which returns the list of runtime dependencies needed for object loading (generated into `objc-deps.inc` during the build).
 
-- `- exp` → `NSNumber *`: e raised to power
-- `- log` → `NSNumber *`: Natural logarithm (base e)
-- `- log10` → `NSNumber *`: Logarithm base 10
-- `- log2` → `NSNumber *`: Logarithm base 2
-- `- exp2` → `NSNumber *`: 2 raised to power
-- `- exp10` → `NSNumber *`: 10 raised to power
-- `- expm1` → `NSNumber *`: exp(x) - 1 (accurate for small x)
-- `- log1p` → `NSNumber *`: log(1 + x) (accurate for small x)
+### 3.3. `src/NSNumber+Math.m` — the `NSNumber( Math)` category
 
-#### Power & Root Functions
+Implements `@implementation NSNumber( Math)` with overridden initializers.
 
-- `- sqrt` → `NSNumber *`: Square root
-- `- cbrt` → `NSNumber *`: Cube root
-- `- pow:(NSNumber *)exponent` → `NSNumber *`: x raised to power
-- `- hypot:(NSNumber *)y` → `NSNumber *`: Euclidean distance sqrt(x^2 + y^2)
+#### `- (instancetype) initWithFloat:(float) value`
+- **Purpose:** Creates an `NSNumber` from a `float`.
+- **Behavior:** If the value is an integral number that fits into a signed 64-bit integer, delegates to `initWithLongLong:` (yielding an integer number). Otherwise creates the double number subclass. Non-finite values (`inf`, `nan`) always become double numbers.
 
-#### Rounding & Truncation
+#### `- (instancetype) initWithDouble:(double) value`
+- **Purpose:** Creates an `NSNumber` from a `double`.
+- **Behavior:** Same unification logic as `initWithFloat:`. `1.0` → integer number; `18.48` → `_MulleObjCDoubleNumber`; `INFINITY`/`NAN` → `_MulleObjCDoubleNumber`.
 
-- `- ceil` → `NSNumber *`: Round up to nearest integer
-- `- floor` → `NSNumber *`: Round down to nearest integer
-- `- trunc` → `NSNumber *`: Truncate to integer
-- `- round` → `NSNumber *`: Round to nearest integer
-- `- rint` → `NSNumber *`: Round to nearest integer (locale-aware)
-- `- nearbyint` → `NSNumber *`: Round to nearest integer
+#### `- (instancetype) initWithLongDouble:(long double) value`
+- **Purpose:** Creates an `NSNumber` from a `long double`.
+- **Availability:** Only compiled when `_C_LNG_DBL` is defined (the `mulle-c11` long-double feature). Aborts on `__MULLE_COSMOPOLITAN__` (unsupported).
+- **Behavior:** Integral values delegate to `initWithLongLong:`. Fractional values become `_MulleObjCLongDoubleNumber` — never degraded to double, so precision is preserved.
 
-#### Absolute Value & Sign
+Helper logic (static, not public): `double_is_long_long( double)` and (under `_C_LNG_DBL`) `long_double_is_long_long( long double)` use `feclearexcept(FE_INVALID)`, `llrint`/`llrintl`, `fetestexcept` and an equality round-trip check. On Windows/Cosmopolitan a `isfinite` + bounds + `round` comparison is used instead.
 
-- `- fabs` → `NSNumber *`: Absolute value (floating-point)
-- `- copysign:(NSNumber *)y` → `NSNumber *`: Copy sign from y
-
-#### Floating-Point Decomposition
-
-- `- modf:(NSNumber **)fracPart` → `NSNumber *`: Split into integer and fractional parts
-- `- frexp:(int *)exponent` → `NSNumber *`: Extract mantissa and exponent
-- `- ldexp:(int)exponent` → `NSNumber *`: Build from mantissa and exponent
-- `- significand` → `NSNumber *`: Get significand (mantissa)
-- `- exponent` → `NSNumber *`: Get exponent
-- `- fmod:(NSNumber *)divisor` → `NSNumber *`: Floating-point remainder
-
-#### Special Functions
-
-- `- erf` → `NSNumber *`: Error function
-- `- erfc` → `NSNumber *`: Complementary error function
-- `- tgamma` → `NSNumber *`: Gamma function
-- `- lgamma` → `NSNumber *`: Natural log of absolute gamma function
-
-#### Comparison & Classification
-
-- `- isnan` → `BOOL`: Check if NaN (Not a Number)
-- `- isinf` → `BOOL`: Check if infinity
-- `- isfinite` → `BOOL`: Check if finite value
-- `- isnormal` → `BOOL`: Check if normal (not zero, subnormal, infinity, NaN)
-
-#### Initialization
-
-- `- initWithFloat:(float)value` → `instancetype`: Create from float with math handling
-- `- initWithDouble:(double)value` → `instancetype`: Create from double with math handling
-- `- initWithLongDouble:(long double)value` → `instancetype`: Create from long double
+#### Resulting concrete number classes (from tests)
+- Integral small values → `_MulleObjCTaggedPointerIntegerNumber`
+- Large integral values → `_MulleObjCInt64Number`
+- Fractional `double`/`float` → `_MulleObjCDoubleNumber`
+- Fractional `long double` → `_MulleObjCLongDoubleNumber`
 
 ## 4. Performance Characteristics
 
-- **Math Operations**: O(1) computation time; performance depends on underlying C math library
-- **Type Conversion**: Automatic type unification adds minimal overhead
-- **Memory**: Result NSNumber allocation only; minimal temporary memory
-- **Precision**: Uses long double internally where available for intermediate calculations
-- **Optimization**: Results cached/unified (long vs double) for memory efficiency
-- **Thread-Safety**: Math operations thread-safe; NSNumber immutable
+- **O(1):** Each initializer does a constant number of libm calls (an `llrint`/`llrintl`, a round-trip conversion, and an exception check) before delegating or allocating.
+- **Allocation:** A single `NSNumber` is produced; no temporary or intermediate allocations are made.
+- **Precision cost:** `long double` detection does not degrade precision, but `long double` operations may be slower on platforms without hardware support.
+- **Thread-safety:** The libm functions used are thread-safe; the universe foundation space read is done per call. Resulting `NSNumber` instances are immutable in practice.
 
 ## 5. AI Usage Recommendations & Patterns
 
 ### Best Practices
 
-- **Use for Object-Oriented Code**: Keep NSNumber objects rather than extracting primitives
-- **Chain Operations**: Object chaining (e.g., `[[num sqrt] log] exp`) maintains clarity
-- **Error Checking**: Check for NaN/infinity results from domain error operations
-- **Type Consistency**: NSNumber results maintain type compatibility with rest of foundation
-- **Accuracy**: Use long double initialization for highest precision inputs
-- **Performance**: Cache frequently-used math results rather than recalculating
+- **Use the factory methods** `[NSNumber numberWithFloat:]`, `[NSNumber numberWithDouble:]`, `[NSNumber numberWithLongDouble:]` from `MulleObjCValueFoundation` — they internally invoke these refined initializers, so you get unification for free.
+- **Inspect the concrete class** (e.g. `NSStringFromClass( [nr class])`) when exact number type matters.
+- **Rely on unification:** pass plain C values; the category decides integer vs. double vs. long double automatically.
+- **Use `long double` for highest precision inputs** (only when `_C_LNG_DBL` is defined).
 
 ### Common Pitfalls
 
-- **Domain Errors**: `sqrt(-1)`, `log(0)` produce NaN/infinity; check results
-- **Precision Loss**: Converting large numbers loses precision; use long double
-- **Rounding Mode**: Rounding behavior depends on C library; may differ between platforms
-- **Infinity/NaN Propagation**: Operations on infinity/NaN propagate through calculations
-- **Sign Handling**: Special functions like gamma may have discontinuities; validate domain
-- **Denormalized Numbers**: Very small numbers become zero; check with `isnormal`
+- **Do not expect math functions here:** there is no `sin`, `cos`, `exp`, `pow`, `erf` etc. in this library. Those must be computed with C `math.h` functions on extracted values.
+- **Non-integral values never become integers:** `18.48` stays a `double` — do not assume truncation happens.
+- **`initWithLongDouble:` may be unavailable:** it is compiled only under `_C_LNG_DBL` and aborts on `__MULLE_COSMOPOLITAN__`. Guard usage with `#ifdef _C_LNG_DBL`.
+- **`inf`/`nan` are not errors here:** they deliberately produce double/long-double number instances rather than failing.
+- **Floating-point round-trip:** values near the `long long` limits are handled via bounds checks on Windows/Cosmopolitan; extreme values become floating numbers.
 
 ### Idiomatic Usage
 
 ```objc
-// Pattern 1: Math operations on NSNumber objects
-NSNumber *x = [NSNumber numberWithDouble:2.0];
-NSNumber *result = [[x sqrt] pow:[NSNumber numberWithInt:3]];
+NSNumber   *n;
 
-// Pattern 2: Check for special values
-NSNumber *result = [x log];  // log of negative may be NaN
-if ([result isnan]) {
-    NSLog(@"Domain error");
-}
-
-// Pattern 3: Type preservation through operations
-NSNumber *int_result = [[NSNumber numberWithInt:4] sqrt];  // Returns 2.0 as NSNumber
-
-// Pattern 4: Chained math
-NSNumber *answer = [[[NSNumber numberWithDouble:100.0] log10] exp] sin];
+// 1.0 unifies into an integer number, 18.48 stays a double
+n = [NSNumber numberWithDouble:1.0];
+n = [NSNumber numberWithDouble:18.48];
 ```
 
 ## 6. Integration Examples
 
-### Example 1: Basic Math Operations
+### Example 1: Creating Numbers and Observing the Unified Class
 
 ```objc
 #import <MulleObjCMathFoundation/MulleObjCMathFoundation.h>
 
-int main() {
-    NSNumber *num = [NSNumber numberWithDouble:2.0];
-    
-    NSNumber *sqrt_result = [num sqrt];
-    NSNumber *exp_result = [num exp];
-    NSNumber *sin_result = [num sin];
-    
-    NSLog(@"sqrt(2): %@", sqrt_result);
-    NSLog(@"exp(2): %@", exp_result);
-    NSLog(@"sin(2): %@", sin_result);
-    
-    return 0;
+#include <math.h>
+
+
+static void   test_value( double v)
+{
+   NSNumber   *nr;
+   NSString   *className;
+
+   nr        = [NSNumber numberWithDouble:v];
+   className = NSStringFromClass( [nr class]);
+
+   mulle_printf( "%s : %s\n", [[nr stringValue] UTF8String], [className UTF8String]);
+}
+
+
+int   main( int argc, char *argv[])
+{
+   test_value( 0.0);          // _MulleObjCTaggedPointerIntegerNumber
+   test_value( 1848);         // _MulleObjCTaggedPointerIntegerNumber
+   test_value( 18.48);        // _MulleObjCDoubleNumber
+   test_value( INFINITY);     // _MulleObjCDoubleNumber
+   test_value( NAN);          // _MulleObjCDoubleNumber
+
+   return( 0);
 }
 ```
 
-### Example 2: Error Function
+### Example 2: Long Double Precision Preservation
 
 ```objc
 #import <MulleObjCMathFoundation/MulleObjCMathFoundation.h>
 
-int main() {
-    NSNumber *x = [NSNumber numberWithDouble:1.5];
-    NSNumber *erf_result = [x erf];
-    NSNumber *erfc_result = [x erfc];
-    
-    NSLog(@"erf(1.5): %@", erf_result);
-    NSLog(@"erfc(1.5): %@", erfc_result);
-    
-    return 0;
+#include <float.h>
+#include <math.h>
+
+
+#ifdef _C_LNG_DBL
+static void   test_value( char *s, long double v)
+{
+   NSNumber   *nr;
+   NSString   *className;
+
+   nr        = [NSNumber numberWithLongDouble:v];
+   className = NSStringFromClass( [nr class]);
+
+   mulle_printf( "%s: %s (%s)\n", s, [[nr stringValue] UTF8String], [className UTF8String]);
 }
-```
+#endif
 
-### Example 3: Checking for Special Values
 
-```objc
-#import <MulleObjCMathFoundation/MulleObjCMathFoundation.h>
-
-int main() {
-    NSNumber *zero = [NSNumber numberWithDouble:0.0];
-    NSNumber *result = [zero log];  // log(0) = -infinity
-    
-    if ([result isinf]) {
-        NSLog(@"Result is infinity");
-    }
-    
-    NSNumber *negative = [NSNumber numberWithDouble:-1.0];
-    NSNumber *sqrt_neg = [negative sqrt];  // sqrt(-1) = NaN
-    
-    if ([sqrt_neg isnan]) {
-        NSLog(@"Result is NaN (domain error)");
-    }
-    
-    return 0;
-}
-```
-
-### Example 4: Rounding Functions
-
-```objc
-#import <MulleObjCMathFoundation/MulleObjCMathFoundation.h>
-
-int main() {
-    NSNumber *value = [NSNumber numberWithDouble:3.7];
-    
-    NSNumber *ceil_result = [value ceil];    // 4
-    NSNumber *floor_result = [value floor];  // 3
-    NSNumber *round_result = [value round];  // 4
-    NSNumber *trunc_result = [value trunc];  // 3
-    
-    NSLog(@"ceil(3.7): %@", ceil_result);
-    NSLog(@"floor(3.7): %@", floor_result);
-    NSLog(@"round(3.7): %@", round_result);
-    NSLog(@"trunc(3.7): %@", trunc_result);
-    
-    return 0;
-}
-```
-
-### Example 5: Trigonometric Functions
-
-```objc
-#import <MulleObjCMathFoundation/MulleObjCMathFoundation.h>
-#import <math.h>
-
-int main() {
-    NSNumber *pi = [NSNumber numberWithDouble:M_PI];
-    NSNumber *pi_2 = [NSNumber numberWithDouble:M_PI / 2.0];
-    
-    NSNumber *sin_result = [pi sin];      // sin(π) ≈ 0
-    NSNumber *cos_result = [pi cos];      // cos(π) = -1
-    NSNumber *sin_90 = [pi_2 sin];        // sin(π/2) = 1
-    
-    NSLog(@"sin(π): %@", sin_result);
-    NSLog(@"cos(π): %@", cos_result);
-    NSLog(@"sin(π/2): %@", sin_90);
-    
-    return 0;
-}
-```
-
-### Example 6: Floating-Point Decomposition
-
-```objc
-#import <MulleObjCMathFoundation/MulleObjCMathFoundation.h>
-
-int main() {
-    NSNumber *value = [NSNumber numberWithDouble:3.5];
-    NSNumber *frac_part = nil;
-    
-    // Split into integer and fractional parts
-    NSNumber *int_part = [value modf:&frac_part];
-    
-    NSLog(@"Value: %@", value);
-    NSLog(@"Integer part: %@", int_part);
-    NSLog(@"Fractional part: %@", frac_part);
-    
-    // Get exponent and significand
-    int exp;
-    NSNumber *mant = [value frexp:&exp];
-    NSLog(@"Mantissa: %@, Exponent: %d", mant, exp);
-    
-    return 0;
+int   main( int argc, char *argv[])
+{
+#ifdef _C_LNG_DBL
+   test_value( "0.0L", 0.0L);     // integer number
+   test_value( "18.48L", 18.48L); // _MulleObjCLongDoubleNumber (kept, not degraded)
+   test_value( "LDBL_MAX", LDBL_MAX);
+#else
+   mulle_printf( "_C_LNG_DBL not defined, no test for you!\n");
+#endif
+   return( 0);
 }
 ```
 
 ## 7. Dependencies
 
-- MulleObjCValueFoundation (NSNumber)
-- libm (math C library) - linked with -lm
-- MulleFoundationBase
+- `MulleObjCValueFoundation` — the `NSNumber` value class this library refines (host library).
+- `mulle-objc-list` — lists mulle-objc runtime information (headers only, no linking).
+- `math` (system `libm`, linked via `-lm` alias `m`) — provides `llrint`, `llrintl`, `isfinite`, `feclearexcept`, `fetestexcept`, `round`.
+
+## 8. Shortcut
+
+The previous `index.md` was committed along with the current source at `3909509` and has not changed since. However, the previously documented math methods (`sin`, `cos`, `exp`, `erf`, ...) could not be found in any header and were removed; this file now documents only the actual public API.
