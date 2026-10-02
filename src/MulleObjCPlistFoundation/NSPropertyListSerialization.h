@@ -60,8 +60,8 @@ enum
    NSPropertyListOpenStepFormat      = 1,   // no comments, no unquoted $ _ /
    MullePropertyListLooseFormat      = 2,   // with wily Mulle extensions
    MullePropertyListPBXFormat        = 3,   // with wily Apple extensions
-//    MullePropertyListGNUstepFormat        = 4, // future
-//    MullePropertyListFormat               = 5, // future
+   MullePropertyListYAMLFormat       = 4,   // read, needs MulleObjCPlistYAMLFoundation
+//    MullePropertyListGNUstepFormat        = 5, // future
    MullePropertyListJSONFormat       = 6,   // read, with jsmn
    NSPropertyListXMLFormat_v1_0      = 100, // read, support with expat
    NSPropertyListBinaryFormat_v1_0   = 200  // no support

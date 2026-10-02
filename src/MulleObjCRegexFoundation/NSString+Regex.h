@@ -48,6 +48,7 @@ typedef   NS_ENUM( NSUInteger, MulleObjCPatternOptions)
    MulleObjCWildcardsShortestPath = 0x3000,              // #1#  // also sets MulleWildcards
    MulleObjCWildcards             = 0x1000,              // #2#
    MulleObjCSedPattern            = 0x4000,              // use \( instead of ( for grouping
+   MulleObjCExtendedPattern       = 0x8000,              // #3#
    MulleObjCAnchoredSearch        = NSAnchoredSearch,
    MulleObjCBackwardsSearch       = NSBackwardsSearch
 };
@@ -93,4 +94,25 @@ typedef   NS_ENUM( NSUInteger, MulleObjCPatternOptions)
 //
 // find bash like wildcards * ? [a-z] [^a-z]. This will extend as far as possible
 // e.g. a*c will match abcabc fully
+//
+
+// #3#
+//
+// select the extended pattern language, which adds escapes and named classes
+// to the character classes:
+//
+//    [ \t\r\n]           space, tab, carriage return and newline
+//    [[:space:]]          a named class, resolved by mulle-unicode
+//    [[:alpha:]] [[:digit:]] [[:alnum:]] [[:word:]] [[:punct:]]
+//    [[:ident:]]          identifier start or continuation, as in a source
+//                         language
+//    [[:identstart:]] [[:identcont:]]
+//
+// without it a backslash is an ordinary character, so `[ \t\r\n]` is the set
+// { ' ', '\\', 't', 'r', 'n' } and matches the letter `t` and not a tab. The
+// named classes are matched as a predicate, not as an expanded list of
+// members, so [[:alpha:]] costs the same as [a-z].
+//
+// This is a pattern option of its own and does not imply, nor is implied by,
+// any other option.
 //

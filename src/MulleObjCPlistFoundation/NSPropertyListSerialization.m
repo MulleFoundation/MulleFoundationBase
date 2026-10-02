@@ -273,8 +273,8 @@ NSString   *MulleStringFromPropertListFormatString( NSPropertyListFormat format)
    {
    case NSPropertyListOpenStepFormat    : return( @"OpenStep");
    case MullePropertyListLooseFormat    : return( @"Loose");
-//    MullePropertyListGNUstepFormat        = 4, // future
-//    MullePropertyListFormat               = 5, // future
+   case MullePropertyListYAMLFormat     : return( @"YAML");
+//    MullePropertyListGNUstepFormat        = 5, // future
    case MullePropertyListJSONFormat     : return( @"JSON");
    case NSPropertyListXMLFormat_v1_0    : return( @"XML");
    case NSPropertyListBinaryFormat_v1_0 : return( @"binary");
@@ -320,6 +320,7 @@ NSString   *MulleStringFromPropertListFormatString( NSPropertyListFormat format)
            || requestedFormat == NSPropertyListOpenStepFormat
            || requestedFormat == MullePropertyListLooseFormat
            || requestedFormat == MullePropertyListPBXFormat
+           || requestedFormat == MullePropertyListYAMLFormat
            || requestedFormat == MullePropertyListJSONFormat
            || requestedFormat == NSPropertyListXMLFormat_v1_0
            || requestedFormat == NSPropertyListBinaryFormat_v1_0);

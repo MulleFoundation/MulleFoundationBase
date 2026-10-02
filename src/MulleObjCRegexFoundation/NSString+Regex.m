@@ -36,6 +36,8 @@
 
 #import "import-private.h"
 
+#import "MulleObjCPattern-Private.h"
+
 
 #if ! defined( DEBUG_REGEX)
 # ifdef DEBUG
@@ -321,9 +323,10 @@ static unichar   *convertWildcardPatternForLongestRange( NSString *pattern,
 }
 
 
-static unichar   *convertPatternWithOptions( NSString *pattern,
-                                             unichar *copy,
-                                             MulleObjCPatternOptions options)
+// shared with MulleObjCPattern, see MulleObjCPattern-Private.h
+unichar   *MulleObjCPatternConvert( NSString *pattern,
+                                    unichar *copy,
+                                    MulleObjCPatternOptions options)
 {
    unichar   *p;
 
@@ -357,8 +360,23 @@ static unichar   *convertPatternWithOptions( NSString *pattern,
 }
 
 
-static size_t    patternSizeWithOptions( NSString *pattern,
-                                         MulleObjCPatternOptions options)
+// shared with MulleObjCPattern, see MulleObjCPattern-Private.h
+struct mulle_utf32regex   *MulleObjCPatternCompile( unichar *characters,
+                                                    MulleObjCPatternOptions options)
+{
+   unsigned int   compile_options;
+
+   compile_options = 0;
+   if( options & MulleObjCExtendedPattern)
+      compile_options |= MULLE_UTF32REGEX_EXTENDED;
+
+   return( mulle_utf32regex_compile_options( characters, compile_options));
+}
+
+
+// shared with MulleObjCPattern, see MulleObjCPattern-Private.h
+size_t    MulleObjCPatternSize( NSString *pattern,
+                               MulleObjCPatternOptions options)
 {
    NSUInteger   length;
    NSUInteger   growFactor;
@@ -385,11 +403,11 @@ static size_t    patternSizeWithOptions( NSString *pattern,
 
    range       = MulleObjCRangeValidateAgainstLength( range, [self length]);
    resultRange = NSRangeMake( NSNotFound, 0);
-   size        = patternSizeWithOptions( pattern, options);
+   size        = MulleObjCPatternSize( pattern, options);
 
    mulle_alloca_do( pattern_characters, unichar, size)
    {
-      p = convertPatternWithOptions( pattern, pattern_characters, options);
+      p = MulleObjCPatternConvert( pattern, pattern_characters, options);
 
       assert( (p - pattern_characters) <= size);
       MULLE_C_UNUSED( p);
@@ -398,7 +416,7 @@ static size_t    patternSizeWithOptions( NSString *pattern,
       // This is maybe too big to alloca, and its variable sized, so init
       // is tough as well. So, can't get rid of this malloc easily
       //
-      r = mulle_utf32regex_compile( pattern_characters);
+      r = MulleObjCPatternCompile( pattern_characters, options);
       if( ! r)
          break;
 
@@ -474,12 +492,12 @@ static size_t    patternSizeWithOptions( NSString *pattern,
 
    length = [self length];
    range  = MulleObjCRangeValidateAgainstLength( range, length);
-   size   = patternSizeWithOptions( pattern, options);
+   size   = MulleObjCPatternSize( pattern, options);
    s      = nil;
 
    mulle_alloca_do( pattern_characters, unichar, size)
    {
-      p = convertPatternWithOptions( pattern, pattern_characters, options);
+      p = MulleObjCPatternConvert( pattern, pattern_characters, options);
 
       assert( (p - pattern_characters) <= size);
       MULLE_C_UNUSED( p);
@@ -487,7 +505,7 @@ static size_t    patternSizeWithOptions( NSString *pattern,
       // This is maybe too big to alloca, and its variable sized, so init
       // is tough as well. So, can't get rid of this malloc easily
       //
-      r = mulle_utf32regex_compile( pattern_characters);
+      r = MulleObjCPatternCompile( pattern_characters, options);
       if( ! r)
          break;
 

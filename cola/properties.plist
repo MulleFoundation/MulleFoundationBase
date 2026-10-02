@@ -10,6 +10,7 @@
       repo="MulleFoundationBase";
       homepage="https://github.com/MulleFoundation/MulleFoundationBase";
       license="UNLICENSED";
+      version="0.30.0";
    };
    dependencies =
    (
@@ -20,26 +21,10 @@
          repo="MulleObjC";
          url="https://github.com/mulle-objc/MulleObjC";
          user="mulle-objc";
-      },
-      {
-         description="📒 Lists mulle-objc runtime information contained in executables.";
-         domain="github";
-         name="mulle-objc-list";
-         repo="mulle-objc-list";
-         url="https://github.com/mulle-objc/mulle-objc-list";
-         user="mulle-objc";
       }
    );
    amalgamated =
    (
-      {
-         description="🚪 NSCoding classes like NSArchiver/NSUnarchiver";
-         domain="clib";
-         name="src/MulleObjCArchiverFoundation";
-         repo="MulleObjCArchiverFoundation@*";
-         url="https://github.com/MulleFoundation/MulleObjCArchiverFoundation@*";
-         user="MulleFoundation";
-      },
       {
          description="🛍 Container classes like NSArray, NSSet, NSDictionary";
          domain="clib";

@@ -44,7 +44,6 @@ Then edit `MulleFoundationBase.h` and add the envelope header to the others.
 
 | Constituent                                  | Description
 |----------------------------------------------|-----------------------
-| [MulleObjCArchiverFoundation](https://github.com/MulleFoundation/MulleObjCArchiverFoundation) | 🚪 NSCoding classes like NSArchiver/NSUnarchiver
 | [MulleObjCContainerFoundation](https://github.com/MulleFoundation/MulleObjCContainerFoundation) | 🛍 Container classes like NSArray, NSSet, NSDictionary
 | [MulleObjCKVCFoundation](https://github.com/MulleFoundation/MulleObjCKVCFoundation) | 🔑 Key-Value-Coding based on MulleObjCStandardFoundation
 | [MulleObjCMathFoundation](https://github.com/MulleFoundation/MulleObjCMathFoundation) | 📈 NSNumber refines that use the math library
@@ -89,7 +88,6 @@ Install the requirements:
 | Requirements                                 | Description
 |----------------------------------------------|-----------------------
 | [MulleObjC](https://github.com/mulle-objc/MulleObjC)             | 💎 A collection of Objective-C root classes for mulle-objc
-| [mulle-objc-list](https://github.com/mulle-objc/mulle-objc-list)             | 📒 Lists mulle-objc runtime information contained in executables.
 
 Download the latest [tar](https://github.com/MulleFoundation/MulleFoundationBase/archive/refs/tags/latest.tar.gz) or [zip](https://github.com/MulleFoundation/MulleFoundationBase/archive/refs/tags/latest.zip) archive and unpack it.
 

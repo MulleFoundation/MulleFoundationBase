@@ -67,6 +67,12 @@
 }
 
 
++ (NSTimeInterval) timeIntervalSince1970
+{
+   return( _NSTimeIntervalSinceReferenceDateAsSince1970( _NSTimeIntervalNow()));
+}
+
+
 - (instancetype) init
 {
    return( [self initWithTimeIntervalSinceReferenceDate:_NSTimeIntervalNow()]);
@@ -82,10 +88,7 @@
 
 # pragma mark - convenience constructors
 
-+ (NSDate *) date
-{
-   return( [[[self alloc] init] autorelease]);
-}
+@method_implementation +date = +instance;
 
 
 + (instancetype) dateWithTimeIntervalSince1970:(NSTimeInterval) seconds

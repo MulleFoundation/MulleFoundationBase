@@ -5,7 +5,7 @@
 #
 # Disable generation of this file with:
 #
-# mulle-sde environment set MULLE_SOURCETREE_TO_CMAKE_DEPENDENCIES_FILE DISABLE
+# mulle-sde environment --global set MULLE_SOURCETREE_TO_CMAKE_DEPENDENCIES_FILE DISABLE
 #
 if( MULLE_TRACE_INCLUDE)
    message( STATUS "# Include \"${CMAKE_CURRENT_LIST_FILE}\"" )
@@ -27,7 +27,7 @@ else()
 endif()
 
 #
-# Generated from sourcetree: BCC7C22B-9D18-4423-AA8B-67BF9802C953;MulleObjC;no-singlephase;
+# Generated from sourcetree: BB827B6A-3239-4D95-B36D-3A4BC6F8C79C;MulleObjC;no-singlephase;
 # Disable with : `mulle-sourcetree mark MulleObjC no-link`
 # Disable for this platform: `mulle-sourcetree mark MulleObjC no-cmake-platform-${MULLE_UNAME}`
 # Disable for a sdk: `mulle-sourcetree mark MulleObjC no-cmake-sdk-<name>`
@@ -51,7 +51,7 @@ else()
             MulleObjC
             NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH NO_CMAKE_FIND_ROOT_PATH
          )
-         if( NOT MULLE_OBJC_LIBRARY AND NOT DEPENDENCY_IGNORE_SYSTEM_LIBARIES)
+         if( NOT MULLE_OBJC_LIBRARY AND NOT DEPENDENCY_IGNORE_SYSTEM_LIBRARIES)
             find_library( MULLE_OBJC_LIBRARY NAMES
                ${MULLE_PREFERRED_LIBRARY_PREFIX}MulleObjC${CMAKE_DEBUG_POSTFIX}${MULLE_PREFERRED_LIBRARY_SUFFIX}
                ${MULLE_PREFERRED_LIBRARY_PREFIX}MulleObjC${MULLE_PREFERRED_LIBRARY_SUFFIX}

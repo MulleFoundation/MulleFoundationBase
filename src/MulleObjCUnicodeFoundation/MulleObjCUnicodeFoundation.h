@@ -44,7 +44,7 @@
  *
  *  version:  major, minor, patch
  */
-#define MULLE_OBJC_UNICODE_FOUNDATION_VERSION  ((0UL << 20) | (21 << 8) | 2)
+#define MULLE_OBJC_UNICODE_FOUNDATION_VERSION  ((0UL << 20) | (21 << 8) | 3)
 
 
 static inline unsigned int   MulleObjCUnicodeFoundation_get_version_major( void)

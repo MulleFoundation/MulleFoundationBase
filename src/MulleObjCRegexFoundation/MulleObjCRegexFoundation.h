@@ -35,9 +35,21 @@
 #import "import.h"
 
 #import "NSString+Regex.h"
+#import "NSScanner+Regex.h"
+
+#import "MulleObjCPattern.h"
+#import "MulleObjCPatternEnumerator.h"
+#import "MulleObjCPatternMatch.h"
+
+// the table-driven tokenizer built on the patterns above
+#import "MulleObjCToken.h"
+#import "MulleObjCTokenRule.h"
+#import "MulleObjCTokenProblem.h"
+#import "MulleObjCTokenSet.h"
+#import "MulleObjCTokenizer.h"
 
 
-#define MULLE_OBJC_REGEX_FOUNDATION_VERSION   ((0UL << 20) | (20 << 8) | 11)
+#define MULLE_OBJC_REGEX_FOUNDATION_VERSION   ((0UL << 20) | (21 << 8) | 0)
 
 #import "import.h"
 

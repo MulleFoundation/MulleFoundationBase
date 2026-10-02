@@ -11,27 +11,22 @@ endif()
 # contents selected with patternfile ??-source--sources
 #
 set( SOURCES
-src/MulleObjCArchiverFoundation/MulleObjCArchiver.m
-src/MulleObjCArchiverFoundation/MulleObjCUnarchiver.m
-src/MulleObjCArchiverFoundation/NSArchiver+OSBase.m
-src/MulleObjCArchiverFoundation/NSArchiver.m
-src/MulleObjCArchiverFoundation/NSCoder.m
-src/MulleObjCArchiverFoundation/NSKeyedArchiver.m
-src/MulleObjCArchiverFoundation/NSKeyedUnarchiver.m
-src/MulleObjCArchiverFoundation/NSObject+NSCoder.m
-src/MulleObjCArchiverFoundation/NSUnarchiver.m
 src/MulleObjCContainerFoundation/_MulleObjCArrayEnumerator.m
 src/MulleObjCContainerFoundation/_MulleObjCConcreteArray.m
 src/MulleObjCContainerFoundation/_MulleObjCConcreteDictionary.m
 src/MulleObjCContainerFoundation/_MulleObjCConcreteMutableDictionary.m
+src/MulleObjCContainerFoundation/_MulleObjCConcreteMutableOrderedSet.m
 src/MulleObjCContainerFoundation/_MulleObjCConcreteMutableSet.m
+src/MulleObjCContainerFoundation/_MulleObjCConcreteOrderedSet.m
 src/MulleObjCContainerFoundation/_MulleObjCConcreteSet.m
 src/MulleObjCContainerFoundation/MulleObjCContainer+NSArray.m
 src/MulleObjCContainerFoundation/MulleObjCContainer.m
 src/MulleObjCContainerFoundation/_MulleObjCDictionary.m
 src/MulleObjCContainerFoundation/_MulleObjCEmptyArray.m
 src/MulleObjCContainerFoundation/_MulleObjCEmptyDictionary.m
+src/MulleObjCContainerFoundation/_MulleObjCEmptyOrderedSet.m
 src/MulleObjCContainerFoundation/_MulleObjCEmptySet.m
+src/MulleObjCContainerFoundation/_MulleObjCOrderedSet.m
 src/MulleObjCContainerFoundation/_MulleObjCSet.m
 src/MulleObjCContainerFoundation/NSArray+NSCoder.m
 src/MulleObjCContainerFoundation/NSArray+NSEnumerator.m
@@ -48,9 +43,13 @@ src/MulleObjCContainerFoundation/NSMutableArray.m
 src/MulleObjCContainerFoundation/NSMutableDictionary+NSArray.m
 src/MulleObjCContainerFoundation/_NSMutableDictionaryPlaceholder.m
 src/MulleObjCContainerFoundation/NSMutableDictionary.m
+src/MulleObjCContainerFoundation/_NSMutableOrderedSetPlaceholder.m
+src/MulleObjCContainerFoundation/NSMutableOrderedSet.m
 src/MulleObjCContainerFoundation/NSMutableSet+NSArray.m
 src/MulleObjCContainerFoundation/_NSMutableSetPlaceholder.m
 src/MulleObjCContainerFoundation/NSMutableSet.m
+src/MulleObjCContainerFoundation/_NSOrderedSetPlaceholder.m
+src/MulleObjCContainerFoundation/NSOrderedSet.m
 src/MulleObjCContainerFoundation/NSSet+NSArray.m
 src/MulleObjCContainerFoundation/NSSet+NSCoder.m
 src/MulleObjCContainerFoundation/_NSSetPlaceholder.m
@@ -96,6 +95,15 @@ src/MulleObjCPlistFoundation/NSPropertyListSerialization.m
 src/MulleObjCPlistFoundation/NSString+PropertyListParsing.m
 src/MulleObjCPlistFoundation/NSString+PropertyListPrinting.m
 src/MulleObjCPlistFoundation/NSString+PropertyList.m
+src/MulleObjCRegexFoundation/MulleObjCPatternEnumerator.m
+src/MulleObjCRegexFoundation/MulleObjCPatternMatch.m
+src/MulleObjCRegexFoundation/MulleObjCPattern.m
+src/MulleObjCRegexFoundation/MulleObjCTokenProblem.m
+src/MulleObjCRegexFoundation/MulleObjCTokenRule.m
+src/MulleObjCRegexFoundation/MulleObjCTokenSet.m
+src/MulleObjCRegexFoundation/MulleObjCTokenizer.m
+src/MulleObjCRegexFoundation/MulleObjCToken.m
+src/MulleObjCRegexFoundation/NSScanner+Regex.m
 src/MulleObjCRegexFoundation/NSString+Regex.m
 src/MulleObjCStandardFoundation/_MulleGMTTimeZone.m
 src/MulleObjCStandardFoundation/MulleObjCCharacterBitmap.m
@@ -215,7 +223,7 @@ src/MulleObjCValueFoundation/NSValue+NSString.m
 # contents selected with patternfile ??-source--stage2-sources
 #
 set( STAGE2_SOURCES
-src/MulleObjCArchiverFoundation/MulleObjCDeps+MulleObjCArchiverFoundation.m
+src/MulleFoundationBase/MulleObjCDeps+MulleFoundationBase.m
 src/MulleObjCContainerFoundation/MulleObjCDeps+MulleObjCContainerFoundation.m
 src/MulleObjCKVCFoundation/MulleObjCDeps+MulleObjCKVCFoundation.m
 src/MulleObjCMathFoundation/MulleObjCDeps+MulleObjCMathFoundation.m
@@ -226,7 +234,6 @@ src/MulleObjCTimeFoundation/MulleObjCDeps+MulleObjCTimeFoundation.m
 src/MulleObjCUUIDFoundation/MulleObjCDeps+MulleObjCUUIDFoundation.m
 src/MulleObjCUnicodeFoundation/MulleObjCDeps+MulleObjCUnicodeFoundation.m
 src/MulleObjCValueFoundation/MulleObjCDeps+MulleObjCValueFoundation.m
-src/generic/MulleObjCDeps+MulleFoundationBase.m
 )
 
 #

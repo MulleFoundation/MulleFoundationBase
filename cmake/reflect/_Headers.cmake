@@ -11,7 +11,6 @@ endif()
 # contents are derived from the file locations
 
 set( INCLUDE_DIRS
-src/MulleObjCArchiverFoundation
 src/MulleObjCContainerFoundation
 src/MulleObjCKVCFoundation
 src/MulleObjCMathFoundation
@@ -22,17 +21,13 @@ src/MulleObjCTimeFoundation
 src/MulleObjCUUIDFoundation
 src/MulleObjCUnicodeFoundation
 src/MulleObjCValueFoundation
-src/generic
-src/reflect
-src
+src/MulleFoundationBase
 )
 
 #
 # contents selected with patternfile ??-header--private-generated-headers
 #
 set( PRIVATE_GENERATED_HEADERS
-src/MulleObjCArchiverFoundation/_MulleObjCArchiverFoundation-import-private.h
-src/MulleObjCArchiverFoundation/_MulleObjCArchiverFoundation-include-private.h
 src/MulleObjCContainerFoundation/_MulleObjCContainerFoundation-import-private.h
 src/MulleObjCContainerFoundation/_MulleObjCContainerFoundation-include-private.h
 src/MulleObjCKVCFoundation/_MulleObjCKVCFoundation-import-private.h
@@ -59,8 +54,6 @@ src/MulleObjCValueFoundation/_MulleObjCValueFoundation-include-private.h
 # contents selected with patternfile ??-header--private-generic-headers
 #
 set( PRIVATE_GENERIC_HEADERS
-src/MulleObjCArchiverFoundation/import-private.h
-src/MulleObjCArchiverFoundation/include-private.h
 src/MulleObjCContainerFoundation/import-private.h
 src/MulleObjCContainerFoundation/include-private.h
 src/MulleObjCKVCFoundation/import-private.h
@@ -80,19 +73,18 @@ src/MulleObjCUnicodeFoundation/import-private.h
 src/MulleObjCUnicodeFoundation/include-private.h
 src/MulleObjCValueFoundation/import-private.h
 src/MulleObjCValueFoundation/include-private.h
-src/generic/import-private.h
-src/generic/include-private.h
 )
 
 #
 # contents selected with patternfile ??-header--private-headers
 #
 set( PRIVATE_HEADERS
-src/MulleObjCArchiverFoundation/MulleObjCArchiver-Private.h
 src/MulleObjCContainerFoundation/_MulleObjCConcreteArray-Private.h
 src/MulleObjCContainerFoundation/_MulleObjCDictionary-Private.h
+src/MulleObjCContainerFoundation/_MulleObjCOrderedSet-Private.h
 src/MulleObjCContainerFoundation/_MulleObjCSet-Private.h
 src/MulleObjCContainerFoundation/NSArray-Private.h
+src/MulleObjCRegexFoundation/MulleObjCPattern-Private.h
 src/MulleObjCStandardFoundation/_MulleGMTTimeZone-Private.h
 src/MulleObjCStandardFoundation/mulle-foundation-startup-private.inc
 src/MulleObjCStandardFoundation/mulle-foundation-universeconfiguration-private.h
@@ -104,9 +96,6 @@ src/MulleObjCValueFoundation/NSString+Substring-Private.h
 # contents selected with patternfile ??-header--public-generated-headers
 #
 set( PUBLIC_GENERATED_HEADERS
-src/MulleObjCArchiverFoundation/_MulleObjCArchiverFoundation-export.h
-src/MulleObjCArchiverFoundation/_MulleObjCArchiverFoundation-import.h
-src/MulleObjCArchiverFoundation/_MulleObjCArchiverFoundation-include.h
 src/MulleObjCContainerFoundation/_MulleObjCContainerFoundation-export.h
 src/MulleObjCContainerFoundation/_MulleObjCContainerFoundation-import.h
 src/MulleObjCContainerFoundation/_MulleObjCContainerFoundation-include.h
@@ -144,16 +133,12 @@ src/MulleObjCValueFoundation/_MulleObjCValueFoundation-export.h
 src/MulleObjCValueFoundation/_MulleObjCValueFoundation-import.h
 src/MulleObjCValueFoundation/_MulleObjCValueFoundation-include.h
 src/MulleObjCValueFoundation/_MulleObjCValueFoundation-provide.h
-src/reflect/_MulleFoundationBase-export.h
-src/reflect/_MulleFoundationBase-provide.h
 )
 
 #
 # contents selected with patternfile ??-header--public-generic-headers
 #
 set( PUBLIC_GENERIC_HEADERS
-src/MulleObjCArchiverFoundation/import.h
-src/MulleObjCArchiverFoundation/include.h
 src/MulleObjCContainerFoundation/import.h
 src/MulleObjCContainerFoundation/include.h
 src/MulleObjCKVCFoundation/import.h
@@ -173,33 +158,21 @@ src/MulleObjCUnicodeFoundation/import.h
 src/MulleObjCUnicodeFoundation/include.h
 src/MulleObjCValueFoundation/import.h
 src/MulleObjCValueFoundation/include.h
-src/generic/import.h
-src/generic/include.h
 )
 
 #
 # contents selected with patternfile ??-header--public-headers
 #
 set( PUBLIC_HEADERS
-src/MulleFoundationBase.h
-src/MulleObjCArchiverFoundation/MulleObjCArchiverFoundation.h
-src/MulleObjCArchiverFoundation/_MulleObjCArchiverFoundation-versioncheck.h
-src/MulleObjCArchiverFoundation/MulleObjCArchiver.h
-src/MulleObjCArchiverFoundation/MulleObjCDeps+MulleObjCArchiverFoundation.h
-src/MulleObjCArchiverFoundation/MulleObjCUnarchiver.h
-src/MulleObjCArchiverFoundation/NSArchiver+OSBase.h
-src/MulleObjCArchiverFoundation/NSArchiver.h
-src/MulleObjCArchiverFoundation/NSCoder.h
-src/MulleObjCArchiverFoundation/NSKeyedArchiver.h
-src/MulleObjCArchiverFoundation/NSKeyedUnarchiver.h
-src/MulleObjCArchiverFoundation/NSObject+NSCoder.h
-src/MulleObjCArchiverFoundation/NSUnarchiver.h
-src/MulleObjCArchiverFoundation/mulle-buffer-archiver.h
+src/MulleFoundationBase/MulleFoundationBase.h
+src/MulleFoundationBase/MulleObjCDeps+MulleFoundationBase.h
 src/MulleObjCContainerFoundation/_MulleObjCArrayEnumerator.h
 src/MulleObjCContainerFoundation/_MulleObjCConcreteArray.h
 src/MulleObjCContainerFoundation/_MulleObjCConcreteDictionary.h
 src/MulleObjCContainerFoundation/_MulleObjCConcreteMutableDictionary.h
+src/MulleObjCContainerFoundation/_MulleObjCConcreteMutableOrderedSet.h
 src/MulleObjCContainerFoundation/_MulleObjCConcreteMutableSet.h
+src/MulleObjCContainerFoundation/_MulleObjCConcreteOrderedSet.h
 src/MulleObjCContainerFoundation/_MulleObjCConcreteSet.h
 src/MulleObjCContainerFoundation/MulleObjCContainerFoundation.h
 src/MulleObjCContainerFoundation/_MulleObjCContainerFoundation-versioncheck.h
@@ -209,7 +182,9 @@ src/MulleObjCContainerFoundation/MulleObjCDeps+MulleObjCContainerFoundation.h
 src/MulleObjCContainerFoundation/_MulleObjCDictionary.h
 src/MulleObjCContainerFoundation/_MulleObjCEmptyArray.h
 src/MulleObjCContainerFoundation/_MulleObjCEmptyDictionary.h
+src/MulleObjCContainerFoundation/_MulleObjCEmptyOrderedSet.h
 src/MulleObjCContainerFoundation/_MulleObjCEmptySet.h
+src/MulleObjCContainerFoundation/_MulleObjCOrderedSet.h
 src/MulleObjCContainerFoundation/_MulleObjCSet.h
 src/MulleObjCContainerFoundation/MullePreempt.h
 src/MulleObjCContainerFoundation/NSArray+NSCoder.h
@@ -227,9 +202,13 @@ src/MulleObjCContainerFoundation/NSMutableArray.h
 src/MulleObjCContainerFoundation/NSMutableDictionary+NSArray.h
 src/MulleObjCContainerFoundation/_NSMutableDictionaryPlaceholder.h
 src/MulleObjCContainerFoundation/NSMutableDictionary.h
+src/MulleObjCContainerFoundation/_NSMutableOrderedSetPlaceholder.h
+src/MulleObjCContainerFoundation/NSMutableOrderedSet.h
 src/MulleObjCContainerFoundation/NSMutableSet+NSArray.h
 src/MulleObjCContainerFoundation/_NSMutableSetPlaceholder.h
 src/MulleObjCContainerFoundation/NSMutableSet.h
+src/MulleObjCContainerFoundation/_NSOrderedSetPlaceholder.h
+src/MulleObjCContainerFoundation/NSOrderedSet.h
 src/MulleObjCContainerFoundation/NSSet+NSArray.h
 src/MulleObjCContainerFoundation/NSSet+NSCoder.h
 src/MulleObjCContainerFoundation/_NSSetPlaceholder.h
@@ -279,7 +258,16 @@ src/MulleObjCPlistFoundation/NSString+PropertyListParsing.h
 src/MulleObjCPlistFoundation/NSString+PropertyListPrinting.h
 src/MulleObjCPlistFoundation/NSString+PropertyList.h
 src/MulleObjCRegexFoundation/MulleObjCDeps+MulleObjCRegexFoundation.h
+src/MulleObjCRegexFoundation/MulleObjCPatternEnumerator.h
+src/MulleObjCRegexFoundation/MulleObjCPatternMatch.h
+src/MulleObjCRegexFoundation/MulleObjCPattern.h
 src/MulleObjCRegexFoundation/MulleObjCRegexFoundation.h
+src/MulleObjCRegexFoundation/MulleObjCTokenProblem.h
+src/MulleObjCRegexFoundation/MulleObjCTokenRule.h
+src/MulleObjCRegexFoundation/MulleObjCTokenSet.h
+src/MulleObjCRegexFoundation/MulleObjCToken.h
+src/MulleObjCRegexFoundation/MulleObjCTokenizer.h
+src/MulleObjCRegexFoundation/NSScanner+Regex.h
 src/MulleObjCRegexFoundation/NSString+Regex.h
 src/MulleObjCStandardFoundation/MulleObjCCharacterBitmap.h
 src/MulleObjCStandardFoundation/_MulleObjCCheatingASCIICharacterSet.h
@@ -409,6 +397,5 @@ src/MulleObjCValueFoundation/NSString+Sprintf.h
 src/MulleObjCValueFoundation/NSString.h
 src/MulleObjCValueFoundation/NSValue+NSCoder.h
 src/MulleObjCValueFoundation/mulle-chardata.h
-src/generic/MulleObjCDeps+MulleFoundationBase.h
 )
 

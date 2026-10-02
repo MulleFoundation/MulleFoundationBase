@@ -3,27 +3,27 @@
  *   `mulle-sde reflect` and any edits will be lost.
  *   Suppress generation of this file with:
  *
- *      mulle-sde environment set MULLE_MATCH_TO_C_OBJC_HEADERS_FILE DISABLE
+ *      mulle-sde environment --global set MULLE_MATCH_TO_C_OBJC_HEADERS_FILE DISABLE
  *
  *   To not let mulle-match-to-c generate any header files:
  *
- *      mulle-sde environment set MULLE_MATCH_TO_C_RUN DISABLE
+ *      mulle-sde environment --global set MULLE_MATCH_TO_C_RUN DISABLE
  */
 #ifndef _mulle_objc_time_foundation__export_h__
 #define _mulle_objc_time_foundation__export_h__
 
 
 #import "MulleObjCDeps+MulleObjCTimeFoundation.h"
-#import "NSConditionLock+NSDate.h"
 #import "NSCondition+NSDate.h"
-#import "NSDateFactory.h"
-#import "NSDate+NSCoder.h"
+#import "NSConditionLock+NSDate.h"
 #import "NSDate.h"
+#import "NSDate+NSCoder.h"
+#import "NSDateFactory.h"
 #import "NSLock+NSDate.h"
 #import "NSThread+NSDate.h"
 #import "NSTimeInterval.h"
-#import "NSTimer+NSDate.h"
 #import "NSTimer.h"
+#import "NSTimer+NSDate.h"
 
 
 #endif

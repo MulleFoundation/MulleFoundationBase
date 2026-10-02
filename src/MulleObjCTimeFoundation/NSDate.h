@@ -83,8 +83,11 @@
 
 @interface NSDate( Future) < MulleObjCFuture>
 
-// obsolete, use +object, keep typed
-+ (NSDate *) date;
++ (instancetype) date;
 + (NSTimeInterval) timeIntervalSinceReferenceDate;
+
+// The current time, in seconds since 1.1.1970 GMT. Class-level counterpart of
+// -timeIntervalSince1970, so no ephemeral NSDate is needed to read "now".
++ (NSTimeInterval) timeIntervalSince1970;
 
 @end
