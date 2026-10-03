@@ -89,6 +89,7 @@ src/MulleObjCStandardFoundation/_MulleGMTTimeZone-Private.h
 src/MulleObjCStandardFoundation/mulle-foundation-startup-private.inc
 src/MulleObjCStandardFoundation/mulle-foundation-universeconfiguration-private.h
 src/MulleObjCValueFoundation/NSNumber-Private.h
+src/MulleObjCValueFoundation/NSString+ClassCluster-Private.h
 src/MulleObjCValueFoundation/NSString+Substring-Private.h
 )
 
