@@ -10,7 +10,7 @@
 ## 2. Key Concepts & Design Philosophy
 
 - Mutable-by-default containers: the library typically returns mutable arrays/dictionaries unless immutable option is requested.
-- Multiple format support: OpenStep (human-readable), Mulle loose/PBX extensions, JSON (via jsmn), XML (via expat when available).
+- Multiple format support: OpenStep (human-readable), Mulle loose/PBX extensions, YAML (via MulleObjCPlistYAMLFoundation when available), JSON (via jsmn), XML (via expat when available).
 - Plugin-style extensibility: parsers, print methods and format detectors can be registered at runtime (via +mulleAdd* methods) for custom formats.
 - Small, focused API surface: high-level convenience methods on NSPropertyListSerialization and compact NSString/NSDictionary helpers for printing/parsing.
 
@@ -24,7 +24,8 @@
 - Purpose: Central serialization/deserialization facility (class methods only).
 - Key enums/types:
   - NSPropertyListMutabilityOptions: NSPropertyListImmutable, NSPropertyListMutableContainers, NSPropertyListMutableContainersAndLeaves.
-  - NSPropertyListFormat: NSPropertyListOpenStepFormat, MullePropertyListLooseFormat, MullePropertyListPBXFormat, MullePropertyListJSONFormat, NSPropertyListXMLFormat_v1_0, NSPropertyListBinaryFormat_v1_0.
+  - NSPropertyListFormat: NSPropertyListOpenStepFormat, MullePropertyListLooseFormat, MullePropertyListPBXFormat, MullePropertyListYAMLFormat, MullePropertyListJSONFormat, NSPropertyListXMLFormat_v1_0, NSPropertyListBinaryFormat_v1_0.
+    - MullePropertyListYAMLFormat: read-only YAML format, requires MulleObjCPlistYAMLFoundation.
   - MullePropertyListFormatOption: Detect / Prefer / Force.
 
 - Lifecycle: No instance lifecycle; use class methods.
@@ -171,7 +172,7 @@ int main() {
 
 - MulleObjCStandardFoundation (core NSString/NSNumber/NSDictionary support)
 - mulle-objc-list (runtime listing support used by test tooling)
-- Optional: MulleObjCJSMNFoundation for JSON parsing, MulleObjCExpatFoundation for XML plists
+- Optional: MulleObjCJSMNFoundation for JSON parsing, MulleObjCExpatFoundation for XML plists, MulleObjCPlistYAMLFoundation for YAML plists
 
 ---
 
