@@ -166,7 +166,7 @@ static inline int   MulleUTF8StringGetUUIDVariant( char s[ MulleUUIDStringLength
 The library version API:
 
 ```c
-#define MULLE_OBJC_UUID_FOUNDATION_VERSION  ((0UL << 20) | (0 << 8) | 10)
+#define MULLE_OBJC_UUID_FOUNDATION_VERSION  ((0UL << 20) | (0 << 8) | 11)
 
 
 static inline unsigned int   MulleObjCUUIDFoundation_get_version_major( void)

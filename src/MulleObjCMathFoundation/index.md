@@ -23,7 +23,7 @@ It is a component of the `MulleFoundation` library family.
 
 Main public header. Defines version information.
 
-- `#define MULLE_OBJC_MATH_FOUNDATION_VERSION ((0UL << 20) | (21 << 8) | 2)` — encodes major/minor/patch (currently 0.21.2).
+- `#define MULLE_OBJC_MATH_FOUNDATION_VERSION ((0UL << 20) | (21 << 8) | 3)` — encodes major/minor/patch (currently 0.21.3).
 - `static inline unsigned int MulleObjCMathFoundation_get_version_major( void)` — returns the major version.
 - `static inline unsigned int MulleObjCMathFoundation_get_version_minor( void)` — returns the minor version.
 - `static inline unsigned int MulleObjCMathFoundation_get_version_patch( void)` — returns the patch version.

@@ -175,13 +175,17 @@ typedef mulle_calendartime_t    NSTimeInterval;
 ##### `NSDate( Future)` extension (obsolete)
 
 ```c
-+ (NSDate *) date;
++ (instancetype) date;
 + (NSTimeInterval) timeIntervalSinceReferenceDate;
++ (NSTimeInterval) timeIntervalSince1970;
 ```
 
 - `date` — a date for "now"; simple convenience, prefer `+object`.
 - Class-level `timeIntervalSinceReferenceDate` — current time as interval
   since the reference epoch (used by tests to build relative deadlines).
+- Class-level `timeIntervalSince1970` — the current time in seconds since
+  1.1.1970 GMT; class-level counterpart of `-timeIntervalSince1970`, so no
+  ephemeral `NSDate` is needed to read "now".
 
 ##### Implementation notes (from `NSDate.m`)
 
@@ -503,8 +507,8 @@ Mainly useful for testing and for the `NSRunLoop`.
 
 ### 3.12. `src/MulleObjCTimeFoundation.h`
 
-- Version macro: `MULLE_OBJC_TIME_FOUNDATION_VERSION ((0UL << 20) | (2 << 8) | 6)`
-  (version 0.2.6). It imports `_MulleObjCTimeFoundation-export.h` and
+- Version macro: `MULLE_OBJC_TIME_FOUNDATION_VERSION ((0UL << 20) | (3 << 8) | 0)`
+  (version 0.3.0). It imports `_MulleObjCTimeFoundation-export.h` and
   `_MulleObjCTimeFoundation-provide.h`; `#import <MulleObjCTimeFoundation/MulleObjCTimeFoundation.h>`
   pulls in the whole public API.
 

@@ -1,6 +1,6 @@
 {
    "name" : "MulleFoundationBase",
-   "version" : "3.13",
+   "version" : "0.30.0",
    "description" : "🧱 MulleFoundationBase amalgamates Foundations projects",
    "keywords" : [],
    "license" : "UNLICENSED",
@@ -518,6 +518,7 @@
       "src/MulleObjCValueFoundation/NSNumber.m",
       "src/MulleObjCValueFoundation/NSObject+NSString.h",
       "src/MulleObjCValueFoundation/NSObject+NSString.m",
+      "src/MulleObjCValueFoundation/NSString+ClassCluster-Private.h",
       "src/MulleObjCValueFoundation/NSString+ClassCluster.h",
       "src/MulleObjCValueFoundation/NSString+ClassCluster.m",
       "src/MulleObjCValueFoundation/NSString+Enumerator.h",
