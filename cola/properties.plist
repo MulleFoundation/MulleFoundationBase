@@ -10,7 +10,6 @@
       repo="MulleFoundationBase";
       homepage="https://github.com/MulleFoundation/MulleFoundationBase";
       license="UNLICENSED";
-      version="0.30.0";
    };
    dependencies =
    (
