@@ -1,6 +1,7 @@
 ## 0.30.0
 
 
+
 * document the renamed/expanded constituent set (regex patterns, ordered sets, scanners, formatters, undo manager)
 * correct API signatures to match headers verbatim, including class clusters and `SubclassesFuture` primitives
 * note platform-independent scope, 2001 date epoch, 32-bit `unichar`, and strict UUID v4/variant 2
