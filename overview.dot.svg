@@ -42,8 +42,8 @@
 <!-- MulleFoundationBase&#45;&gt;MulleObjCContainerFoundation -->
 <g id="edge2" class="edge">
 <title>MulleFoundationBase&#45;&gt;MulleObjCContainerFoundation</title>
-<path fill="none" stroke="black" d="M92.89,-306.47C106.88,-344.78 144.48,-432.96 207.25,-477 208.82,-478.1 210.42,-479.15 212.05,-480.17"/>
-<polygon fill="black" stroke="black" points="209.98,-483.02 220.42,-484.78 213.36,-476.89 209.98,-483.02"/>
+<path fill="none" stroke="#666666" d="M92.89,-306.47C106.88,-344.78 144.48,-432.96 207.25,-477 209.38,-478.5 211.59,-479.91 213.85,-481.25"/>
+<ellipse fill="#666666" stroke="#666666" cx="217.79" cy="-483.38" rx="4" ry="4"/>
 </g>
 <!-- MulleObjCKVCFoundation -->
 <g id="node4" class="node">
@@ -57,8 +57,8 @@
 <!-- MulleFoundationBase&#45;&gt;MulleObjCKVCFoundation -->
 <g id="edge3" class="edge">
 <title>MulleFoundationBase&#45;&gt;MulleObjCKVCFoundation</title>
-<path fill="none" stroke="black" d="M97.44,-306.12C116.01,-335.54 156.85,-393.38 207.25,-423 210.24,-424.76 213.34,-426.4 216.52,-427.94"/>
-<polygon fill="black" stroke="black" points="214.94,-431.07 225.51,-431.89 217.76,-424.66 214.94,-431.07"/>
+<path fill="none" stroke="#666666" d="M97.44,-306.12C116.01,-335.54 156.85,-393.38 207.25,-423 210.92,-425.16 214.74,-427.14 218.68,-428.97"/>
+<ellipse fill="#666666" stroke="#666666" cx="222.76" cy="-430.72" rx="4" ry="4"/>
 </g>
 <!-- MulleObjCMathFoundation -->
 <g id="node5" class="node">
@@ -72,8 +72,8 @@
 <!-- MulleFoundationBase&#45;&gt;MulleObjCMathFoundation -->
 <g id="edge4" class="edge">
 <title>MulleFoundationBase&#45;&gt;MulleObjCMathFoundation</title>
-<path fill="none" stroke="black" d="M108.29,-306.21C131.38,-324.71 169.71,-352.86 207.25,-369 211.33,-370.76 215.55,-372.41 219.84,-373.95"/>
-<polygon fill="black" stroke="black" points="218.63,-377.24 229.23,-377.11 220.87,-370.6 218.63,-377.24"/>
+<path fill="none" stroke="#666666" d="M108.29,-306.21C131.38,-324.71 169.71,-352.86 207.25,-369 212.15,-371.11 217.24,-373.06 222.43,-374.87"/>
+<ellipse fill="#666666" stroke="#666666" cx="226.39" cy="-376.18" rx="4" ry="4"/>
 </g>
 <!-- MulleObjCPlistFoundation -->
 <g id="node6" class="node">
@@ -87,8 +87,8 @@
 <!-- MulleFoundationBase&#45;&gt;MulleObjCPlistFoundation -->
 <g id="edge5" class="edge">
 <title>MulleFoundationBase&#45;&gt;MulleObjCPlistFoundation</title>
-<path fill="none" stroke="black" d="M168.85,-306.43C189.85,-311.14 212.59,-316.24 234.11,-321.06"/>
-<polygon fill="black" stroke="black" points="233.24,-324.46 243.76,-323.23 234.77,-317.62 233.24,-324.46"/>
+<path fill="none" stroke="#666666" d="M168.85,-306.43C190.62,-311.31 214.26,-316.61 236.48,-321.59"/>
+<ellipse fill="#666666" stroke="#666666" cx="240.85" cy="-322.57" rx="4" ry="4"/>
 </g>
 <!-- MulleObjCRegexFoundation -->
 <g id="node7" class="node">
@@ -102,8 +102,8 @@
 <!-- MulleFoundationBase&#45;&gt;MulleObjCRegexFoundation -->
 <g id="edge6" class="edge">
 <title>MulleFoundationBase&#45;&gt;MulleObjCRegexFoundation</title>
-<path fill="none" stroke="black" d="M171.55,-288C183.58,-288 196.13,-288 208.65,-288"/>
-<polygon fill="black" stroke="black" points="208.62,-291.5 218.62,-288 208.62,-284.5 208.62,-291.5"/>
+<path fill="none" stroke="#666666" d="M171.55,-288C184.44,-288 197.92,-288 211.34,-288"/>
+<ellipse fill="#666666" stroke="#666666" cx="215.63" cy="-288" rx="4" ry="4"/>
 </g>
 <!-- MulleObjCStandardFoundation -->
 <g id="node8" class="node">
@@ -117,8 +117,8 @@
 <!-- MulleFoundationBase&#45;&gt;MulleObjCStandardFoundation -->
 <g id="edge7" class="edge">
 <title>MulleFoundationBase&#45;&gt;MulleObjCStandardFoundation</title>
-<path fill="none" stroke="black" d="M168.85,-269.57C189.85,-264.86 212.59,-259.76 234.11,-254.94"/>
-<polygon fill="black" stroke="black" points="234.77,-258.38 243.76,-252.77 233.24,-251.54 234.77,-258.38"/>
+<path fill="none" stroke="#666666" d="M168.85,-269.57C190.62,-264.69 214.26,-259.39 236.48,-254.41"/>
+<ellipse fill="#666666" stroke="#666666" cx="240.85" cy="-253.43" rx="4" ry="4"/>
 </g>
 <!-- MulleObjCTimeFoundation -->
 <g id="node9" class="node">
@@ -132,38 +132,38 @@
 <!-- MulleFoundationBase&#45;&gt;MulleObjCTimeFoundation -->
 <g id="edge8" class="edge">
 <title>MulleFoundationBase&#45;&gt;MulleObjCTimeFoundation</title>
-<path fill="none" stroke="black" d="M108.29,-269.79C131.38,-251.29 169.71,-223.14 207.25,-207 211.33,-205.24 215.55,-203.59 219.84,-202.05"/>
-<polygon fill="black" stroke="black" points="220.87,-205.4 229.23,-198.89 218.63,-198.76 220.87,-205.4"/>
-</g>
-<!-- MulleObjCUUIDFoundation -->
-<g id="node10" class="node">
-<title>MulleObjCUUIDFoundation</title>
-<g id="a_node10"><a xlink:href="https://github.com/MulleFoundation/MulleObjCUUIDFoundation@*" xlink:title="MulleObjCUUIDFoundation">
-<polygon fill="lightgrey" stroke="black" points="434.75,-144 222.25,-144 222.25,-108 434.75,-108 434.75,-144"/>
-<text xml:space="preserve" text-anchor="middle" x="328.5" y="-121.33" font-family="Times,serif" font-size="14.00">MulleObjCUUIDFoundation</text>
-</a>
-</g>
-</g>
-<!-- MulleFoundationBase&#45;&gt;MulleObjCUUIDFoundation -->
-<g id="edge9" class="edge">
-<title>MulleFoundationBase&#45;&gt;MulleObjCUUIDFoundation</title>
-<path fill="none" stroke="black" d="M97.44,-269.88C116.01,-240.46 156.85,-182.62 207.25,-153 209.46,-151.7 211.73,-150.46 214.04,-149.29"/>
-<polygon fill="black" stroke="black" points="215.46,-152.49 223.08,-145.13 212.53,-146.13 215.46,-152.49"/>
+<path fill="none" stroke="#666666" d="M108.29,-269.79C131.38,-251.29 169.71,-223.14 207.25,-207 212.15,-204.89 217.24,-202.94 222.43,-201.13"/>
+<ellipse fill="#666666" stroke="#666666" cx="226.39" cy="-199.82" rx="4" ry="4"/>
 </g>
 <!-- MulleObjCUnicodeFoundation -->
-<g id="node11" class="node">
+<g id="node10" class="node">
 <title>MulleObjCUnicodeFoundation</title>
-<g id="a_node11"><a xlink:href="https://github.com/MulleFoundation/MulleObjCUnicodeFoundation@*" xlink:title="MulleObjCUnicodeFoundation">
-<polygon fill="lightgrey" stroke="black" points="443.75,-90 213.25,-90 213.25,-54 443.75,-54 443.75,-90"/>
-<text xml:space="preserve" text-anchor="middle" x="328.5" y="-67.33" font-family="Times,serif" font-size="14.00">MulleObjCUnicodeFoundation</text>
+<g id="a_node10"><a xlink:href="https://github.com/MulleFoundation/MulleObjCUnicodeFoundation@*" xlink:title="MulleObjCUnicodeFoundation">
+<polygon fill="lightgrey" stroke="black" points="443.75,-144 213.25,-144 213.25,-108 443.75,-108 443.75,-144"/>
+<text xml:space="preserve" text-anchor="middle" x="328.5" y="-121.33" font-family="Times,serif" font-size="14.00">MulleObjCUnicodeFoundation</text>
 </a>
 </g>
 </g>
 <!-- MulleFoundationBase&#45;&gt;MulleObjCUnicodeFoundation -->
-<g id="edge10" class="edge">
+<g id="edge9" class="edge">
 <title>MulleFoundationBase&#45;&gt;MulleObjCUnicodeFoundation</title>
-<path fill="none" stroke="black" d="M92.89,-269.53C106.88,-231.22 144.48,-143.04 207.25,-99 208.82,-97.9 210.42,-96.85 212.05,-95.83"/>
-<polygon fill="black" stroke="black" points="213.36,-99.11 220.42,-91.22 209.98,-92.98 213.36,-99.11"/>
+<path fill="none" stroke="#666666" d="M97.44,-269.88C116.01,-240.46 156.85,-182.62 207.25,-153 210.23,-151.25 213.3,-149.62 216.46,-148.09"/>
+<ellipse fill="#666666" stroke="#666666" cx="220.35" cy="-146.34" rx="4" ry="4"/>
+</g>
+<!-- MulleObjCUUIDFoundation -->
+<g id="node11" class="node">
+<title>MulleObjCUUIDFoundation</title>
+<g id="a_node11"><a xlink:href="https://github.com/MulleFoundation/MulleObjCUUIDFoundation@*" xlink:title="MulleObjCUUIDFoundation">
+<polygon fill="lightgrey" stroke="black" points="434.75,-90 222.25,-90 222.25,-54 434.75,-54 434.75,-90"/>
+<text xml:space="preserve" text-anchor="middle" x="328.5" y="-67.33" font-family="Times,serif" font-size="14.00">MulleObjCUUIDFoundation</text>
+</a>
+</g>
+</g>
+<!-- MulleFoundationBase&#45;&gt;MulleObjCUUIDFoundation -->
+<g id="edge10" class="edge">
+<title>MulleFoundationBase&#45;&gt;MulleObjCUUIDFoundation</title>
+<path fill="none" stroke="#666666" d="M92.89,-269.53C106.88,-231.22 144.48,-143.04 207.25,-99 209.57,-97.37 211.97,-95.84 214.44,-94.4"/>
+<ellipse fill="#666666" stroke="#666666" cx="218.07" cy="-92.46" rx="4" ry="4"/>
 </g>
 <!-- MulleObjCValueFoundation -->
 <g id="node12" class="node">
@@ -177,8 +177,8 @@
 <!-- MulleFoundationBase&#45;&gt;MulleObjCValueFoundation -->
 <g id="edge11" class="edge">
 <title>MulleFoundationBase&#45;&gt;MulleObjCValueFoundation</title>
-<path fill="none" stroke="black" d="M90.11,-269.67C99.79,-223.99 131.48,-104.47 207.25,-45 209.2,-43.47 211.22,-42.02 213.3,-40.66"/>
-<polygon fill="black" stroke="black" points="214.56,-43.97 221.45,-35.91 211.04,-37.92 214.56,-43.97"/>
+<path fill="none" stroke="#666666" d="M90.11,-269.67C99.79,-223.99 131.48,-104.47 207.25,-45 209.8,-43 212.47,-41.14 215.23,-39.42"/>
+<ellipse fill="#666666" stroke="#666666" cx="218.84" cy="-37.37" rx="4" ry="4"/>
 </g>
 </g>
 </svg>
