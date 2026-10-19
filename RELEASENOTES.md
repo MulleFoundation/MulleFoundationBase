@@ -2,6 +2,18 @@
 
 
 
+
+
+
+
+* document the renamed/expanded constituent set (regex patterns, ordered sets, scanners, formatters, undo manager)
+* correct API signatures to match headers verbatim, including class clusters and `SubclassesFuture` primitives
+* note platform-independent scope, 2001 date epoch, 32-bit `unichar`, and strict UUID v4/variant 2
+* expand regex docs with `MulleObjCPattern` all-match APIs, `NSScanner(Regex)` and the pattern-driven tokenizer
+* add KVC container mapping and collection-operator coverage, plus updated performance and pitfall guidance
+
+
+
 * document the renamed/expanded constituent set (regex patterns, ordered sets, scanners, formatters, undo manager)
 * correct API signatures to match headers verbatim, including class clusters and `SubclassesFuture` primitives
 * note platform-independent scope, 2001 date epoch, 32-bit `unichar`, and strict UUID v4/variant 2
